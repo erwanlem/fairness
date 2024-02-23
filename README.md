@@ -9,5 +9,5 @@ Lien Excel : https://upsud-my.sharepoint.com/:x:/g/personal/yannis_chupin_univer
 
 ## Choses à discuter :
 
-- le cas des comunnes, utiliser l'appreneur recommandé qui gère les NaN?
+- utiliser l'appreneur recommandé qui gère les NaN ?
 
