@@ -12,8 +12,8 @@
 
 ## Choses à faire :
 
-- les one hot sur les différentes cat (lum, col, vma, trajet, situ, atm, catv, choc, surf, plan (bin), prof, circ, catr, trajet (obs, obsm, infra (à voir), ) Yannis 
-- ajouter 1 catégorie vma Yannis
+- les one hot sur les différentes cat (lum X, col X, vma X, trajet, situ, atm, catv, choc, surf, plan (bin), prof, circ, catr, trajet (obs, obsm, infra (à voir), ) Yannis 
+- ajouter 1 catégorie vma Yannis X
 - fusionner 0 et -1 nbv
 - regarder voie ultérieurement
 - ajouter le volet des métriques de fairness - Erwan
