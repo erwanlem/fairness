@@ -22,7 +22,7 @@
 
     \section{Analyse des données}
     \subsection{La base de données}
-    La base de données est composée de plusieurs parties: \textit{usagers}, \textit{vehicules}, \textit{lieux} et 
+    La base de données est composée de plusieurs tables: \textit{usagers}, \textit{vehicules}, \textit{lieux} et 
     \textit{caracteristiques}. Nous avons joint ces quatres parties pour obtenir un dataframe contenant une 
     cinquantaine de colonnes. 
     Ci-dessous une rapide présentation des différentes données disponibles.
@@ -66,7 +66,7 @@
     En affichant l'effectif d'accidents mortels nous avons pu remarquer qu'ils ne représentent qu'une 
     infime partie des accidents. Le peu de données sur ces accidents ne nous permet pas l'apprentissage 
     d'un modèle. C'est la raison pour laquelle nous avons décidé de nous intéresser non pas à la mortalité 
-    à l'échelle d'une personne mais plutôt à l'échelle d'un accident. Plus précisément à l'échelle d'un 
+    à l'échelle d'une personne mais plutôt à l'échelle d'un accident. Nous nous mettons pour cela au niveau d'un 
     véhiule car cela nous permet de conserver plus d'informations (à l'échelle d'un accident on aurait 
     dû enlever trop d'informations pour conserver seulement les attributs plus généraux à l'accident).
 
