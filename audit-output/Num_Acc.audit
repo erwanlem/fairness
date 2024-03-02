@@ -1,0 +1,12 @@
+GFA Audit for:Num_Acc
+audit-output/Num_Acc.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27718, "1": 1617}, "1": {"0": 1421, "1": 283}}]
+audit-output/Num_Acc.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27719, "1": 1616}, "1": {"0": 1421, "1": 283}}]
+audit-output/Num_Acc.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27719, "1": 1616}, "1": {"0": 1421, "1": 283}}]
+audit-output/Num_Acc.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27726, "1": 1609}, "1": {"0": 1421, "1": 283}}]
+audit-output/Num_Acc.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27725, "1": 1610}, "1": {"0": 1421, "1": 283}}]
+audit-output/Num_Acc.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27722, "1": 1613}, "1": {"0": 1420, "1": 284}}]
+audit-output/Num_Acc.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 26634, "1": 2701}, "1": {"0": 1396, "1": 308}}]
+audit-output/Num_Acc.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26634, "1": 2701}, "1": {"0": 1396, "1": 308}}]
+audit-output/Num_Acc.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26631, "1": 2704}, "1": {"0": 1396, "1": 308}}]
+audit-output/Num_Acc.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26633, "1": 2702}, "1": {"0": 1395, "1": 309}}]
+audit-output/Num_Acc.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26631, "1": 2704}, "1": {"0": 1395, "1": 309}}]
