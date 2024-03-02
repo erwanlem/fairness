@@ -1,0 +1,12 @@
+GFA Audit for:vma
+audit-output/vma.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 28274, "1": 1192}, "1": {"0": 1088, "1": 629}}]
+audit-output/vma.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 28283, "1": 1183}, "1": {"0": 1096, "1": 621}}]
+audit-output/vma.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 28289, "1": 1177}, "1": {"0": 1103, "1": 614}}]
+audit-output/vma.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 28247, "1": 1219}, "1": {"0": 1110, "1": 607}}]
+audit-output/vma.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 28240, "1": 1226}, "1": {"0": 1124, "1": 593}}]
+audit-output/vma.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 28259, "1": 1207}, "1": {"0": 1136, "1": 581}}]
+audit-output/vma.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 27757, "1": 1709}, "1": {"1": 415, "0": 1302}}]
+audit-output/vma.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27716, "1": 1750}, "1": {"1": 416, "0": 1301}}]
+audit-output/vma.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27678, "1": 1788}, "1": {"1": 422, "0": 1295}}]
+audit-output/vma.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27679, "1": 1787}, "1": {"1": 420, "0": 1297}}]
+audit-output/vma.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27651, "1": 1815}, "1": {"1": 421, "0": 1296}}]

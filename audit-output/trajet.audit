@@ -1,0 +1,12 @@
+GFA Audit for:trajet
+audit-output/trajet.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 28274, "1": 1192}, "1": {"0": 1088, "1": 629}}]
+audit-output/trajet.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 28296, "1": 1170}, "1": {"0": 1084, "1": 633}}]
+audit-output/trajet.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 28300, "1": 1166}, "1": {"0": 1096, "1": 621}}]
+audit-output/trajet.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 28320, "1": 1146}, "1": {"0": 1108, "1": 609}}]
+audit-output/trajet.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 28347, "1": 1119}, "1": {"0": 1119, "1": 598}}]
+audit-output/trajet.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 28334, "1": 1132}, "1": {"0": 1122, "1": 595}}]
+audit-output/trajet.audit.test.repaired_0.6.data:[0.6, {"0": {"1": 4122, "0": 25344}, "1": {"0": 1245, "1": 472}}]
+audit-output/trajet.audit.test.repaired_0.7.data:[0.7, {"0": {"1": 4150, "0": 25316}, "1": {"0": 1235, "1": 482}}]
+audit-output/trajet.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"1": 4188, "0": 25278}, "1": {"0": 1235, "1": 482}}]
+audit-output/trajet.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"1": 4154, "0": 25312}, "1": {"0": 1235, "1": 482}}]
+audit-output/trajet.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"1": 4161, "0": 25305}, "1": {"0": 1231, "1": 486}}]

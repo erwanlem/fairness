@@ -1,0 +1,12 @@
+GFA Audit for:situ
+audit-output/situ.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 28274, "1": 1192}, "1": {"0": 1088, "1": 629}}]
+audit-output/situ.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 28276, "1": 1190}, "1": {"0": 1108, "1": 609}}]
+audit-output/situ.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 28220, "1": 1246}, "1": {"0": 1180, "1": 537}}]
+audit-output/situ.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 26922, "1": 2544}, "1": {"0": 1183, "1": 534}}]
+audit-output/situ.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 26898, "1": 2568}, "1": {"0": 1199, "1": 518}}]
+audit-output/situ.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26821, "1": 2645}, "1": {"0": 1204, "1": 513}}]
+audit-output/situ.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 24795, "1": 4671}, "1": {"1": 424, "0": 1293}}]
+audit-output/situ.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 24912, "1": 4554}, "1": {"1": 430, "0": 1287}}]
+audit-output/situ.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 22654, "1": 6812}, "1": {"0": 1058, "1": 659}}]
+audit-output/situ.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 22529, "1": 6937}, "1": {"0": 1036, "1": 681}}]
+audit-output/situ.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 22491, "1": 6975}, "1": {"0": 1033, "1": 684}}]

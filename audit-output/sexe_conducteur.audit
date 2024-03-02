@@ -1,0 +1,12 @@
+GFA Audit for:sexe_conducteur
+audit-output/sexe_conducteur.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 28274, "1": 1192}, "1": {"0": 1088, "1": 629}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 28271, "1": 1195}, "1": {"0": 1086, "1": 631}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 28229, "1": 1237}, "1": {"0": 1089, "1": 628}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 28222, "1": 1244}, "1": {"0": 1089, "1": 628}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 28207, "1": 1259}, "1": {"0": 1086, "1": 631}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 28181, "1": 1285}, "1": {"0": 1094, "1": 623}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 28130, "1": 1336}, "1": {"0": 1215, "1": 502}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 28114, "1": 1352}, "1": {"0": 1214, "1": 503}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 28097, "1": 1369}, "1": {"0": 1213, "1": 504}}]
+audit-output/sexe_conducteur.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 28073, "1": 1393}, "1": {"0": 1213, "1": 504}}]
+audit-output/sexe_conducteur.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 28068, "1": 1398}, "1": {"0": 1214, "1": 503}}]

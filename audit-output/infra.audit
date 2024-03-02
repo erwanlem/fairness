@@ -1,0 +1,12 @@
+GFA Audit for:infra
+audit-output/infra.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 28274, "1": 1192}, "1": {"0": 1088, "1": 629}}]
+audit-output/infra.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 28299, "1": 1167}, "1": {"0": 1097, "1": 620}}]
+audit-output/infra.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 28249, "1": 1217}, "1": {"0": 1134, "1": 583}}]
+audit-output/infra.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 28162, "1": 1304}, "1": {"0": 1212, "1": 505}}]
+audit-output/infra.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 28150, "1": 1316}, "1": {"0": 1228, "1": 489}}]
+audit-output/infra.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 28141, "1": 1325}, "1": {"0": 1241, "1": 476}}]
+audit-output/infra.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 26450, "1": 3016}, "1": {"0": 1413, "1": 304}}]
+audit-output/infra.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26498, "1": 2968}, "1": {"0": 1409, "1": 308}}]
+audit-output/infra.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26641, "1": 2825}, "1": {"0": 1433, "1": 284}}]
+audit-output/infra.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26678, "1": 2788}, "1": {"0": 1440, "1": 277}}]
+audit-output/infra.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26712, "1": 2754}, "1": {"0": 1446, "1": 271}}]
