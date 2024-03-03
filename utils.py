@@ -149,6 +149,38 @@ def analyse_bi_quali_quanti(quali, quanti, df):
   hist_prop.show()
 
 
+def reduce_trajet_values(df):
+  df = df.copy()
+  t = df['trajet']
+  r = []
+  for i in t:
+    if i == 9 or i == -1:
+      r.append(0)
+    else:
+      r.append(i)
+  return r
+
+def reduce_surf_values(df):
+  df = df.copy()
+  t = df['surf']
+  r = []
+  for i in t:
+    if i == 9 or i == -1:
+      r.append(0)
+    else:
+      r.append(i)
+  return r 
+
+def reduce_obs_values(df):
+  df = df.copy()
+  t = df['obs']
+  r = []
+  for i in t:
+    if i == 0:
+      r.append(0)
+    else:
+      r.append(1)
+  return r
 
   #####################################################################################################
   #####################################################################################################
@@ -308,3 +340,4 @@ def oneHotSurf(x) :
         x['surf'+str(i)] = x['surf']
         oneHotShapingColumns(indicesCat, 'surf'+str(i), x)
     #x.drop(columns=['surf'], inplace=True)
+        
