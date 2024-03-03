@@ -2,14 +2,16 @@
 \usepackage[T1]{fontenc}
 
 \usepackage{graphicx}
+\usepackage{parskip}
 \usepackage[]{hyperref}
 \usepackage[french]{babel}
 
 \author{Erwan LEMATTRE, Yannis CHUPIN}
-\title{Rapport projet fairness}
+\title{Rapport mi-projet\\Fairness pour l'IA}
 
 \begin{document}
-
+    \maketitle
+    \newpage
     \tableofcontents
     \newpage
 
@@ -20,6 +22,10 @@
     Outre-Mer}. Le jeu de donnée correspond aux accidents de 2005 à 2022 en France. Nous allons dans une première 
     partie analyser ces données afin d'extraire les informations utiles à l'apprentissage et de pouvoir repérer 
     d'éventuelles sources de biais pour notre modèle.
+    
+    Vous pouvez retrouver le code sur le GitHub du projet. Le fichier \texttt{main.ipynb} contient 
+    le code principale que nous allons suivre tout au long de ce rapport. Le fichier \texttt{utils.py} 
+    contient toutes les fonctions auxilières que nous utilisons dans le fichier principale.
 
     \section{Découverte du jeu de données}
     \subsection{La base de données}
@@ -83,7 +89,6 @@
     \end{figure}
 
     \section{Préparation des données}
-    \subsection{Préparation des attributs utiles}
     À partir des observations précédentes, nous avons supprimé les attributs moins intéressant pour l'apprentissage 
     et nous avons modifié certains attributs afin d'en extraire les informations intéressantes.
     \\
@@ -96,19 +101,103 @@
         \item Création d'un attribut \textit{mortal} qui vaut 1 si le véhicule est impliqué dans un accident mortel, 0 sinon.
         \item À partir de l'attribut \textit{sexe} nous avons créé un attribut \textit{sexe\_conducteur} qui garde seulement 
                 le sexe du conducteur du véhicule.
+        \item Création d'un attribut \textit{piéton} qui vaut 1 si un piéton est impliqué dans l'accident, sinon 0.
         \item Nous avons utilisé l'année de naissance et l'année de l'accident pour récupérer l'âge du conducteur.
         \item L'attribut \textit{vma} a été découpé en 4 catégories de vitesse.
         \item Pour les attributs \textit{catv} et \textit{vatr} nous avons gardé les valeurs le plus représentées dans la base de données.
     \end{itemize}
-
-    \subsection{One Hot Encoding}
-    Une grande partie des attributs sont des attributs numériques mais sont tout de même des attributs catégoriels.
-
+    \vspace{0.5cm}
+    Nous avons également reduit les valeurs de certains attributs. Par exemple pour des attributs 
+    avec des valeurs telles que \textit{Non-renseigné}, \textit{Autre} \dots \, Nous avons regroupé 
+    ces valeurs en une seule valeur. L'objectif était ici de simplifier en réduisant les catégories 
+    mais également d'améliorer les performances de notre modèle.
 
     \section{Analyse des données}
-    
+    Une fois nos données préparées, nous avons pu les visualiser. Nous allons montrer dans les 
+    deux prochaines parties les observations intéressantes que nous avons pu faire lors de 
+    l'analyse de notre dataset.
+
+    \subsection{Analyse univarié des données}
+    \subsubsection{Les accidents mortels}
+    Une donnée intéressante à observer est la proportion de véhicules impliqués dans un accident 
+    mortel. C'est en effet la valeur que nous voulons prédire.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=10cm]{./img/grav2.png}
+        \caption{Proportion des véhicules impliqués dans un accident mortel}
+        \label{fig:fig_acc_mortel}
+    \end{figure}
+
+    Nous pouvons remarquer sur la figure \ref{fig:fig_acc_mortel} que le fait de s'intéresser 
+    aux véhcules impliqués dans un accident mortel et non plus aux personnes victimes permet 
+    de doubler le pourcentage. Même si cette proportion reste faible, cela va nous permettre 
+    d'avoir plus de données dans la catégorie mortel lors de l'apprentissage et par conséquent 
+    d'avoir un meilleur modèle.
+
+    \subsubsection{Les piétons}
+    Nous nous sommes ensuite intéressé aux accidents dans lesquels un piéton est impliqué. 
+    La figure \ref{fig:fig_acc_pieton} nous montre qu'un peu moins de 10\% des accidents impliquent 
+    un piéton.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=10cm]{./img/pieton.png}
+        \caption{Proportion des accidents avec piéton}
+        \label{fig:fig_acc_pieton}
+    \end{figure}
+
+    \subsubsection{L'âge}
+    Nous pouvons visualiser l'âge des conducteurs via une boîte à moustache. La figure \ref{fig:fig_age} nous 
+    montre la répartition de l'âge des conducteurs. Lors du prétraitement des données, les valeurs aberrantes 
+    ont été enlevée. On retrouve donc logiquement des âges contenus entre 0 et 100 ans. L'âge médian des 
+    conducteurs est 33 ans avec le premier quatile à 21 et le troisième quatile à 49 ans. Même si on peut 
+    imaginer que des valeurs sont fausse (il y a des conducteurs de moins de 16 ans), les valeurs sont tout de 
+    même assez cohérentes par rapport à ce que l'on pourrait imaginer de la répartition de l'âge des conducteurs.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=12cm]{./img/age.png}
+        \caption{Âge des conducteurs}
+        \label{fig:fig_age}
+    \end{figure}
+
+    \subsubsection{Le genre des conducteurs}
+    Le genre des conducteurs est assez intéressant à analyser. Sur la figure \ref{fig:fig_genre} nous pouvons 
+    remarquer différence importante entre le nombre de femme au volant (indice 0) et le nombre d'hommes au volant 
+    (indice 1). Cette différence pourrait être une source de biais pour notre modèle. En effet le fait qu'il y ait 
+    beaucoup plus de données d'accident avec des hommes ne signifie pas qu'il y a plus de chance d'avoir un accident 
+    si on est un homme. Cela signifie peut-être que la proportion d'homme au volant est plus élévée et donc qu'il 
+    y a plus d'accident avec un homme au volant car il y a plus d'homme au volant. Le risque ici est que notre 
+    modèle associe une homme à un accident mortel car il y a beaucoup plus d'accidents mortels avec un homme au 
+    volant.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=12cm]{./img/sexe.png}
+        \caption{Genre des conducteurs}
+        \label{fig:fig_genre}
+    \end{figure}
+
+    \subsubsection{Le type de collision}
+    La figure \ref{fig:fig_col} montre la répartition des différents types de collisions dans notre dataset. On peut 
+    remarquer que tous les types de collisions sont plutôt bien représentés dans notre dataset. C'est un attribut qui 
+    pourra être assez intéressant pour l'apprentissage.
+
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=12cm]{./img/col.png}
+        \caption{Les types de collision}
+        \label{fig:fig_col}
+    \end{figure}
+
+    \subsection{Analyse bivariée des données}
 
     \section{Apprentissage}
+    \subsection{One Hot Encoding}
+    Une grande partie des attributs sont des attributs numériques mais sont tout de même des attributs catégoriels.
+    C'est pourquoi nous avons dû catégoriser manuellement les attributs.
+    Le One Hot Encoding est ensuite effectué via le pipeline.
 
     \section{Audit du modèle}
 
