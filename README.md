@@ -11,3 +11,8 @@ Lien Excel : https://upsud-my.sharepoint.com/:x:/g/personal/yannis_chupin_univer
 
 - utiliser l'appreneur recommandé qui gère les NaN ?
 
+## Documentation
+
+
+- Lime : https://christophm.github.io/interpretable-ml-book/lime.html#lime
+- shape : https://christophm.github.io/interpretable-ml-book/shapley.html
