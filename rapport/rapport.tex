@@ -41,19 +41,40 @@
             \hline
             \textit{Num\_Acc} & Numéro d'identifiant de l'accident \\
             \textit{jour mois} & Jour de l'accident, mois de l'accident \\
-            \textit{an} & Numéro d'identifiant de l'accident. \\
-            \textit{hrmn} & Numéro d'identifiant de l'accident. \\
-            \textit{lum} & Numéro d'identifiant de l'accident. \\
-            \textit{dep} & Numéro d'identifiant de l'accident. \\
-            \textit{com} & Numéro d'identifiant de l'accident. \\
-            \textit{agg} & Numéro d'identifiant de l'accident. \\
-            \textit{int} & Numéro d'identifiant de l'accident. \\
-            \textit{atm} & Numéro d'identifiant de l'accident. \\
-            \textit{col} & Numéro d'identifiant de l'accident. \\
-            \textit{adr} & Numéro d'identifiant de l'accident. \\
-            \textit{lat} & Numéro d'identifiant de l'accident. \\
-            \textit{long} & Numéro d'identifiant de l'accident. \\
-            \textit{catr} & Numéro d'identifiant de l'accident. \\        
+            \textit{an} & Année de l'accident. \\
+            \textit{hrmn} & Heure et minutes de l'accident. \\
+            \textit{lum} & Lumière : conditions d’éclairage dans lesquelles l'accident s'est produit. \\
+            \textit{dep} & Département : Code INSEE. \\
+            \textit{com} & Commune : Le numéro de commune est un code donné par l‘INSEE. \\
+            \textit{agg} & Localisation dans une aglomération ou non. \\
+            \textit{int} & Si intersection : type d'intersection. \\
+            \textit{atm} & Conditions atmosphériques. \\
+            \textit{col} & Type de collision. \\
+            \textit{adr} & Adresse postale : variable renseignée pour les accidents survenus en agglomération. \\
+            \textit{lat} & Latitude. \\
+            \textit{long} & Longitude. \\
+            \textit{catr} & Catégorie de route (type de route). \\  
+            \textit{voie} & Numéro de la route. \\  
+            \textit{circ} & Régime de circulation. \\  
+            \textit{nbv} & Nombre total de voies de circulation. \\  
+            \textit{vosp} & Signale l’existence d’une voie réservée. \\  
+            \textit{prof} & Profil en long décrit la déclivité de la route à l'endroit de l'accident. \\  
+            \textit{plan} & Tracé en plan de la route. \\  
+            \textit{surf} & Etat de la surface de la route. \\  
+            \textit{infra} & Aménagement - Infrastructure s'il y en a. \\  
+            \textit{situ} & Situation géographique de l'accident. \\  
+            \textit{vma} & Numéro d'identifiant de l'accident. \\
+            \textit{id_vehicule} & Identifiant du véhicule, foreign key. \\
+            \textit{catv} & Catégorie du véhicule accidentée. \\  
+            \textit{obs} & Type d'obstacle heurté. \\
+            \textit{obsm} & Type d'obstacle mobile heurté. \\
+            \textit{choc} & Point de choc initial. \\
+            \textit{manv} & Manoeuvre principale avant l'accident. \\
+            \textit{catu} & Catégorie d'usager (Conducteur, passager, piéton) \\
+            \textit{grav} & Gravité de l'accident pour l'usager. \\
+            \textit{sexe} & Sexe du conducteur de la voiture (calculé dans le notebook). \\
+            \textit{trajet} & Motif du déplacement au moment de l’accident. \\
+            \textit{mortal} & Insique si le véhicule est impliqué dans un accident mortel. Attribut calculé dans le notebook. \\
             \hline
         \end{tabular}
     \end{center}
@@ -194,10 +215,30 @@
     \subsection{Analyse bivariée des données}
 
     \section{Apprentissage}
+    
+    \subsection{Split}
+    Séparer nos données en deux sets demandait de tenir compte d'une spécéificité. Nous nous plaçons du point de vue d'un véhicule. 
+    Mais c'est bien souvent plusieurs véhiécules qui sont impliqués dans un accident. Il nous a donc fallut adapter le split pour que 
+    les véhicule d'un même accident soit dans le même set. Par ailleurs, 
+
     \subsection{One Hot Encoding}
-    Une grande partie des attributs sont des attributs numériques mais sont tout de même des attributs catégoriels.
-    C'est pourquoi nous avons dû catégoriser manuellement les attributs.
-    Le One Hot Encoding est ensuite effectué via le pipeline.
+    La base de donnée nous fournit pour la plus part des attributs des données qui sont convertibles en entiers. 
+    Par exemple une catégorie de véhicule (\textit{catv}) est dénomée par un chiffre. L'attribut cependant reste catégoriel. Dans les faits, 
+    Le seul attribut quantitatif qu'il nous reste est l'âge du conducteur. 
+    Le reste est soit binaire, soit qualitatif. 
+    
+    Tous les attributs qualitatifs ont donc été transformés en OneHot. Au départ nous souhaitions optimiser le nombre de colonnes en 
+    faisant les one hot par nous même. Typiquement, preonons surf (l'état de la surface de la route). Il est inutile de créer une colonne 
+    Non-renseigné, Autre ou normale. Nous ne sommes intéressés que par les états spécifiques de la route. 
+
+    Cet approche cependant était source d'ennuis puisqu'elle empêchait la réalisation de l'audit. Nous avons donc utilisés la méthode 
+    standard pour nos oneHot. 
+
+    \subsection{Random Tree Classifier}
+    Une fois les données prêtes, nous avons utilisés le classifieur d'arbres aléatoires pour obtenir un modèle. C'est le premier que nous 
+    avons utilisé. 
+    
+
 
     \section{Audit du modèle}
 
