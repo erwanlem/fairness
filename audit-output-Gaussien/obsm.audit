@@ -1,4 +1,5 @@
 GFA Audit for:obsm
+<<<<<<< HEAD:audit-output-Gaussien/obsm.audit
 audit-output/obsm.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/obsm.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26449, "1": 2886}, "1": {"0": 1203, "1": 501}}]
 audit-output/obsm.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26374, "1": 2961}, "1": {"0": 1193, "1": 511}}]
@@ -10,3 +11,16 @@ audit-output/obsm.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27520, "1": 181
 audit-output/obsm.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27807, "1": 1528}, "1": {"0": 1352, "1": 352}}]
 audit-output/obsm.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 28006, "1": 1329}, "1": {"0": 1391, "1": 313}}]
 audit-output/obsm.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 28153, "1": 1182}, "1": {"0": 1417, "1": 287}}]
+=======
+audit-output/obsm.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/obsm.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27727, "1": 1608}, "1": {"0": 1406, "1": 298}}]
+audit-output/obsm.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27686, "1": 1649}, "1": {"0": 1408, "1": 296}}]
+audit-output/obsm.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27920, "1": 1415}, "1": {"0": 1443, "1": 261}}]
+audit-output/obsm.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27976, "1": 1359}, "1": {"0": 1437, "1": 267}}]
+audit-output/obsm.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 28092, "1": 1243}, "1": {"0": 1468, "1": 236}}]
+audit-output/obsm.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 27096, "1": 2239}, "1": {"0": 1425, "1": 279}}]
+audit-output/obsm.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27163, "1": 2172}, "1": {"0": 1429, "1": 275}}]
+audit-output/obsm.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27399, "1": 1936}, "1": {"0": 1450, "1": 254}}]
+audit-output/obsm.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27495, "1": 1840}, "1": {"0": 1468, "1": 236}}]
+audit-output/obsm.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27685, "1": 1650}, "1": {"0": 1482, "1": 222}}]
+>>>>>>> 009491f (update rapport):audit-output/obsm.audit

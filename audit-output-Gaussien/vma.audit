@@ -1,4 +1,5 @@
 GFA Audit for:vma
+<<<<<<< HEAD:audit-output-Gaussien/vma.audit
 audit-output/vma.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/vma.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26450, "1": 2885}, "1": {"0": 1204, "1": 500}}]
 audit-output/vma.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26506, "1": 2829}, "1": {"0": 1217, "1": 487}}]
@@ -10,3 +11,16 @@ audit-output/vma.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26624, "1": 2711
 audit-output/vma.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26706, "1": 2629}, "1": {"0": 1258, "1": 446}}]
 audit-output/vma.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26779, "1": 2556}, "1": {"0": 1267, "1": 437}}]
 audit-output/vma.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26872, "1": 2463}, "1": {"0": 1281, "1": 423}}]
+=======
+audit-output/vma.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/vma.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27675, "1": 1660}, "1": {"0": 1411, "1": 293}}]
+audit-output/vma.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27682, "1": 1653}, "1": {"0": 1422, "1": 282}}]
+audit-output/vma.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27706, "1": 1629}, "1": {"0": 1428, "1": 276}}]
+audit-output/vma.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27727, "1": 1608}, "1": {"0": 1422, "1": 282}}]
+audit-output/vma.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27715, "1": 1620}, "1": {"0": 1435, "1": 269}}]
+audit-output/vma.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 26091, "1": 3244}, "1": {"0": 1413, "1": 291}}]
+audit-output/vma.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26102, "1": 3233}, "1": {"0": 1415, "1": 289}}]
+audit-output/vma.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26134, "1": 3201}, "1": {"0": 1406, "1": 298}}]
+audit-output/vma.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26118, "1": 3217}, "1": {"0": 1407, "1": 297}}]
+audit-output/vma.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26138, "1": 3197}, "1": {"0": 1418, "1": 286}}]
+>>>>>>> 009491f (update rapport):audit-output/vma.audit

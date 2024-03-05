@@ -1,4 +1,5 @@
 GFA Audit for:atm
+<<<<<<< HEAD:audit-output-Gaussien/atm.audit
 audit-output/atm.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/atm.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26503, "1": 2832}, "1": {"0": 1210, "1": 494}}]
 audit-output/atm.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26415, "1": 2920}, "1": {"0": 1208, "1": 496}}]
@@ -10,3 +11,16 @@ audit-output/atm.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27060, "1": 2275
 audit-output/atm.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27168, "1": 2167}, "1": {"0": 1347, "1": 357}}]
 audit-output/atm.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27225, "1": 2110}, "1": {"0": 1353, "1": 351}}]
 audit-output/atm.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27259, "1": 2076}, "1": {"0": 1357, "1": 347}}]
+=======
+audit-output/atm.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/atm.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27724, "1": 1611}, "1": {"0": 1420, "1": 284}}]
+audit-output/atm.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27748, "1": 1587}, "1": {"0": 1414, "1": 290}}]
+audit-output/atm.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27716, "1": 1619}, "1": {"0": 1420, "1": 284}}]
+audit-output/atm.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27689, "1": 1646}, "1": {"0": 1421, "1": 283}}]
+audit-output/atm.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27694, "1": 1641}, "1": {"0": 1423, "1": 281}}]
+audit-output/atm.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 25870, "1": 3465}, "1": {"0": 1284, "1": 420}}]
+audit-output/atm.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25989, "1": 3346}, "1": {"0": 1281, "1": 423}}]
+audit-output/atm.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 25973, "1": 3362}, "1": {"0": 1270, "1": 434}}]
+audit-output/atm.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26034, "1": 3301}, "1": {"0": 1271, "1": 433}}]
+audit-output/atm.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26026, "1": 3309}, "1": {"0": 1272, "1": 432}}]
+>>>>>>> 009491f (update rapport):audit-output/atm.audit

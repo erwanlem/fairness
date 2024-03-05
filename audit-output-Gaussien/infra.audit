@@ -1,4 +1,5 @@
 GFA Audit for:infra
+<<<<<<< HEAD:audit-output-Gaussien/infra.audit
 audit-output/infra.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/infra.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26427, "1": 2908}, "1": {"0": 1199, "1": 505}}]
 audit-output/infra.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26528, "1": 2807}, "1": {"0": 1217, "1": 487}}]
@@ -10,3 +11,16 @@ audit-output/infra.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26550, "1": 27
 audit-output/infra.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26712, "1": 2623}, "1": {"0": 1231, "1": 473}}]
 audit-output/infra.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27122, "1": 2213}, "1": {"0": 1304, "1": 400}}]
 audit-output/infra.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27146, "1": 2189}, "1": {"0": 1309, "1": 395}}]
+=======
+audit-output/infra.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/infra.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27688, "1": 1647}, "1": {"0": 1410, "1": 294}}]
+audit-output/infra.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27912, "1": 1423}, "1": {"0": 1466, "1": 238}}]
+audit-output/infra.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27822, "1": 1513}, "1": {"0": 1469, "1": 235}}]
+audit-output/infra.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27780, "1": 1555}, "1": {"0": 1479, "1": 225}}]
+audit-output/infra.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27743, "1": 1592}, "1": {"0": 1494, "1": 210}}]
+audit-output/infra.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 25646, "1": 3689}, "1": {"0": 1523, "1": 181}}]
+audit-output/infra.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25675, "1": 3660}, "1": {"0": 1522, "1": 182}}]
+audit-output/infra.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26204, "1": 3131}, "1": {"0": 1516, "1": 188}}]
+audit-output/infra.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26549, "1": 2786}, "1": {"0": 1537, "1": 167}}]
+audit-output/infra.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26942, "1": 2393}, "1": {"0": 1552, "1": 152}}]
+>>>>>>> 009491f (update rapport):audit-output/infra.audit

@@ -1,4 +1,5 @@
 GFA Audit for:mois
+<<<<<<< HEAD:audit-output-Gaussien/mois.audit
 audit-output/mois.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/mois.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26426, "1": 2909}, "1": {"0": 1196, "1": 508}}]
 audit-output/mois.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26429, "1": 2906}, "1": {"0": 1196, "1": 508}}]
@@ -10,3 +11,16 @@ audit-output/mois.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25456, "1": 387
 audit-output/mois.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 25490, "1": 3845}, "1": {"0": 1061, "1": 643}}]
 audit-output/mois.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 25495, "1": 3840}, "1": {"0": 1061, "1": 643}}]
 audit-output/mois.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 25499, "1": 3836}, "1": {"0": 1063, "1": 641}}]
+=======
+audit-output/mois.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/mois.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27685, "1": 1650}, "1": {"0": 1416, "1": 288}}]
+audit-output/mois.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27677, "1": 1658}, "1": {"1": 296, "0": 1408}}]
+audit-output/mois.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27682, "1": 1653}, "1": {"0": 1412, "1": 292}}]
+audit-output/mois.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27713, "1": 1622}, "1": {"1": 293, "0": 1411}}]
+audit-output/mois.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27694, "1": 1641}, "1": {"0": 1407, "1": 297}}]
+audit-output/mois.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 25066, "1": 4269}, "1": {"0": 1310, "1": 394}}]
+audit-output/mois.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25083, "1": 4252}, "1": {"0": 1309, "1": 395}}]
+audit-output/mois.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 25110, "1": 4225}, "1": {"0": 1309, "1": 395}}]
+audit-output/mois.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 25126, "1": 4209}, "1": {"1": 394, "0": 1310}}]
+audit-output/mois.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 25157, "1": 4178}, "1": {"1": 396, "0": 1308}}]
+>>>>>>> 009491f (update rapport):audit-output/mois.audit

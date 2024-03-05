@@ -1,4 +1,5 @@
 GFA Audit for:agg
+<<<<<<< HEAD:audit-output-Gaussien/agg.audit
 audit-output/agg.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/agg.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26472, "1": 2863}, "1": {"0": 1206, "1": 498}}]
 audit-output/agg.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26531, "1": 2804}, "1": {"0": 1225, "1": 479}}]
@@ -10,3 +11,16 @@ audit-output/agg.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26770, "1": 2565
 audit-output/agg.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27003, "1": 2332}, "1": {"0": 1297, "1": 407}}]
 audit-output/agg.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27216, "1": 2119}, "1": {"0": 1319, "1": 385}}]
 audit-output/agg.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27485, "1": 1850}, "1": {"0": 1355, "1": 349}}]
+=======
+audit-output/agg.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/agg.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27685, "1": 1650}, "1": {"0": 1417, "1": 287}}]
+audit-output/agg.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27665, "1": 1670}, "1": {"0": 1422, "1": 282}}]
+audit-output/agg.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27703, "1": 1632}, "1": {"0": 1444, "1": 260}}]
+audit-output/agg.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27706, "1": 1629}, "1": {"0": 1433, "1": 271}}]
+audit-output/agg.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27722, "1": 1613}, "1": {"0": 1434, "1": 270}}]
+audit-output/agg.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 27957, "1": 1378}, "1": {"0": 1511, "1": 193}}]
+audit-output/agg.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27925, "1": 1410}, "1": {"0": 1527, "1": 177}}]
+audit-output/agg.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27885, "1": 1450}, "1": {"0": 1520, "1": 184}}]
+audit-output/agg.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27876, "1": 1459}, "1": {"0": 1512, "1": 192}}]
+audit-output/agg.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27854, "1": 1481}, "1": {"0": 1522, "1": 182}}]
+>>>>>>> 009491f (update rapport):audit-output/agg.audit

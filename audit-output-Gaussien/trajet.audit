@@ -1,4 +1,5 @@
 GFA Audit for:trajet
+<<<<<<< HEAD:audit-output-Gaussien/trajet.audit
 audit-output/trajet.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
 audit-output/trajet.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26463, "1": 2872}, "1": {"0": 1203, "1": 501}}]
 audit-output/trajet.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26494, "1": 2841}, "1": {"0": 1207, "1": 497}}]
@@ -10,3 +11,16 @@ audit-output/trajet.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25163, "1": 4
 audit-output/trajet.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 25308, "1": 4027}, "1": {"0": 1065, "1": 639}}]
 audit-output/trajet.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 25470, "1": 3865}, "1": {"0": 1081, "1": 623}}]
 audit-output/trajet.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 25602, "1": 3733}, "1": {"0": 1107, "1": 597}}]
+=======
+audit-output/trajet.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/trajet.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27699, "1": 1636}, "1": {"0": 1415, "1": 289}}]
+audit-output/trajet.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27690, "1": 1645}, "1": {"0": 1417, "1": 287}}]
+audit-output/trajet.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 27720, "1": 1615}, "1": {"0": 1424, "1": 280}}]
+audit-output/trajet.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 27723, "1": 1612}, "1": {"0": 1425, "1": 279}}]
+audit-output/trajet.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 27728, "1": 1607}, "1": {"0": 1428, "1": 276}}]
+audit-output/trajet.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 24250, "1": 5085}, "1": {"0": 1357, "1": 347}}]
+audit-output/trajet.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 24336, "1": 4999}, "1": {"0": 1360, "1": 344}}]
+audit-output/trajet.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 24468, "1": 4867}, "1": {"0": 1370, "1": 334}}]
+audit-output/trajet.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 24592, "1": 4743}, "1": {"0": 1371, "1": 333}}]
+audit-output/trajet.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 24675, "1": 4660}, "1": {"0": 1376, "1": 328}}]
+>>>>>>> 009491f (update rapport):audit-output/trajet.audit

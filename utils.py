@@ -149,6 +149,38 @@ def analyse_bi_quali_quanti(quali, quanti, df):
   hist_prop.show()
 
 
+def analyse_bi_quali_quali(quali1, quali2, df, numerical_features):
+  if quali1==quali2:
+    return
+
+  # table de contingence
+  # on groupe le dataframe sur les variables d'intéret
+  df_group = df[[quali1, quali2, numerical_features[0]]].groupby([quali1,quali2]).count().reset_index()
+  df_group.rename(columns={numerical_features[0]:"count"}, inplace=True)
+
+  rows = list(set(df_group[quali2].values))
+  cols = list(set(df_group[quali1].values))
+  contingence_tab = [
+      [ df_group[(df_group[quali2]==row) & (df_group[quali1]==col)]["count"].values[0] if col in df_group[df_group[quali2]==row][quali1].values else 0 for row in rows  ]
+      for col in cols]
+  contingence_img = px.imshow(contingence_tab,
+                              text_auto=True,
+                              labels=dict(x=quali2, y=quali1),
+                              x=rows, y=cols)
+  contingence_img.show()
+
+  # diagrammes en barres
+  quali1_count = df_group[[quali1, "count"]].groupby([quali1]).sum()
+  df_group['count_quali1_prop'] = df_group[[quali1,"count"]].apply(lambda x: 100*x['count']/quali1_count.loc[x[quali1]], axis=1)
+  bar1 = px.bar(df_group, x=quali1, y="count_quali1_prop", color=quali2, text_auto=True)
+  bar1.show()
+
+  quali2_count = df_group[[quali2, "count"]].groupby([quali2]).sum()
+  df_group['count_quali2_prop'] = df_group[[quali2,"count"]].apply(lambda x: 100*x['count']/quali2_count.loc[x[quali2]], axis=1)
+  bar2 = px.bar(df_group, x=quali2, y="count_quali2_prop", color=quali1, text_auto=True)
+  bar2.show()
+
+
 def reduce_trajet_values(df):
   df = df.copy()
   t = df['trajet']

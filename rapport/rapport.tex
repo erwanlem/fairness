@@ -5,6 +5,7 @@
 \usepackage{parskip}
 \usepackage[]{hyperref}
 \usepackage[french]{babel}
+\usepackage{subcaption}
 
 \author{Erwan LEMATTRE, Yannis CHUPIN}
 \title{Rapport mi-projet\\Fairness pour l'IA}
@@ -213,6 +214,39 @@
     \end{figure}
 
     \subsection{Analyse bivariée des données}
+    Nous allons dans cette partie donner quelques exemples intéressant obtenus lors de l'analyse bivariée. On 
+    peut retrouver l'ensemble des graphiques observés dans le fichier \texttt{main.ipynb}.
+
+    \subsubsection{Le genre du conducteur}
+    Un attribut qu'il est intéressant d'analyser est le genre du conducteur. En effet il peut être source de biais 
+    s'il y a un déséquilibre entre homme et femme.
+    On retrouve globalement la même proportion dans la corrélation que l'on soit homme ou femme. Les hommes étant 
+    beaucoup plus représentés dans le dataset, la proportion d'hommes est logiquement plus élevée. On peut cependant 
+    faire quelques remarques. 
+    
+    La figure \ref{fig:fig_sexe_bivar1} nous montre une proportion de femme moins élevée quand \textit{obsm} vaut 
+    6. La proportion de femmes est deux fois plus élevée quand \textit{obsm} vaut 1. Ceci pourrait biaiser notre 
+    modèle.
+    
+    Sur la figure \ref{fig:fig_sexe_bivar2}, on remarque également une proportion différente de femmes 
+    en fonction du type de véhicule. On pourrait expliquer cela par le fait que certains véhicules sont 
+    dans la réalité plus utilisés par les hommes, par exemple pourrait imaginer qu'il y a plus d'hommes qui 
+    conduisent des motos. Il faudra être vigilant car cela peut être source de biais. Il se peut que notre 
+    modèle associe une moto à un homme. Et que dans le cas d'une femme sur une moto le résultat soit soit 
+    forcément un accident mortel, soit forcément un accident non mortel.
+
+    \begin{figure}[h]
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/bivar_sexe.png}
+            \caption{Variation de la proportion de femme en fonction de la présence d'un obstacle dans l'accident}
+            \label{fig:fig_sexe_bivar1}
+        \end{subfigure}
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/bivar_sexe2.png}
+        \caption{Variation de la proportion de femme en fonction de la présence d'un obstacle dans l'accident}
+        \label{fig:fig_sexe_bivar2}
+        \end{subfigure}
+    \end{figure}
 
     \section{Apprentissage}
     
@@ -241,6 +275,12 @@
 
 
     \section{Audit du modèle}
+
+    \subsection{Génération des contrefactuels avec Dice}
+    Dice nous a permis d'établir quels attributs influent sur la prédiction de notre modèle. Les résultats sont 
+    cependant assez variants d'une exécution à l'autre. On peut tout de même retrouver qui sont fréquemment impliqués 
+    dans le changement de la prédiction.
+    Parmi eux on peut noter que \textit{âge} est souvent représenté.
 
 
 

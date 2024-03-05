@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  5 MAR 2024 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  5 MAR 2024 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -186,43 +186,65 @@ Package babel Info: Making ? an active character on input line 433.
 \leftmarginFB=\dimen151
 \parindentFFN=\dimen152
 \FBfnindent=\dimen153
-)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen154
+\captionmargin@=\dimen155
+\captionwidth=\dimen156
+\caption@tempdima=\dimen157
+\caption@indent=\dimen158
+\caption@parindent=\dimen159
+\caption@hangindent=\dimen160
+Package caption Info: Standard document class detected.
+Package caption Info: french babel package is loaded.
+)
+\c@caption@flags=\count279
+\c@continuedfloat=\count280
+Package caption Info: hyperref package is loaded.
+)
+\c@subfigure=\count281
+\c@subtable=\count282
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count279
+\l__color_backend_stack_int=\count283
 \l__pdf_internal_box=\box50
 ) (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count280
-\scratchdimen=\dimen154
+\scratchcounter=\count284
+\scratchdimen=\dimen161
 \scratchbox=\box51
-\nofMPsegments=\count281
-\nofMParguments=\count282
+\nofMPsegments=\count285
+\nofMParguments=\count286
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count283
-\MPscratchDim=\dimen155
-\MPnumerator=\count284
-\makeMPintoPDFobject=\count285
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen162
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
 \everyMPtoPDFconversion=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -230,7 +252,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 12.
+Package hyperref Info: Link coloring OFF on input line 13.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -238,22 +260,24 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count286
+\c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 12.
-LaTeX Info: Redefining \pageref on input line 12.
-LaTeX Info: Redefining \nameref on input line 12.
+LaTeX Info: Redefining \ref on input line 13.
+LaTeX Info: Redefining \pageref on input line 13.
+LaTeX Info: Redefining \nameref on input line 13.
 \@outlinefile=\write3
 \openout3 = `rapport.out'.
 
-LaTeX Info: Redefining \degres on input line 12.
-LaTeX Info: Redefining \up on input line 12.
+LaTeX Info: Redefining \degres on input line 13.
+LaTeX Info: Redefining \up on input line 13.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
+(Font)              <12> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
+(Font)              <8> on input line 15.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
+(Font)              <6> on input line 15.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -261,27 +285,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `rapport.toc'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 26.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 27.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 38.
+(Font)              <7> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 38.
+(Font)              <5> on input line 39.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing $ inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing $ inserted.
 <inserted text> 
                 $
-l.67             \textit{id_vehicule}
+l.68             \textit{id_vehicule}
                                       & Identifiant du véhicule, foreign ke...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.67             \textit{id_vehicule}
+l.68             \textit{id_vehicule}
                                       & Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -289,19 +313,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -309,19 +333,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -329,19 +353,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -349,19 +373,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -369,19 +393,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -389,19 +413,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -409,19 +433,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -429,19 +453,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -449,19 +473,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -469,19 +493,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -489,19 +513,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -509,19 +533,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -529,19 +553,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -549,19 +573,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -569,19 +593,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -589,19 +613,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -609,19 +633,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -629,19 +653,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -649,19 +673,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -669,19 +693,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -689,19 +713,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -709,19 +733,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -729,19 +753,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -749,19 +773,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -769,19 +793,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -789,19 +813,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -809,19 +833,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -829,19 +853,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -849,19 +873,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -869,19 +893,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -889,19 +913,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -909,19 +933,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -929,19 +953,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -949,19 +973,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -969,19 +993,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -989,19 +1013,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1009,19 +1033,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1029,19 +1053,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1049,19 +1073,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1069,19 +1093,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1089,19 +1113,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1109,19 +1133,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1129,19 +1153,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1149,19 +1173,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1169,19 +1193,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1189,19 +1213,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1209,19 +1233,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1229,19 +1253,19 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1249,28 +1273,28 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Missing } inserted.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Missing } inserted.
 <inserted text> 
                 }
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67: Extra }, or forgotten $.
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68: Extra }, or forgotten $.
 <inserted text> }
                  
-l.67             \textit{id_vehicule} &
+l.68             \textit{id_vehicule} &
                                         Identifiant du véhicule, foreign ke...
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 10365 strings out of 478287
- 163329 string characters out of 5849289
- 473340 words of memory out of 5000000
- 28455 multiletter control sequences out of 15000+600000
+ 11651 strings out of 478287
+ 188854 string characters out of 5849289
+ 494676 words of memory out of 5000000
+ 29732 multiletter control sequences out of 15000+600000
  478384 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,7n,63p,568b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,7n,77p,568b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:67:  ==> Fatal error occurred, no output PDF file produced!
+/home/erwan/Fairness/projet/fairness/rapport/rapport.tex:68:  ==> Fatal error occurred, no output PDF file produced!

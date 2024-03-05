@@ -1,0 +1,12 @@
+GFA Audit for:surf
+audit-output/surf.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 27687, "1": 1648}, "1": {"0": 1413, "1": 291}}]
+audit-output/surf.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 27706, "1": 1629}, "1": {"0": 1412, "1": 292}}]
+audit-output/surf.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 27661, "1": 1674}, "1": {"0": 1402, "1": 302}}]
+audit-output/surf.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 25835, "1": 3500}, "1": {"0": 1363, "1": 341}}]
+audit-output/surf.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 25974, "1": 3361}, "1": {"0": 1370, "1": 334}}]
+audit-output/surf.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26070, "1": 3265}, "1": {"0": 1368, "1": 336}}]
+audit-output/surf.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 25094, "1": 4241}, "1": {"0": 1348, "1": 356}}]
+audit-output/surf.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25049, "1": 4286}, "1": {"0": 1337, "1": 367}}]
+audit-output/surf.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 25563, "1": 3772}, "1": {"0": 1357, "1": 347}}]
+audit-output/surf.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 25793, "1": 3542}, "1": {"0": 1374, "1": 330}}]
+audit-output/surf.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 25830, "1": 3505}, "1": {"0": 1371, "1": 333}}]
