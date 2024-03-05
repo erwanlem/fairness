@@ -1,0 +1,15 @@
+Audit Start Time: 2024-03-05 16:15:29.100153
+Audit End Time: 2024-03-05 16:23:46.299508
+Retrained Per Repair: False
+Model Factory ID: 1709651729.100153
+Model Type: HirePredictor
+Non-standard Model Options: {}
+Train Size: 63454
+Test Size: 31039
+Non-standard Ignored Features: []
+Features: ['trajet', 'catr', 'circ', 'nbv', 'prof', 'plan', 'surf', 'infra', 'situ', 'vma', 'mois', 'lum', 'dep', 'agg', 'int', 'atm', 'col', 'catv', 'obs', 'obsm', 'choc', 'pieton', 'sexe_conducteur', 'age', 'Y']
+
+Ranked Features by accuracy: [('plan', 0.8128161345404169), ('choc', 0.05618737717065625), ('catv', 0.04400914977930992), ('catr', 0.03598698411675627), ('mois', 0.025548503495602337), ('trajet', 0.023647669061503285), ('circ', 0.012403750120815737), ('col', 0.012081574793002314), ('sexe_conducteur', 0.0021263571635683487), ('int', -0.0026418376880699146), ('pieton', -0.005799155900641173), ('vma', -0.011662746866844986), ('infra', -0.019588259931054508), ('atm', -0.021682399561841592), ('agg', -0.02902799703598702), ('obs', -0.029414607429363082), ('surf', -0.03489158800219083), ('obsm', -0.048551821901478776), ('prof', -0.05715390315409652), ('situ', -0.06044009149779306), ('dep', -0.07020200393053899), ('nbv', -0.07738651374077776), ('lum', -0.07738651374077776), ('age', -0.07738651374077776)]
+	Approx. Trend Groups: [['trajet', 'catr', 'circ', 'infra', 'vma', 'mois', 'agg', 'atm', 'col', 'catv', 'obs', 'pieton', 'sexe_conducteur'], ['int'], ['nbv', 'prof', 'surf', 'situ', 'lum', 'dep', 'obsm', 'age'], ['plan'], ['choc']]
+Ranked Features by BCR: [('nbv', 0.0994615782874052), ('plan', 0.0994615782874052), ('lum', 0.0994615782874052), ('age', 0.0994615782874052), ('dep', 0.0894433614927449), ('situ', 0.08299976553828958), ('prof', 0.06843172122902741), ('surf', 0.03709375307580953), ('obsm', 0.03539454584446622), ('int', 0.03425572610711136), ('atm', 0.033026682622866343), ('agg', 0.028587774302196278), ('obs', 0.027830474981014985), ('infra', 0.020868202510900824), ('vma', 0.017322429263382122), ('circ', 0.011813399286692228), ('sexe_conducteur', 0.006099825474064735), ('catr', 0.0027321090911127666), ('pieton', 0.002459647379190133), ('col', 0.0005876446680765923), ('choc', -0.008138852145884834), ('trajet', -0.012087411406682347), ('mois', -0.023242627459547305), ('catv', -0.03199378076309689)]
+	Approx. Trend Groups: [['trajet', 'catr', 'circ', 'surf', 'infra', 'vma', 'mois', 'agg', 'atm', 'col', 'catv', 'obs', 'obsm', 'choc', 'pieton', 'sexe_conducteur'], ['int'], ['nbv', 'prof', 'situ', 'lum', 'dep', 'age'], ['plan']]

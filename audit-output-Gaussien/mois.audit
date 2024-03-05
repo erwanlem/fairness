@@ -1,0 +1,12 @@
+GFA Audit for:mois
+audit-output/mois.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26425, "1": 2910}, "1": {"0": 1196, "1": 508}}]
+audit-output/mois.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26426, "1": 2909}, "1": {"0": 1196, "1": 508}}]
+audit-output/mois.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26429, "1": 2906}, "1": {"0": 1196, "1": 508}}]
+audit-output/mois.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 26432, "1": 2903}, "1": {"0": 1197, "1": 507}}]
+audit-output/mois.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 26438, "1": 2897}, "1": {"0": 1198, "1": 506}}]
+audit-output/mois.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26445, "1": 2890}, "1": {"0": 1198, "1": 506}}]
+audit-output/mois.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 25462, "1": 3873}, "1": {"0": 1062, "1": 642}}]
+audit-output/mois.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 25456, "1": 3879}, "1": {"0": 1061, "1": 643}}]
+audit-output/mois.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 25490, "1": 3845}, "1": {"0": 1061, "1": 643}}]
+audit-output/mois.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 25495, "1": 3840}, "1": {"0": 1061, "1": 643}}]
+audit-output/mois.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 25499, "1": 3836}, "1": {"0": 1063, "1": 641}}]
