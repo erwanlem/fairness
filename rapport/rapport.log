@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  4 MAR 2024 00:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  5 MAR 2024 00:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex
-(/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex
+**/home/erwan/Fairness/projet/fairness/rapport/rapport.tex
+(/home/erwan/Fairness/projet/fairness/rapport/rapport.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -163,9 +163,9 @@ Package: babel 2022/01/26 3.70 The Babel package
  (/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
 Language: french 2021/07/20 v3.5m French support from the babel system
 Package babel Info: Hyphen rules for 'acadian' set to \l@french
-(babel)             (\language3). Reported on input line 91.
+(babel)             (\language32). Reported on input line 91.
 Package babel Info: Hyphen rules for 'canadien' set to \l@french
-(babel)             (\language3). Reported on input line 92.
+(babel)             (\language32). Reported on input line 92.
 \FB@nonchar=\count272
 Package babel Info: Making : an active character on input line 430.
 Package babel Info: Making ; an active character on input line 431.
@@ -321,14 +321,14 @@ Package rerunfilecheck Info: File `rapport.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  10484 strings out of 478287
- 165105 string characters out of 5849289
- 477787 words of memory out of 5000000
+ 165102 string characters out of 5849289
+ 477790 words of memory out of 5000000
  28525 multiletter control sequences out of 15000+600000
  479057 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,7n,63p,569b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,7n,63p,568b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on rapport.pdf (8 pages, 258794 bytes).
+Output written on rapport.pdf (8 pages, 259023 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  171 compressed objects within 2 object streams
