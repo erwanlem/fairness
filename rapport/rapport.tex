@@ -199,14 +199,38 @@
         \centering
         \begin{subfigure}{7cm}
             \includegraphics[width=7cm]{./img/bivar_sexe.png}
-            \caption{Variation de la proportion de femme en fonction de la présence d'un obstacle dans l'accident}
+            \caption{Proportion femmes/hommes en fonction de la présence d'un obstacle dans l'accident}
             \label{fig:fig_sexe_bivar1}
         \end{subfigure}
         \hspace{0.2cm}
         \begin{subfigure}{7cm}
             \includegraphics[width=7cm]{./img/bivar_sexe2.png}
-        \caption{Variation de la proportion de femme en fonction de la présence d'un obstacle dans l'accident}
+        \caption{Proportion femmes/hommes en fonction de la catégorie du véhicule}
         \label{fig:fig_sexe_bivar2}
+        \end{subfigure}
+    \end{figure}
+    \vspace{2cm}
+
+    \subsubsection{Agglomération}
+    L'attribut \textit{agg} indique si l'accident a eu lieu en agglomération ou hors agglomération. On retrouve 
+    des corrélations plutôt logiques avec un certain nombre d'attributs comme par exemple une proportion d'accident avec 
+    piéton plus élévé en agglomération (figure \ref{fig:fig_agg_bivar1}). On peut également remarquer (figure \ref{fig:fig_agg_bivar2}) que la proportion 
+    d'accident en agglomération varie avec les conditions atmosphériques.
+    Toutes ces corrélations peuvent nous indiquer que cet attribut va pouvoir contribuer à nos 
+    prédictions.
+
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/bivar_agg.png}
+            \caption{Proportion d'accidents en agglomération avec piéton et sans piéton}
+            \label{fig:fig_agg_bivar1}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/bivar_agg2.png}
+        \caption{Proportion de d'accident en agglomération en fonction des conditions atmosphériques}
+        \label{fig:fig_agg_bivar2}
         \end{subfigure}
     \end{figure}
 
@@ -298,6 +322,21 @@
         \caption{Une approximation des valeurs de Shapley}
         \label{fig:fig_shap}
     \end{figure}
+
+    \subsection{Expliquer le modèle avec Lime}
+    Nous avons également utilisé \textit{Lime} afin d'avoir une idée des attributs qui contribuent
+    le plus aux prédictions de notre modèle. On peut retrouver le code correspondant dans le fichier 
+    \texttt{lime.ipynb}.
+
+    Nous avons d'abord récupéré les indices des prédictions positives de notre modèle (avec quelles 
+    entrées notre modèle prédit 1 ?). Ainsi on a pu regarder dans les cas où les prédictions sont 0 
+    et les cas où les prédictions sont 1.
+    On peut remarquer qu'on retrouve des variables similaires à celles trouvée avec les valeurs de 
+    Shapley. On retrouve notamment assez fréquemment l'attribut \textit{agg}.
+    Cependant, contrairement au résultat que pouvait nous donner \textit{ShapKit} on retrouve assez 
+    rarement l'attribut \textit{mois}. Les contributions sont également plus réparties entre les attributs.
+    Enfin il semble que comme nous avons pu l'observer avec la valeurs de Shapley l'attribut 
+    \textit{sexe\_conducteur} est un faible impact sur la prédiction.
 
     \section{Conclusion}
 

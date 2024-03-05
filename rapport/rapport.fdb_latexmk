@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1709673795 "/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex" "rapport.pdf" "rapport" 1709673796
+["pdflatex"] 1709682622 "/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex" "rapport.pdf" "rapport" 1709682623
   "/etc/texmf/web2c/texmf.cnf" 1678120554 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex" 1709673795 20936 c8a74a78fca87665d4dbe48762678218 ""
+  "/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex" 1709682621 23223 bd86e0bf7c4e043cf7a1b38457bb2e23 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -96,6 +96,8 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1678138370 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685548922 2800811 f7bb7d82044f5df0b13ed7a2485a131d ""
   "img/age.png" 1709507011 22237 1168ead6d8e90bd849d4e9b396e346ef ""
+  "img/bivar_agg.png" 1709682360 33889 e79c24f379269a0250649e72b05d174e ""
+  "img/bivar_agg2.png" 1709682200 52596 9acedb23a8a48c99405ee89e409adae6 ""
   "img/bivar_sexe.png" 1709668884 37942 d9c75d5cab673fdc1b6a8ea41db8ead1 ""
   "img/bivar_sexe2.png" 1709668884 37636 69f8c5dcb2dde2bc7259fc7def6ffb78 ""
   "img/catv1.png" 1709328654 28830 2da261e18c10113c49ac26549e99d657 ""
@@ -105,10 +107,10 @@
   "img/pieton.png" 1709506663 24090 8594bf3e12af6f07aed9c39b8fd2f7ad ""
   "img/sexe.png" 1709508118 21814 540736a4db87fc280326c81084c12da6 ""
   "img/shap1.png" 1709671339 78857 80fed36a317b02546f05f9853b5a963d ""
-  "rapport.aux" 1709673796 6844 aca73d8a90c94df9b49f7492399084dd "pdflatex"
-  "rapport.out" 1709673796 4352 6d8cf8a54d00929156421f0e1ef6d11e "pdflatex"
-  "rapport.tex" 1709673795 20936 c8a74a78fca87665d4dbe48762678218 ""
-  "rapport.toc" 1709673796 2300 a3df873e920e016de049f338b9f75a14 "pdflatex"
+  "rapport.aux" 1709682623 7629 9cdddc4f3e78d1ac436132ca91a02c90 "pdflatex"
+  "rapport.out" 1709682623 4706 c30b9dae91e0f16c77c92f6322b4d9fc "pdflatex"
+  "rapport.tex" 1709682621 23223 bd86e0bf7c4e043cf7a1b38457bb2e23 ""
+  "rapport.toc" 1709682623 2487 3c8b282791b287c9ff0c20012fde3c1b "pdflatex"
   (generated)
   "rapport.aux"
   "rapport.log"
