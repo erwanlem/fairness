@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  5 MAR 2024 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  5 MAR 2024 22:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/erwan/Fairness/projet/fairness/rapport/rapport.tex
-(/home/erwan/Fairness/projet/fairness/rapport/rapport.tex
+**/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex
+(/home/erwan/Univ/L3/fairness/fairness/rapport/rapport.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -96,6 +96,7 @@ File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
+Package hyperref Info: Option `colorlinks' set `true' on input line 4073.
 Package hyperref Info: Hyper figures OFF on input line 4192.
 Package hyperref Info: Link nesting OFF on input line 4197.
 Package hyperref Info: Hyper index ON on input line 4200.
@@ -122,7 +123,7 @@ Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
 Package hyperref Info: backreferencing OFF on input line 6091.
-Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring ON on input line 6094.
 Package hyperref Info: Link coloring with OCG OFF on input line 6101.
 Package hyperref Info: PDF/A mode OFF on input line 6106.
 LaTeX Info: Redefining \ref on input line 6146.
@@ -163,9 +164,9 @@ Package: babel 2022/01/26 3.70 The Babel package
  (/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
 Language: french 2021/07/20 v3.5m French support from the babel system
 Package babel Info: Hyphen rules for 'acadian' set to \l@french
-(babel)             (\language32). Reported on input line 91.
+(babel)             (\language3). Reported on input line 91.
 Package babel Info: Hyphen rules for 'canadien' set to \l@french
-(babel)             (\language32). Reported on input line 92.
+(babel)             (\language3). Reported on input line 92.
 \FB@nonchar=\count272
 Package babel Info: Making : an active character on input line 430.
 Package babel Info: Making ; an active character on input line 431.
@@ -208,51 +209,74 @@ Package caption Info: hyperref package is loaded.
 )
 \c@subfigure=\count281
 \c@subtable=\count282
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen161
+\Gm@wd@mp=\dimen162
+\Gm@odd@mp=\dimen163
+\Gm@even@mp=\dimen164
+\Gm@layoutwidth=\dimen165
+\Gm@layoutheight=\dimen166
+\Gm@layouthoffset=\dimen167
+\Gm@layoutvoffset=\dimen168
+\Gm@dimlist=\toks18
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count283
+\l__color_backend_stack_int=\count286
 \l__pdf_internal_box=\box50
 ) (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count284
-\scratchdimen=\dimen161
+\scratchcounter=\count287
+\scratchdimen=\dimen169
 \scratchbox=\box51
-\nofMPsegments=\count285
-\nofMParguments=\count286
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count287
-\MPscratchDim=\dimen162
-\MPnumerator=\count288
-\makeMPintoPDFobject=\count289
-\everyMPtoPDFconversion=\toks19
+\nofMPsegments=\count288
+\nofMParguments=\count289
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count290
+\MPscratchDim=\dimen170
+\MPnumerator=\count291
+\makeMPintoPDFobject=\count292
+\everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-Package hyperref Info: Link coloring OFF on input line 13.
+)) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+)
+Package hyperref Info: Link coloring ON on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -260,26 +284,61 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count290
+\c@section@level=\count293
 )
-LaTeX Info: Redefining \ref on input line 13.
-LaTeX Info: Redefining \pageref on input line 13.
-LaTeX Info: Redefining \nameref on input line 13.
+LaTeX Info: Redefining \ref on input line 17.
+LaTeX Info: Redefining \pageref on input line 17.
+LaTeX Info: Redefining \nameref on input line 17.
  (./rapport.out) (./rapport.out)
 \@outlinefile=\write3
 \openout3 = `rapport.out'.
 
-LaTeX Info: Redefining \degres on input line 13.
-LaTeX Info: Redefining \up on input line 13.
+LaTeX Info: Redefining \degres on input line 17.
+LaTeX Info: Redefining \up on input line 17.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(99.58464pt, 415.12572pt, 99.58464pt)
+* v-part:(T,H,B)=(99.58464pt, 595.8007pt, 99.58464pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=415.12572pt
+* \textheight=595.8007pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-9.68535pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 15.
+(Font)              <12> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 15.
+(Font)              <8> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 15.
- [1
+(Font)              <6> on input line 19.
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./rapport.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -291,81 +350,103 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `rapport.toc'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 27.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 31.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [3] [4]
-<./img/catv1.png, id=140, 1827.82875pt x 451.6875pt>
+)
+<./img/catv1.png, id=150, 1827.82875pt x 451.6875pt>
 File: ./img/catv1.png Graphic file (type png)
 <use ./img/catv1.png>
-Package pdftex.def Info: ./img/catv1.png  used on input line 95.
+Package pdftex.def Info: ./img/catv1.png  used on input line 55.
 (pdftex.def)             Requested size: 341.43306pt x 84.37415pt.
-<./img/grav1.png, id=142, 1082.0425pt x 451.6875pt>
+ [3 <./img/catv1.png>]
+<./img/grav1.png, id=162, 1082.0425pt x 451.6875pt>
 File: ./img/grav1.png Graphic file (type png)
 <use ./img/grav1.png>
-Package pdftex.def Info: ./img/grav1.png  used on input line 109.
+Package pdftex.def Info: ./img/grav1.png  used on input line 69.
 (pdftex.def)             Requested size: 341.43306pt x 142.52353pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--122
+Underfull \hbox (badness 10000) in paragraph at lines 74--82
 
  []
 
-[5 <./img/catv1.png>]
-<./img/grav2.png, id=150, 851.18pt x 451.6875pt>
+[4 <./img/grav1.png>]
+<./img/grav2.png, id=170, 851.18pt x 451.6875pt>
 File: ./img/grav2.png Graphic file (type png)
 <use ./img/grav2.png>
-Package pdftex.def Info: ./img/grav2.png  used on input line 149.
+Package pdftex.def Info: ./img/grav2.png  used on input line 109.
 (pdftex.def)             Requested size: 284.52756pt x 150.98714pt.
- [6 <./img/grav1.png>]
-<./img/pieton.png, id=161, 851.18pt x 451.6875pt>
+<./img/pieton.png, id=173, 851.18pt x 451.6875pt>
 File: ./img/pieton.png Graphic file (type png)
 <use ./img/pieton.png>
-Package pdftex.def Info: ./img/pieton.png  used on input line 167.
+Package pdftex.def Info: ./img/pieton.png  used on input line 127.
 (pdftex.def)             Requested size: 284.52756pt x 150.98714pt.
- [7 <./img/grav2.png> <./img/pieton.png>]
-<./img/age.png, id=172, 1118.1775pt x 451.6875pt>
+ [5 <./img/grav2.png> <./img/pieton.png>]
+<./img/age.png, id=183, 1118.1775pt x 451.6875pt>
 File: ./img/age.png Graphic file (type png)
 <use ./img/age.png>
-Package pdftex.def Info: ./img/age.png  used on input line 182.
+Package pdftex.def Info: ./img/age.png  used on input line 142.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
-<./img/sexe.png, id=174, 1118.1775pt x 451.6875pt>
+<./img/sexe.png, id=185, 1118.1775pt x 451.6875pt>
 File: ./img/sexe.png Graphic file (type png)
 <use ./img/sexe.png>
-Package pdftex.def Info: ./img/sexe.png  used on input line 199.
+Package pdftex.def Info: ./img/sexe.png  used on input line 159.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
-<./img/col.png, id=176, 1118.1775pt x 451.6875pt>
+ [6 <./img/age.png> <./img/sexe.png>]
+<./img/col.png, id=195, 1118.1775pt x 451.6875pt>
 File: ./img/col.png Graphic file (type png)
 <use ./img/col.png>
-Package pdftex.def Info: ./img/col.png  used on input line 211.
+Package pdftex.def Info: ./img/col.png  used on input line 171.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
- [8 <./img/age.png>] [9 <./img/sexe.png> <./img/col.png>]
-<./img/bivar_sexe.png, id=193, 971.63pt x 451.6875pt>
+<./img/bivar_sexe.png, id=198, 971.63pt x 451.6875pt>
 File: ./img/bivar_sexe.png Graphic file (type png)
 <use ./img/bivar_sexe.png>
-Package pdftex.def Info: ./img/bivar_sexe.png  used on input line 240.
-(pdftex.def)             Requested size: 170.71652pt x 79.35664pt.
-<./img/bivar_sexe2.png, id=194, 971.63pt x 451.6875pt>
+Package pdftex.def Info: ./img/bivar_sexe.png  used on input line 201.
+(pdftex.def)             Requested size: 199.16928pt x 92.58275pt.
+<./img/bivar_sexe2.png, id=199, 971.63pt x 451.6875pt>
 File: ./img/bivar_sexe2.png Graphic file (type png)
 <use ./img/bivar_sexe2.png>
-Package pdftex.def Info: ./img/bivar_sexe2.png  used on input line 245.
-(pdftex.def)             Requested size: 170.71652pt x 79.35664pt.
- [10 <./img/bivar_sexe.png> <./img/bivar_sexe2.png>] [11] (./rapport.aux)
+Package pdftex.def Info: ./img/bivar_sexe2.png  used on input line 207.
+(pdftex.def)             Requested size: 199.16928pt x 92.58275pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./img/col.png>] [8 <./img/bivar_sexe.png> <./img/bivar_sexe2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 290--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--294
+
+ []
+
+<./img/shap1.png, id=216, 813.0375pt x 435.0654pt>
+File: ./img/shap1.png Graphic file (type png)
+<use ./img/shap1.png>
+Package pdftex.def Info: ./img/shap1.png  used on input line 297.
+(pdftex.def)             Requested size: 415.12572pt x 222.13931pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] [10 <./img/shap1.png>] [11] (./rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 81C53CDB4AEB6786FB967B2737711BA0;3633.
+(rerunfilecheck)             Checksum: 6D8CF8A54D00929156421F0E1EF6D11E;4352.
  ) 
 Here is how much of TeX's memory you used:
- 11814 strings out of 478287
- 191540 string characters out of 5849289
- 508686 words of memory out of 5000000
- 29835 multiletter control sequences out of 15000+600000
+ 12379 strings out of 478287
+ 200603 string characters out of 5849289
+ 522681 words of memory out of 5000000
+ 30384 multiletter control sequences out of 15000+600000
  479822 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,8n,77p,568b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,8n,77p,600b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on rapport.pdf (11 pages, 323552 bytes).
+Output written on rapport.pdf (11 pages, 389094 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 500000)
- 222 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 233 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 259 words of extra memory for PDF output out of 10000 (max. 10000000)
 
