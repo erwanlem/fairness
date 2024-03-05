@@ -22,3 +22,8 @@
     - ajouter du commentaitre
     - ajouter du md
 - rapport d'étape 
+
+
+
+
+BASE RATE

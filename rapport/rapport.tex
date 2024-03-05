@@ -253,7 +253,10 @@
     \subsection{Split}
     Séparer nos données en deux sets demandait de tenir compte d'une spécéificité. Nous nous plaçons du point de vue d'un véhicule. 
     Mais c'est bien souvent plusieurs véhiécules qui sont impliqués dans un accident. Il nous a donc fallut adapter le split pour que 
-    les véhicule d'un même accident soit dans le même set. Par ailleurs, 
+    les véhicule d'un même accident soit dans le même set. 
+    
+    Par ailleurs, nous avons pu constater que ne pas adopter cette approche, provoquait un overfit lors du test. Typiquement, un trop 
+    grand nombre de mort était trouvés avec succès.
 
     \subsection{One Hot Encoding}
     La base de donnée nous fournit pour la plus part des attributs des données qui sont convertibles en entiers. 
@@ -270,8 +273,17 @@
 
     \subsection{Random Tree Classifier}
     Une fois les données prêtes, nous avons utilisés le classifieur d'arbres aléatoires pour obtenir un modèle. C'est le premier que nous 
-    avons utilisé. 
+    avons utilisé. Pour ce qui est des résultats, l'accuracy score est de \textit{1} pour l'entrainement et de \textit{0.9014} pour le teste.
     
+    Pour ce qui est de la matrice de confusion, on remarque que \textit{27687} véhcules ont été classés à raison en tant que accidents non létaux.
+    Tandis que \textit{291} accidents mortels ont été trouvés. Toutefois \textit{1413} accidents mortel ont été resecés à tord comme étant 
+    non létaux et \textit{1648} véhicule ont subit le sort inverse. 
+
+    En résumé, on remaque que le modèle réussit très bien à classifier les accidents qui n'ont pas conduit à la mort de quelqu'un. Cemendant,
+    il lui apparaît bien plus difficile de trouver les véhicules impliqués accidents qui sont mortels. On peut attribuer ceci au fait que
+    ces accidents létaux ne représentent que \textit{5.38\%} des accidents rétertoriés dans la base.
+    
+    \subsection{GaussianNB}
 
 
     \section{Audit du modèle}
