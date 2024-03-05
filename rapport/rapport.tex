@@ -36,7 +36,7 @@
     Ci-dessous une rapide présentation des différentes données disponibles.
 
     \begin{center}
-        \begin{tabular}{ |c|c| }
+        \begin{tabular}{ |c|p{9cm}| }
             \hline
             \textbf{Attribut} & \textbf{Description} \\
             \hline
@@ -44,25 +44,25 @@
             \textit{jour mois} & Jour de l'accident, mois de l'accident \\
             \textit{an} & Année de l'accident. \\
             \textit{hrmn} & Heure et minutes de l'accident. \\
-            \textit{lum} & Lumière : conditions d’éclairage dans lesquelles l'accident s'est produit. \\
-            \textit{dep} & Département : Code INSEE. \\
-            \textit{com} & Commune : Le numéro de commune est un code donné par l‘INSEE. \\
+            \textit{lum} & Lumière: conditions d'éclairage dans lesquelles l'accident s'est produit. \\
+            \textit{dep} & Département: Code INSEE.\\
+            \textit{com} & Commune: Le numéro de commune est un code donné par l‘INSEE. \\
             \textit{agg} & Localisation dans une aglomération ou non. \\
-            \textit{int} & Si intersection : type d'intersection. \\
+            \textit{int} & Si intersection: type d'intersection. \\
             \textit{atm} & Conditions atmosphériques. \\
             \textit{col} & Type de collision. \\
-            \textit{adr} & Adresse postale : variable renseignée pour les accidents survenus en agglomération. \\
+            \textit{adr} & Adresse postale: variable renseignée pour les accidents survenus en agglomération. \\
             \textit{lat} & Latitude. \\
             \textit{long} & Longitude. \\
             \textit{catr} & Catégorie de route (type de route). \\  
             \textit{voie} & Numéro de la route. \\  
             \textit{circ} & Régime de circulation. \\  
             \textit{nbv} & Nombre total de voies de circulation. \\  
-            \textit{vosp} & Signale l’existence d’une voie réservée. \\  
+            \textit{vosp} & Signale l'existence d'une voie réservée. \\  
             \textit{prof} & Profil en long décrit la déclivité de la route à l'endroit de l'accident. \\  
             \textit{plan} & Tracé en plan de la route. \\  
             \textit{surf} & Etat de la surface de la route. \\  
-            \textit{infra} & Aménagement - Infrastructure s'il y en a. \\  
+            \textit{infra} & Aménagement --- Infrastructure s'il y en a. \\  
             \textit{situ} & Situation géographique de l'accident. \\  
             \textit{vma} & Numéro d'identifiant de l'accident. \\
             \textit{id\_vehicule} & Identifiant du véhicule, foreign key. \\
@@ -74,7 +74,7 @@
             \textit{catu} & Catégorie d'usager (Conducteur, passager, piéton) \\
             \textit{grav} & Gravité de l'accident pour l'usager. \\
             \textit{sexe} & Sexe du conducteur de la voiture (calculé dans le notebook). \\
-            \textit{trajet} & Motif du déplacement au moment de l’accident. \\
+            \textit{trajet} & Motif du déplacement au moment de l'accident. \\
             \textit{mortal} & Insique si le véhicule est impliqué dans un accident mortel. Attribut calculé dans le notebook. \\
             \hline
         \end{tabular}
@@ -290,9 +290,16 @@
 
     \subsection{Génération des contrefactuels avec Dice}
     Dice nous a permis d'établir quels attributs influent sur la prédiction de notre modèle. Les résultats sont 
-    cependant assez variants d'une exécution à l'autre. On peut tout de même retrouver qui sont fréquemment impliqués 
-    dans le changement de la prédiction.
-    Parmi eux on peut noter que \textit{âge} est souvent représenté.
+    cependant assez variants d'une exécution à l'autre. On peut tout de même retrouver lesquels sont fréquemment impliqués 
+    dans le changement des exemples contrefactuels.
+    Parmi eux on peut noter que \textit{âge} est souvent représenté. Le taux d'accidents (notamment mortels) étant plus 
+    élevé chez les jeunes et les personnes âgées, cela paraît assez cohérent. L'attribut \textit{obsm} est également 
+    souvent représenté dans les exemples contrefactuels.
+    On a pu remarquer que l'attribut \textit{col} est peu représenté dans les résultats contrairement à l'hypothèse que 
+    nous avions pu faire lors de l'analyse.
+    
+    Enfin les attributs \textit{dep} et \textit{sexe\_conducteur} sont également représentés. Ils pourraient être sources de biais, notamment 
+    l'attribut \textit{dep}, le modèle pourrait associer un département à une prédiction d'accident mortel.
 
 
 
