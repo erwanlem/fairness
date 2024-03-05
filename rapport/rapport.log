@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  5 MAR 2024 18:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  5 MAR 2024 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,18 +294,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 27.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Overfull \hbox (141.1496pt too wide) in paragraph at lines 39--81
- [] 
- []
-
-[3]
-<./img/catv1.png, id=136, 1827.82875pt x 451.6875pt>
+) [3] [4]
+<./img/catv1.png, id=140, 1827.82875pt x 451.6875pt>
 File: ./img/catv1.png Graphic file (type png)
 <use ./img/catv1.png>
 Package pdftex.def Info: ./img/catv1.png  used on input line 95.
 (pdftex.def)             Requested size: 341.43306pt x 84.37415pt.
- [4]
 <./img/grav1.png, id=142, 1082.0425pt x 451.6875pt>
 File: ./img/grav1.png Graphic file (type png)
 <use ./img/grav1.png>
@@ -316,63 +310,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--122
 
  []
 
-[5 <./img/catv1.png> <./img/grav1.png>]
-<./img/grav2.png, id=152, 851.18pt x 451.6875pt>
+[5 <./img/catv1.png>]
+<./img/grav2.png, id=150, 851.18pt x 451.6875pt>
 File: ./img/grav2.png Graphic file (type png)
 <use ./img/grav2.png>
 Package pdftex.def Info: ./img/grav2.png  used on input line 149.
 (pdftex.def)             Requested size: 284.52756pt x 150.98714pt.
- [6]
+ [6 <./img/grav1.png>]
 <./img/pieton.png, id=161, 851.18pt x 451.6875pt>
 File: ./img/pieton.png Graphic file (type png)
 <use ./img/pieton.png>
 Package pdftex.def Info: ./img/pieton.png  used on input line 167.
 (pdftex.def)             Requested size: 284.52756pt x 150.98714pt.
-<./img/age.png, id=163, 1118.1775pt x 451.6875pt>
+ [7 <./img/grav2.png> <./img/pieton.png>]
+<./img/age.png, id=172, 1118.1775pt x 451.6875pt>
 File: ./img/age.png Graphic file (type png)
 <use ./img/age.png>
 Package pdftex.def Info: ./img/age.png  used on input line 182.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
- [7 <./img/grav2.png> <./img/pieton.png>]
 <./img/sexe.png, id=174, 1118.1775pt x 451.6875pt>
 File: ./img/sexe.png Graphic file (type png)
 <use ./img/sexe.png>
 Package pdftex.def Info: ./img/sexe.png  used on input line 199.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
- [8 <./img/age.png> <./img/sexe.png>]
-<./img/col.png, id=183, 1118.1775pt x 451.6875pt>
+<./img/col.png, id=176, 1118.1775pt x 451.6875pt>
 File: ./img/col.png Graphic file (type png)
 <use ./img/col.png>
 Package pdftex.def Info: ./img/col.png  used on input line 211.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
-<./img/bivar_sexe.png, id=186, 971.63pt x 451.6875pt>
+ [8 <./img/age.png>] [9 <./img/sexe.png> <./img/col.png>]
+<./img/bivar_sexe.png, id=193, 971.63pt x 451.6875pt>
 File: ./img/bivar_sexe.png Graphic file (type png)
 <use ./img/bivar_sexe.png>
 Package pdftex.def Info: ./img/bivar_sexe.png  used on input line 240.
 (pdftex.def)             Requested size: 170.71652pt x 79.35664pt.
-<./img/bivar_sexe2.png, id=187, 971.63pt x 451.6875pt>
+<./img/bivar_sexe2.png, id=194, 971.63pt x 451.6875pt>
 File: ./img/bivar_sexe2.png Graphic file (type png)
 <use ./img/bivar_sexe2.png>
 Package pdftex.def Info: ./img/bivar_sexe2.png  used on input line 245.
 (pdftex.def)             Requested size: 170.71652pt x 79.35664pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9 <./img/col.png>] [10 <./img/bivar_sexe.png> <./img/bivar_sexe2.png>] [11] (./rapport.aux)
+ [10 <./img/bivar_sexe.png> <./img/bivar_sexe2.png>] [11] (./rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 81C53CDB4AEB6786FB967B2737711BA0;3633.
  ) 
 Here is how much of TeX's memory you used:
  11814 strings out of 478287
  191540 string characters out of 5849289
- 506686 words of memory out of 5000000
+ 508686 words of memory out of 5000000
  29835 multiletter control sequences out of 15000+600000
  479822 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,8n,77p,568b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on rapport.pdf (11 pages, 322925 bytes).
+Output written on rapport.pdf (11 pages, 323552 bytes).
 PDF statistics:
  264 PDF objects out of 1000 (max. 8388607)
  210 compressed objects within 3 object streams
