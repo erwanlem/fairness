@@ -1,6 +1,7 @@
 rapport/*.out
 rapport/*.aux
 rapport/*.fls
+rapport/*.log
 rapport/*.toc
 rapport/*.fdb_latexmk
 rapport/*.synctex.gz
