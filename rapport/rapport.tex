@@ -262,15 +262,73 @@
     avons utilisé. Pour ce qui est des résultats, l'accuracy score est de \textit{1} pour l'entrainement et de \textit{0.9014} pour le teste.
     
     Pour ce qui est de la matrice de confusion, on remarque que \textit{27687} véhcules ont été classés à raison en tant que accidents non létaux.
-    Tandis que \textit{291} accidents mortels ont été trouvés. Toutefois \textit{1413} accidents mortel ont été resecés à tord comme étant 
+    Tandis que \textit{291} accidents mortels ont été trouvés. Toutefois \textit{1413} accidents mortel ont été resencés à tord comme étant 
     non létaux et \textit{1648} véhicule ont subit le sort inverse. 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/matrice_confusion_tree.png}
+        \caption{La matrice de confusion pour le random tree classifier}
+    \end{figure}
+
 
     En résumé, on remaque que le modèle réussit très bien à classifier les accidents qui n'ont pas conduit à la mort de quelqu'un. Cemendant,
     il lui apparaît bien plus difficile de trouver les véhicules impliqués accidents qui sont mortels. On peut attribuer ceci au fait que
     ces accidents létaux ne représentent que \textit{5.38\%} des accidents rétertoriés dans la base.
     
     \subsection{GaussianNB}
+    Avancés dans le projet, nous avons voulus tester plusieurs classifieurs, tous ont donné des résultats différents, pour certains médiocres. 
+    Mais nous avons trouver un autre classifieur qui donnait des résultats intéressants : GaussianNB.
 
+    Il ne maximise pas notre accuracy score puisqu'il n'est que de \textit{0.8734} à l'entrainement et de \textit{0.8677} pour les tests. Ce qui
+    a toutefois retenu notre attention c'est le nombre d'accidents létaux qu'il parvient à détecter : \textit{508}. Réduisant ainsi l'erreur des
+    accidents mortel resencés à tord comme étant non létaux à seulement \textit{1196}. Ceci entrainne malheureusement un perte de performances 
+    pour ce qui est de la détection d'accidents non mortel comme on peut le voir ci-dessous.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/matrice_confusion_gaussien.png}
+        \caption{La matrice de confusion avec GaussianNB}
+    \end{figure}
+
+    Un autre avantage qui peut ressembler à un inconvienent au départ est que ce classifieur demande des nombres et non des oneHot. Or nous en 
+    avons à foison. En dépis de ça, nos valeurs au départ sont en format numérique, rendant donc nos données compatibles avec cette approche.
+    Ceci nous ouvre alors la possibilité de tester d'autres choses puis que le classifieur donne des probabilités et non des arbres. Au premier 
+    rang desquels \textit{xplique}. 
+    
+    Par soucis de concision cependant, nous prendrons le modèle issus de \textit{random tree classifier} pour tous les audits qui vont suivre, 
+    puisque c'est le premier avec lequel nous avons travaillé. On notera tout de même que lorsqu'on effectue ces audits avec \textit{GaussianNB}
+    Les résulats diffèrent en bien des points de ceux observés avec \textit{random tree classifier}, preuve qu'ils ont une approche bien différente.
+
+    \subsection{Base Rate}
+
+    Nous avons voulu mesurer les résultats sur deux données à protéger potentiellement : le fait qu'un piéton soit impliqué dans 
+    un accident et le sexe du conducteur. Voici les résultats : 
+
+    sexe_conducteur 1 (un homme)
+
+    disparate_impact 1.21767750298587 1.6331199049428085
+
+    P_rule_disparate_impact 0.8212355057458954 0.6123249107266375
+
+    demography_parity 0.011747835864606336 0.02383701239031672
+
+    Ce qui est flagrant ici, c'est qu'il existe un disparité dans la prédiction d'accident mortel pour les hommes. Allant par ailleur
+    dans le sens de ce qu'indique disparate impact par la suite. Notons cependant que la disparité démographique existe mais est très
+    faible. 
+
+    pieton 1 (un piéton est impliqué)
+
+    disparate_impact 1.0538191011165416 1.0968113720110815
+
+    P_rule_disparate_impact 0.9489294689576994 0.9117337999207913
+
+    demography_parity 0.003345154811069756 0.005266913173450724
+
+    Pour ce qui est de l'implication d'un piéton dans un accident, on constate ici aussi une légère disparité, soulignant leur
+    plus grande implication dans des accidents mortels. Ceci concorde encore une fois avec le disparaite_impact. Démographiquement, 
+    le cas est similaire au sexe, puisqu'on constate une légère disparité en leur faveur. Bien que cette fois la disparité soit plus
+    faible encore. 
 
     \section{Audit du modèle}
 
@@ -287,6 +345,55 @@
     Enfin les attributs \textit{dep} et \textit{sexe\_conducteur} sont également représentés. Ils pourraient être sources de biais, notamment 
     l'attribut \textit{dep}, le modèle pourrait associer un département à une prédiction d'accident mortel.
 
+
+    \subsection{BlackBoxAuditing}
+    Les résultats que nous allonjs analysés sont issus du modèle généré par \textit{random tree classifier}.
+
+    Tout d'abord l'audit a porté sur les 24 features que nous avons conservés afin d'élaborer ce modèle. Ce qui marque avec 
+    cet audit provient du sommaire. On y constate le role pédominant de l'age pour l'accuracy score. À 0.84, ce dernier éclipse 
+    tous les autres. Une explication pourrait venir de ce que nous avons constaté dans notre analyse univariée : il ya une 
+    surreprésentation des jeunes de 20-21 ans dans ce set. Ceci est en réalité loin de surprendre puisqu'il s'aligne avec la 
+    politique de prix pratiqué par les assureurs envers les jeunes conducteurs.
+
+    Par la suite on peut s'intéresser à l'évolution de l'accuracy en fonction du niveau de réparation appliqué à chaque 
+    attribut : 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/accuracy.png}
+        \caption{L'accuracy en fonction du niveau de réparation pour chaque attribut.}
+    \end{figure}
+
+    Ce qui est marquant ici est la disparité de réaction lors de l'application de mesures de réparations. On reconnait les 
+    attributs dont l'accuracy est au plus haut en regardant ceux qui s'effondrent le plus. Au premier rang desquels l'age s'illustre
+    à nouveau. À la lumière de ceci, il apparait évident que modèle dicrimine fortement les véhicule en fonction de l'âge du 
+    conducteur. Dans une moindre mesure on constate la même chose pour \textit{situ}, qui fait référence à la localisation 
+    géographique de l'accident. Ce qui parrait sencé, étant donné que certains lieu sont plus dangereux que d'autres. Enfin, 
+    notons que le type d'intersection et la catégorie du véhicule est elle aussi source de discriminations de la part de notre 
+    modèle. Encore une fois cela semble faire sense.
+
+    Toutefois, notons l'absence de quelques attributs notables tels que le nombre de voies, le sexe du conducteur (chose intéressante:
+    ce n'est pas le cas avec GaussianNB),  le type de colision, le type d'obstacle heutré ou encore le fait qu'un piéton soit impliqué.
+    Pour ce qui est des piétons, ça peut parraitre étonant, on peut émettre l'hypothèse que leur présence est souvent en ville là où 
+    les vitesses sont basses. entrainant donc moins de mort.
+
+    Maintenant regardons l'équilibre du modèle à l'aide du BCR : 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/BCR.png}
+        \caption{Le BCR en fonction du niveau de réparation pour chaque attribut.}
+    \end{figure}
+
+    On remarque ici que les attributs sont plutot centrés autour de 0.5 que la plus part reste rectiligne, mais que certaint divergent
+    quelque peu. Cet évasement est dû à des attributs déjà connus tels que âge ou catv. D'autres influent aussi mais ne s'étaient pas 
+    illustré précédament à l'image du nombre de voies, du profile de la route ainsi que la luninosité. 
+
+    Malgré cela, l'évasement assez faible laisse dire que le modèle est plutot équilibré. De plus, comme mentionné précédament 
+    dans la section dédié au split, nous avons pu tester le cas où l'on acceptait que des véhicules impliqués dans le même accident
+    se retrouvent dans des sets différents (entrainement / test). Ce qu'il ressortait alors du BCR était un évasement beaucoup
+    plus important et une origine située vers 0.68. Ce qui fait dire que cette version était bel et bien trop modelée sur le train
+    set, l'équilibre était rompu.
 
     \subsection{Expliquer le modèle avec les valeurs de Shapley}
     Afin d'analyser la contribution des différents attributs dans notre modèle, nous avons 
