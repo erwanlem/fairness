@@ -235,9 +235,9 @@
     ils avaient eu un accident dans l'ensemble d'apprentissage. 
     
     \subsection{Encodage One Hot}
-    La base de données nous fournit pour la plupart des attributs des données qui peuvent être converties en entiers. 
+    La base de données nous fournit, pour la plupart des attributs, des données qui peuvent être converties en entiers. 
     Par exemple, une catégorie de véhicule (\textit{catv}) est désignée par un chiffre. L'attribut reste cependant catégoriel. En pratique, 
-    le seul attribut quantitatif qui nous reste est l'âge du conducteur. 
+    les seuls attributs quantitatifs qui nous restent sont l'âge du conducteur, les mois et les départements. 
     Le reste est soit binaire, soit qualitatif. 
     
     Tous les attributs qualitatifs ont donc été transformés en OneHot. Initialement, nous souhaitions optimiser le nombre de colonnes en 
@@ -248,11 +248,11 @@
     standard pour nos OneHot. 
     
     \subsection{Arbre de décision}
-    Une fois les données prêtes, nous avons utilisé le classifieur d'arbres aléatoires pour obtenir un modèle. C'est le premier que nous 
-    avons utilisé. En ce qui concerne les résultats, le score d'exactitude est de \textit{1} pour l'entraînement et de \textit{0.9014} pour le test.
+    Une fois les données prêtes, nous avons utilisé le classifieur par arbres de décision pour obtenir un modèle. C'est le premier que nous 
+    avons utilisé. En ce qui concerne les résultats, le score d'accuracy est de \textit{1} pour l'entraînement et de \textit{0.9014} pour le test.
         
     En ce qui concerne la matrice de confusion, on remarque que \textit{27687} véhicules ont été classés correctement en tant qu'accidents non létaux.
-    Tandis que \textit{291} accidents mortels ont été correctement identifiés. Cependant, \textit{1413} accidents mortels ont été recensés à tort 
+    Tandis que \textit{291} accidents mortels seulement ont été correctement identifiés. Cependant, \textit{1413} accidents mortels ont été recensés à tort 
     comme étant non létaux et \textit{1648} véhicules ont subi le sort inverse. 
     
     \begin{figure}[h]
@@ -264,15 +264,15 @@
 
     En résumé, on remarque que le modèle réussit très bien à classifier les accidents qui n'ont pas conduit à la mort de quelqu'un. Cependant, 
     il lui apparaît bien plus difficile de trouver les véhicules impliqués dans des accidents mortels. On peut attribuer ceci au fait que ces 
-    accidents létaux ne représentent que \textit{5.38\%} des accidents répertoriés dans la base.
+    accidents létaux ne représentent que \textit{5.38\%} des véhicules accidentés répertoriés dans la base.
 
     \subsection{GaussianNB}
     Avancés dans le projet, nous avons voulu tester plusieurs classifieurs, tous ont donné des résultats différents, pour certains médiocres. 
     Mais nous avons trouvé un autre classifieur qui donnait des résultats intéressants : GaussianNB.
         
-    Il ne maximise pas notre score de précision puisqu'il n'est que de \textit{0.8734} à l'entraînement et de \textit{0.8677} pour les tests. Ce qui 
-    a toutefois retenu notre attention, c'est le nombre d'accidents létaux qu'il parvient à détecter : \textit{508}. Réduisant ainsi l'erreur des 
-    accidents mortels recensés à tort comme étant non létaux à seulement \textit{1196}. Ceci entraîne malheureusement une perte de performances 
+    Il ne maximise pas notre accuracy score puisqu'il n'est que de \textit{0.8734} à l'entraînement et de \textit{0.8677} pour les tests. Ce qui 
+    a toutefois retenu notre attention, c'est le nombre d'accidents létaux qu'il parvient à détecter : \textit{508}. Réduisant ainsi l'erreur associée
+    (les accidents mortels recensés à tort comme étant non létaux) à seulement \textit{1196}. Ceci s'accompagne malheureusement une perte de performances 
     pour ce qui est de la détection d'accidents non mortels comme on peut le voir ci-dessous.
 
     \begin{figure}[h]
@@ -281,18 +281,18 @@
         \caption{La matrice de confusion avec GaussianNB}
     \end{figure}
 
-    Un autre avantage qui peut ressembler à un inconvénient au départ est que ce classifieur demande des nombres et non des OneHot. Or nous en 
-    avons à foison. En dépit de ça, nos valeurs au départ sont en format numérique, rendant donc nos données compatibles avec cette approche.
+    Un autre avantage qui peut ressembler à un inconvénient au départ est que ce classifieur demande des nombres et non des OneHot.
+    Nos valeurs au départ sont en format numérique, rendant donc nos données compatibles avec cette approche.
     Ceci nous ouvre alors la possibilité de tester d'autres choses puisque le classifieur donne des probabilités et non des arbres. Au premier 
     rang desquels \textit{xplique}.
         
-    Par souci de concision cependant, nous prendrons le modèle issu du \textit{random tree classifier} pour tous les audits qui vont suivre, 
+    Par souci de concision cependant, nous prendrons le modèle issu du \textit{tree classifier} pour tous les audits qui vont suivre, 
     puisque c'est le premier avec lequel nous avons travaillé. On notera tout de même que lorsqu'on effectue ces audits avec \textit{GaussianNB}, 
-    les résultats diffèrent en bien des points de ceux observés avec le \textit{random tree classifier}, preuve qu'ils ont une approche bien différente.
+    les résultats diffèrent en bien des points de ceux observés avec le \textit{tree classifier}, preuve qu'ils ont une approche bien différente.
 
     \subsection{Base Rate}
 
-    Nous avons voulu mesurer les résultats sur deux données potentiellement à protéger : le fait qu'un piéton soit impliqué dans 
+    Nous avons voulu mesurer les résultats méritant potentiellement une protection : le fait qu'un piéton soit impliqué dans 
     un accident et le sexe du conducteur. Voici les résultats :
 
     Sexe du conducteur 1 (un homme)
@@ -304,8 +304,8 @@
     Démographie Parité : 0.011747835864606336 0.02383701239031672
 
     Ce qui est flagrant ici, c'est qu'il existe une disparité dans la prédiction d'accidents mortels pour les hommes. Allant par ailleurs
-    dans le sens de ce qu'indique Disparate Impact par la suite. Notons cependant que la disparité démographique existe mais est très
-    faible.
+    dans le sens de ce qu'indique Disparate Impact par la suite. Notons cependant que la disparité démographique entre hommes et femmes
+    existe mais est très faible.
 
     Piéton 1 (un piéton est impliqué)
 
@@ -328,8 +328,8 @@
     dans le changement des exemples contrefactuels.
     Parmi eux, on peut noter que l'attribut \textit{âge} est souvent représenté. Le taux d'accidents (notamment mortels) étant plus 
     élevé chez les jeunes et les personnes âgées, cela paraît assez cohérent. L'attribut \textit{obsm} est également 
-    souvent représenté dans les exemples contrefactuels.
-    On a pu remarquer que l'attribut \textit{col} est peu représenté dans les résultats, contrairement à l'hypothèse que 
+    souvent utilisé dans les exemples contrefactuels.
+    Nous avons pu remarquer que l'attribut \textit{col} est peu représenté dans les résultats, contrairement à l'hypothèse que 
     nous avions pu faire lors de l'analyse.
 
     Enfin, les attributs \textit{dep} et \textit{sexe\_conducteur} sont également représentés. Ils pourraient être sources de biais, notamment 
@@ -337,10 +337,10 @@
 
 
     \subsection{BlackBoxAuditing}
-    Les résultats que nous allons analyser sont issus du modèle généré par \textit{random tree classifier}.
+    Les résultats que nous allons analyser sont issus du modèle généré par \textit{tree classifier}.
 
-    Tout d'abord, l'audit a porté sur les 24 features que nous avons conservés afin d'élaborer ce modèle. Ce qui marque avec 
-    cet audit provient du sommaire. On y constate le rôle prédominant de l'âge pour l'accuracy score. À 0.84, ce dernier éclipse 
+    Tout d'abord, l'audit a porté sur les 24 features que nous avons conservés afin d'élaborer ce modèle. 
+    On constate tout d'abord le rôle prédominant de l'âge pour l'accuracy score. À \textit{0.84}, ce dernier éclipse 
     tous les autres. Une explication pourrait venir de ce que nous avons constaté dans notre analyse univariée : il y a une 
     surreprésentation des jeunes de 20--21 ans dans ce set. Ceci est en réalité loin de surprendre puisqu'il s'aligne avec la 
     politique de prix pratiquée par les assureurs envers les jeunes conducteurs.
@@ -354,19 +354,17 @@
         \caption{L'accuracy en fonction du niveau de réparation pour chaque attribut.}
     \end{figure}
 
-    Ce qui est marquant ici est la disparité de réaction lors de l'application de mesures de réparations. On reconnaît les 
+    On reconnaît toput de suite les 
     attributs dont l'accuracy est au plus haut en regardant ceux qui s'effondrent le plus. En premier lieu, l'âge s'illustre
     à nouveau. À la lumière de ceci, il apparaît évident que le modèle discrimine fortement les véhicules en fonction de l'âge du 
     conducteur. Dans une moindre mesure, on constate la même chose pour \textit{situ}, qui fait référence à la localisation 
     géographique de l'accident. Ce qui paraît sensé, étant donné que certains lieux sont plus dangereux que d'autres. Enfin, 
-    notons que le type d'intersection et la catégorie du véhicule sont également sources de discriminations de la part de notre 
+    on observe que le type d'intersection et la catégorie du véhicule sont également sources de discriminations de la part de notre 
     modèle. Encore une fois, cela semble cohérent.
 
     Toutefois, notons l'absence de quelques attributs notables tels que le nombre de voies, le sexe du conducteur (chose intéressante :
     ce n'est pas le cas avec GaussianNB), le type de collision, le type d'obstacle heurté ou encore le fait qu'un piéton soit impliqué.
-    Pour ce qui est des piétons, cela peut paraître étonnant ; on peut émettre l'hypothèse que leur présence est souvent en ville là où 
-    les vitesses sont basses entraînant donc moins de morts.
-
+    
     Maintenant regardons l'équilibre du modèle à l'aide du BCR.
 
     \begin{figure}[h]
@@ -377,13 +375,15 @@
 
     On remarque ici que les attributs sont plutôt centrés autour de \textit{0.5} et que la plupart reste rectiligne, mais que certains divergent
     quelque peu. Cet évasement est dû à des attributs déjà connus tels que \textit{âge} ou \textit{catv}. D'autres influent aussi mais ne s'étaient pas 
-    illustrés précédemment, à l'image du nombre de voies, du profil de la route ainsi que de la luminosité. 
+    illustrés précédemment, à l'image du nombre de voies (\textit{nbv}), du profil de la route (\textit{plan}) ainsi que de la luminosité (\textit{lum}). 
 
     Malgré cela, l'évasement assez faible laisse penser que le modèle est plutôt équilibré. De plus, comme mentionné précédemment 
-    dans la section dédiée au split, nous avons pu tester le cas où on acceptait que des véhicules impliqués dans le même accident
+    dans la section dédiée au split, nous avons pu tester le cas où l'on acceptait que des véhicules impliqués dans le même accident
     se retrouvent dans des ensembles différents (entraînement / test). Ce qu'il ressortait alors du BCR était un évasement beaucoup
     plus important et une origine située vers 0.68. Ce qui laisse à penser que cette version était bel et bien trop modelée sur le train
     set, l'équilibre était rompu.
+
+    Pour conclure, BlackBoxAuditing nous a permis de comprendre quels étaient les attributs les plus discriminés. Âge est certainement le plus notable.
 
     \subsection{Expliquer le modèle avec les valeurs de Shapley}
     Afin d'analyser la contribution des différents attributs dans notre modèle, nous avons 
@@ -391,9 +391,9 @@
     \verb|ShapleyValues| du module \textit{ShapKit}. Cependant, le nombre d'attributs de notre dataset est trop 
     important et le calcul trop long.
     Il a donc fallu calculer une approximation de la valeur de Shapley avec la fonction \verb|MonteCarloShapley|.
-    Nous devons cependant être prudents car le calcul de l'approximation nous 
+    Nous devons cependant être prudents car ce calcul de l'approximation nous 
     donne une tendance pour notre modèle mais certainement pas une valeur exacte. On peut le constater en changeant 
-    le nombre d'itérations, ce qui produit un résultat différent.
+    le nombre d'itérations, qui produit souvent un résultat différent.
 
     Avec \texttt{n\_iter=1000}, on obtient le diagramme en cascade de la figure \ref{fig:fig_shap}. Ce diagramme 
     nous montre, en partant d'un score référence de 1, quels attributs contribuent à obtenir un score de 0 (l'utilisation 
@@ -425,14 +425,14 @@
     le plus aux prédictions de notre modèle. On peut retrouver le code correspondant dans le fichier 
     \texttt{lime.ipynb}.
 
-    Nous avons d'abord récupéré les indices des prédictions positives de notre modèle (avec quelles 
-    entrées notre modèle prédit 1 ?). Ainsi, on a pu regarder dans les cas où les prédictions sont 0 
+    Nous avons d'abord récupéré les indices des prédictions positives de notre modèle (avec lesquelles les 
+    entrées notre modèle prédit 1). Ainsi, on a pu regarder dans les cas où les prédictions sont 0 
     et les cas où les prédictions sont 1.
     On peut remarquer qu'on trouve des variables similaires à celles trouvées avec les valeurs de 
     Shapley. On retrouve notamment assez fréquemment l'attribut \textit{agg}.
     Cependant, contrairement au résultat que pouvait nous donner \textit{ShapKit}, l'attribut \textit{mois} est 
     moins représenté. Les contributions sont également plus réparties entre les attributs.
-    Enfin, il semble que comme nous avions pu l'observer avec les valeurs de Shapley, l'attribut 
+    Enfin, il semble que, comme nous avions pu l'observer avec les valeurs de Shapley, l'attribut 
     \textit{sexe\_conducteur} ait un faible impact sur la prédiction.
 
     \section{Conclusion}
