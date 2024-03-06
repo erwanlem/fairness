@@ -2,16 +2,28 @@
 
 Travail sur les données des accidents corporels de la circulation routière de 2005 à 2022.
 
+Travail sur la classification des véhicules comme impliqués dans un accident mortel ou non mortel.
+L'objectif de ce projet est l'identification des attributs sensibles, et de corriger les biais qu'ils peuvent provoquer.
 
-Source: https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2022/
+Le répertoire de ce projet est organisé comme suit:
+- Le **rapport** au format *pdf* `rapport/rapport.pdf`
+- `main.ipynb` contient le code principal
+- `mainGaussien.ipynb` contient le code avec le modèle *GaussianNB*
+- `lime.ipynb` contient le travail effectué avec *lime*
+- Le fichier `utils.py` contient l'ensemble des fonctions auxiliaires utilisées dans `main.ipynb`
 
-Lien Excel : https://upsud-my.sharepoint.com/:x:/g/personal/yannis_chupin_universite-paris-saclay_fr/ER5tguaGCMVEq1ag52qP2pwB_U9fmoEpD1M8_GM1VpRy5A?e=oic2ud
+Vous pouvez retrouver la base de donnée dans le répertoire `dataset/`.
 
-## Choses à discuter :
 
-- utiliser l'appreneur recommandé qui gère les NaN ?
+Participants:
+- Yannis CHUPIN L3 Info
+- Erwan LEMATTRE LDD3 Mag. Info
+
+
 
 ## Documentation
+
+Source du dataset: https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2022/
 
 
 - Lime : https://christophm.github.io/interpretable-ml-book/lime.html#lime
