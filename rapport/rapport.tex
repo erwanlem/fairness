@@ -384,25 +384,28 @@
     Il a donc fallu calculer une approximation de la valeur de Shapley avec la fonction \verb|MonteCarloShapley|.
     Nous devons cependant être prudents car ce calcul de l'approximation nous 
     donne une tendance pour notre modèle mais certainement pas une valeur exacte. On peut le constater en changeant 
-    le nombre d'itérations, qui produit souvent un résultat différent.
+    le nombre d'itérations, qui produit souvent un résultat différent. Toutes les approximations ont ici été calculées 
+    avec \texttt{n\_iter=1000}.
 
-    Avec \texttt{n\_iter=1000}, on obtient le diagramme en cascade de la figure \ref{fig:fig_shap}. Ce diagramme 
-    nous montre, en partant d'un score référence de 1, quels attributs contribuent à obtenir un score de 0 (l'utilisation 
-    d'un arbre de décision nous donne forcément une valeur binaire 0 ou 1, d'où le passage de 1 à 0).
+    Le temps de calcul étant encore assez long nous avons parallélisé le calcul des valeurs de Shapley. Les calculs 
+    ont ensuite été séparés en deux, d'un côté pour les prédictions qui donnent 1 et de l'autre pour celles qui donnent 0.
+    ON peut ainsi avoir une idée des attributs décisifs dans les deux cas.
 
-    Les attributs qui contribuent le plus sont ici \textit{trajet}, \textit{agg}, \textit{circ}, \textit{mois} et 
-    \textit{obsm}. On aurait pu ici s'attendre à une contribution plus importante de \textit{lum}, \textit{vma} ou 
-    encore \textit{col} (qui ici a une contribution mineure).
+    Ce qui ressort des résultats obtenus est que les attributs \textit{col}, \textit{choc}, \textit{obsm}, \textit{int} 
+    et \textit{agg} contribuent souvent au résultat. Ce résultat paraît plutôt cohérent.
+    En revanche, on retrouve également assez souvent les attributs \textit{mois}, \textit{âge} et \textit{dep}. Ces 
+    attributs ne devraient pas contribuer autant à la sortie de notre modèle. Il peuvent constituer un biais (ce n'est 
+    pas parce qu'on a un accident à l'âge de 21 ans que l'on va forcément mourir, d'autres attributs sont beaucoup plus 
+    importants).
 
-    Une donnée intéressante ici est la valeur pour l'attribut \textit{sexe\_conducteur}. On nous donne une contribution 
-    nulle de cet attribut, ce qui peut nous encourager dans l'idée que le sexe n'est pas un biais pour notre modèle. 
-    Ce résultat étant une approximation, il est possible que la véritable valeur ne soit pas complètement nulle mais 
-    du moins assez faible.
 
-    Enfin, ce résultat nous montre que seule une petite partie des attributs contribue au résultat. On aurait 
-    voulu une contribution un peu plus répartie entre les attributs car ici le changement d'une petite partie
-    des attributs pourrait faire basculer le résultat. Or on sait bien que les 5 attributs qui contribuent ici le 
-    plus ne permettent pas à eux seuls d'expliquer ce changement.
+    Pour l'attribut \textit{sexe\_conducteur} on nous donne une contribution 
+    nulle de cet attribut. Cela peut nous encourager dans l'idée que le sexe n'est pas un biais pour notre modèle 
+    conrairement à ce que nous pouvions penser au départ.
+
+    Ci-dessous un résultat obtenu du calcul des valeurs de Shapley. Vous pouvons retrouver un échantillon des résultats dans l'annexe ? de ce rapport.
+    
+    
 
     \begin{figure}[h]
         \centering
