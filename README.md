@@ -27,4 +27,4 @@ Source du dataset: https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuell
 
 
 - Lime : https://christophm.github.io/interpretable-ml-book/lime.html#lime
-- shape : https://christophm.github.io/interpretable-ml-book/shapley.html
+- shapley values : https://christophm.github.io/interpretable-ml-book/shapley.html
