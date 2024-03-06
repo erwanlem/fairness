@@ -437,6 +437,25 @@
     est meilleur pour détecter les véhicules impliqués dans des accidents vraiment mortels. Pour ce modèle nous avons aussi effectué les audits 
     évoqués précédemment, mais nous ne les avons pas analysés dans ce rapport. Ce qui conclut notre premier rendu. 
 
+    L'analyse des données ainsi que les audits que nous avons pu faire après entrainement du modèle nous ont permis d'identifier 
+    plusieurs attributs sensibles. D'abord nous pensions que le genre du conducteur pourrait avoir un impact sur la prédiction. 
+    Cela aurait été un biais de notre modèle. Or nous avons pu observer via les différents outils utilisés que le genre du 
+    conducteur a un impact très faible sur la prédiction du modèle. En revanche, le travail effectué nous a permis d'identifier 
+    d'autres attributs sensibles qui eux ont réel impact sur les sorties du modèle. Les attributs \textit{âge}, \textit{dep} et 
+    \textit{mois} sont des attributs que nous avons identifié comme sensibles pour notre modèle. Ils ont un impact assez important 
+    sur les prédictions et pourtant ne devraient pas être décisifs dans la classification d'un accident mortel ou non mortel.
+
+    \section{Une réflexion pour la suite}
+    Cette première partie nous a permis de nous familiariser avec notre jeu de données. L'objectif de classification a été une 
+    question qui nous a suivi du début de ce projet jusqu'à la rédaction de ce rapport. 
+    Les premières conclusions nous ont mené encore une fois à la réflexion sur une nouvelle direction à suivre pour la classification. 
+    Ne faudrait-il pas classifier l'ensemble des 
+    gravité ? Nous nous basons dans cette première partie sur des données dans lesquelles nous avons seulement 5\% d'accidents 
+    mortels. Ne serait-il pas judicieux de prendre en compte l'ensemble de gravité et donc de travailler sur des proportions 
+    plus conséquentes ?
+
+    Ces questions seront déterminantes pour la suite de ce projet.
+
     \newpage
     \appendix
 
