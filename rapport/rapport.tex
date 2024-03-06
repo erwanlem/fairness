@@ -248,7 +248,7 @@
     Cependant, cette approche posait des problèmes car elle empêchait la réalisation de l'audit. Nous avons donc utilisé la méthode 
     standard pour nos OneHot. 
     
-    \subsection{Random Forest Classifier}
+    \subsection{Arbre de décision}
     Une fois les données prêtes, nous avons utilisé le classifieur d'arbres aléatoires pour obtenir un modèle. C'est le premier que nous 
     avons utilisé. En ce qui concerne les résultats, le score d'exactitude est de \textit{1} pour l'entraînement et de \textit{0.9014} pour le test.
         
@@ -437,7 +437,15 @@
     \textit{sexe\_conducteur} ait un faible impact sur la prédiction.
 
     \section{Conclusion}
+    Pour ce projet nous avons cherché un dataset qui nous intéressait, et nous avons choisi celui rapportant les accidents de la route. Pourvu de 
+    nombreux attributs, nous avons dû adapter leur format avant de pouvoir les analyser de manière univariée puis bivariée. Lors du premier essai, 
+    nous avons fait le choix d'utiliser des arbres de décision. Ce qui nous a conduit à transformer beaucoup de nos variables en OneHot. L'accuracy 
+    de ce modèle était élevée, mais il a du mal à trouver les accidents réellement mortels. Pour ce modèle, nous avons par la suite calculé le base 
+    rate puis effectué quelques audites tels que dice, BlackBoxAuditing et shapkit.
 
+    Par la suite nous avons essayé de trouver un classifieur qui avait de meilleures performances, c'est ainsi que nous avons trouvé GaussianNB, qui
+    est meilleur pour détecter les véhicules impliqués dans des accidents vraiment mortels. Pour ce modèle nous avons aussi effectué les audits 
+    évoqués précédemment, mais nous ne les avons pas analysés dans ce rapport. Ce qui conclut notre premier rendu. 
 
     \newpage
     \appendix
