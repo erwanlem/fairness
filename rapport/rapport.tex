@@ -305,13 +305,13 @@
     Nous avons voulu mesurer les résultats sur deux données à protéger potentiellement : le fait qu'un piéton soit impliqué dans 
     un accident et le sexe du conducteur. Voici les résultats : 
 
-    sexe_conducteur 1 (un homme)
+    sexe\_conducteur 1 (un homme)
 
-    disparate_impact 1.21767750298587 1.6331199049428085
+    disparate\_impact 1.21767750298587 1.6331199049428085
 
-    P_rule_disparate_impact 0.8212355057458954 0.6123249107266375
+    P\_rule\_disparate\_impact 0.8212355057458954 0.6123249107266375
 
-    demography_parity 0.011747835864606336 0.02383701239031672
+    demography\_parity 0.011747835864606336 0.02383701239031672
 
     Ce qui est flagrant ici, c'est qu'il existe un disparité dans la prédiction d'accident mortel pour les hommes. Allant par ailleur
     dans le sens de ce qu'indique disparate impact par la suite. Notons cependant que la disparité démographique existe mais est très
@@ -319,14 +319,14 @@
 
     pieton 1 (un piéton est impliqué)
 
-    disparate_impact 1.0538191011165416 1.0968113720110815
+    disparate\_impact 1.0538191011165416 1.0968113720110815
 
-    P_rule_disparate_impact 0.9489294689576994 0.9117337999207913
+    P\_rule\_disparate\_impact 0.9489294689576994 0.9117337999207913
 
-    demography_parity 0.003345154811069756 0.005266913173450724
+    demography\_parity 0.003345154811069756 0.005266913173450724
 
     Pour ce qui est de l'implication d'un piéton dans un accident, on constate ici aussi une légère disparité, soulignant leur
-    plus grande implication dans des accidents mortels. Ceci concorde encore une fois avec le disparaite_impact. Démographiquement, 
+    plus grande implication dans des accidents mortels. Ceci concorde encore une fois avec le \textit{disparaite\_impact}. Démographiquement, 
     le cas est similaire au sexe, puisqu'on constate une légère disparité en leur faveur. Bien que cette fois la disparité soit plus
     faible encore. 
 
@@ -356,11 +356,11 @@
     politique de prix pratiqué par les assureurs envers les jeunes conducteurs.
 
     Par la suite on peut s'intéresser à l'évolution de l'accuracy en fonction du niveau de réparation appliqué à chaque 
-    attribut : 
+    attribut: 
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=\textwidth]{./img/accuracy.png}
+        \includegraphics[width=10cm]{./img/accuracy.png}
         \caption{L'accuracy en fonction du niveau de réparation pour chaque attribut.}
     \end{figure}
 
@@ -381,7 +381,7 @@
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=\textwidth]{./img/BCR.png}
+        \includegraphics[width=10cm]{./img/BCR.png}
         \caption{Le BCR en fonction du niveau de réparation pour chaque attribut.}
     \end{figure}
 

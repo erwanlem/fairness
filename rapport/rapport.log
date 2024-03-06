@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  6 MAR 2024 08:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.14)  6 MAR 2024 13:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -354,13 +354,13 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 31
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<./img/catv1.png, id=160, 1827.82875pt x 451.6875pt>
+<./img/catv1.png, id=170, 1827.82875pt x 451.6875pt>
 File: ./img/catv1.png Graphic file (type png)
 <use ./img/catv1.png>
 Package pdftex.def Info: ./img/catv1.png  used on input line 55.
 (pdftex.def)             Requested size: 341.43306pt x 84.37415pt.
  [3 <./img/catv1.png>]
-<./img/grav1.png, id=173, 1082.0425pt x 451.6875pt>
+<./img/grav1.png, id=183, 1082.0425pt x 451.6875pt>
 File: ./img/grav1.png Graphic file (type png)
 <use ./img/grav1.png>
 Package pdftex.def Info: ./img/grav1.png  used on input line 69.
@@ -371,39 +371,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--82
  []
 
 [4 <./img/grav1.png>]
-<./img/grav2.png, id=180, 851.18pt x 451.6875pt>
+<./img/grav2.png, id=190, 851.18pt x 451.6875pt>
 File: ./img/grav2.png Graphic file (type png)
 <use ./img/grav2.png>
 Package pdftex.def Info: ./img/grav2.png  used on input line 109.
 (pdftex.def)             Requested size: 284.52756pt x 150.98714pt.
-<./img/pieton.png, id=183, 851.18pt x 451.6875pt>
+<./img/pieton.png, id=193, 851.18pt x 451.6875pt>
 File: ./img/pieton.png Graphic file (type png)
 <use ./img/pieton.png>
 Package pdftex.def Info: ./img/pieton.png  used on input line 127.
 (pdftex.def)             Requested size: 284.52756pt x 150.98714pt.
  [5 <./img/grav2.png> <./img/pieton.png>]
-<./img/age.png, id=193, 1118.1775pt x 451.6875pt>
+<./img/age.png, id=203, 1118.1775pt x 451.6875pt>
 File: ./img/age.png Graphic file (type png)
 <use ./img/age.png>
 Package pdftex.def Info: ./img/age.png  used on input line 142.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
-<./img/sexe.png, id=195, 1118.1775pt x 451.6875pt>
+<./img/sexe.png, id=205, 1118.1775pt x 451.6875pt>
 File: ./img/sexe.png Graphic file (type png)
 <use ./img/sexe.png>
 Package pdftex.def Info: ./img/sexe.png  used on input line 159.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
  [6 <./img/age.png> <./img/sexe.png>]
-<./img/col.png, id=205, 1118.1775pt x 451.6875pt>
+<./img/col.png, id=215, 1118.1775pt x 451.6875pt>
 File: ./img/col.png Graphic file (type png)
 <use ./img/col.png>
 Package pdftex.def Info: ./img/col.png  used on input line 171.
 (pdftex.def)             Requested size: 341.43306pt x 137.91956pt.
-<./img/bivar_sexe.png, id=208, 971.63pt x 451.6875pt>
+<./img/bivar_sexe.png, id=218, 971.63pt x 451.6875pt>
 File: ./img/bivar_sexe.png Graphic file (type png)
 <use ./img/bivar_sexe.png>
 Package pdftex.def Info: ./img/bivar_sexe.png  used on input line 201.
 (pdftex.def)             Requested size: 199.16928pt x 92.58275pt.
-<./img/bivar_sexe2.png, id=209, 971.63pt x 451.6875pt>
+<./img/bivar_sexe2.png, id=219, 971.63pt x 451.6875pt>
 File: ./img/bivar_sexe2.png Graphic file (type png)
 <use ./img/bivar_sexe2.png>
 Package pdftex.def Info: ./img/bivar_sexe2.png  used on input line 207.
@@ -413,48 +413,75 @@ Package pdftex.def Info: ./img/bivar_sexe2.png  used on input line 207.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7 <./img/col.png>]
-<./img/bivar_agg.png, id=220, 938.50626pt x 451.6875pt>
+<./img/bivar_agg.png, id=230, 938.50626pt x 451.6875pt>
 File: ./img/bivar_agg.png Graphic file (type png)
 <use ./img/bivar_agg.png>
 Package pdftex.def Info: ./img/bivar_agg.png  used on input line 225.
 (pdftex.def)             Requested size: 199.16928pt x 95.85654pt.
-<./img/bivar_agg2.png, id=221, 938.50626pt x 451.6875pt>
+<./img/bivar_agg2.png, id=231, 938.50626pt x 451.6875pt>
 File: ./img/bivar_agg2.png Graphic file (type png)
 <use ./img/bivar_agg2.png>
 Package pdftex.def Info: ./img/bivar_agg2.png  used on input line 231.
 (pdftex.def)             Requested size: 199.16928pt x 95.85654pt.
- [8 <./img/bivar_sexe.png> <./img/bivar_sexe2.png> <./img/bivar_agg.png> <./img/bivar_agg2.png>] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 314--318
+ [8 <./img/bivar_sexe.png> <./img/bivar_sexe2.png> <./img/bivar_agg.png> <./img/bivar_agg2.png>]
+<./img/matrice_confusion_tree.png, id=242, 1527.7075pt x 451.6875pt>
+File: ./img/matrice_confusion_tree.png Graphic file (type png)
+<use ./img/matrice_confusion_tree.png>
+Package pdftex.def Info: ./img/matrice_confusion_tree.png  used on input line 270.
+(pdftex.def)             Requested size: 415.12572pt x 122.73607pt.
+<./img/matrice_confusion_gaussien.png, id=243, 1527.7075pt x 451.6875pt>
+File: ./img/matrice_confusion_gaussien.png Graphic file (type png)
+<use ./img/matrice_confusion_gaussien.png>
+Package pdftex.def Info: ./img/matrice_confusion_gaussien.png  used on input line 290.
+(pdftex.def)             Requested size: 415.12572pt x 122.73607pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./img/matrice_confusion_tree.png>] [10 <./img/matrice_confusion_gaussien.png>]
+<./img/accuracy.png, id=256, 521.7894pt x 380.1402pt>
+File: ./img/accuracy.png Graphic file (type png)
+<use ./img/accuracy.png>
+Package pdftex.def Info: ./img/accuracy.png  used on input line 363.
+(pdftex.def)             Requested size: 284.52756pt x 207.2854pt.
+ [11 <./img/accuracy.png>]
+<./img/BCR.png, id=263, 521.7894pt x 380.1402pt>
+File: ./img/BCR.png Graphic file (type png)
+<use ./img/BCR.png>
+Package pdftex.def Info: ./img/BCR.png  used on input line 384.
+(pdftex.def)             Requested size: 284.52756pt x 207.2854pt.
+ [12 <./img/BCR.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 421--425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--318
+Underfull \hbox (badness 10000) in paragraph at lines 421--425
 
  []
 
-<./img/shap1.png, id=237, 813.0375pt x 435.0654pt>
+<./img/shap1.png, id=271, 813.0375pt x 435.0654pt>
 File: ./img/shap1.png Graphic file (type png)
 <use ./img/shap1.png>
-Package pdftex.def Info: ./img/shap1.png  used on input line 321.
+Package pdftex.def Info: ./img/shap1.png  used on input line 428.
 (pdftex.def)             Requested size: 415.12572pt x 222.13931pt.
-[10 <./img/shap1.png>] [11] [12] (./rapport.aux)
+[13 <./img/shap1.png>] [14] [15] (./rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: C30B9DAE91E0F16C77C92F6322B4D9FC;4706.
+(rerunfilecheck)             Checksum: 3625274ABF8D091A182B61E395632D98;4950.
  ) 
 Here is how much of TeX's memory you used:
- 12405 strings out of 478287
- 201128 string characters out of 5849289
+ 12444 strings out of 478287
+ 202070 string characters out of 5849289
  523047 words of memory out of 5000000
- 30404 multiletter control sequences out of 15000+600000
+ 30430 multiletter control sequences out of 15000+600000
  479822 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,8n,77p,599b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on rapport.pdf (12 pages, 441677 bytes).
+Output written on rapport.pdf (15 pages, 570926 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 285 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 348 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 321 words of extra memory for PDF output out of 10000 (max. 10000000)
 

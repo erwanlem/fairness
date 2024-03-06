@@ -1,0 +1,7 @@
+rapport/*.out
+rapport/*.aux
+rapport/*.fls
+rapport/*.toc
+rapport/*.fdb_latexmk
+rapport/*.synctex.gz
+__pycache__/
