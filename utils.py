@@ -226,64 +226,11 @@ def predictproba_fn(data, clf, columns):
             [data], columns=columns )
   preds = clf.predict_proba(df_test)
   return np.squeeze(preds, axis=0)
-     
 
-
-def shap_computation(data_test, X_train, clf, fc, id, result):
-    query_instance = data_test.drop(columns="Y")[id:(id+1)]
-    x_class = int(clf.predict(query_instance))
-    query_instance=query_instance.squeeze()
-    
-    X_opposite_class = X_train[clf.predict(X_train) != x_class].copy()
-    reference = X_opposite_class.sample()
-    ref_class = int(clf.predict(reference))
-    reference=reference.squeeze()
-
-    true_shap = MonteCarloShapley(x=query_instance, fc=fc, ref=reference, n_iter=1000, callback=None)
-
-
-
-
-def compute_loop_shap(data_test, X_train, clf, ids, n_iter=4):
-  lock = Lock()
-  cols = data_test.columns.to_list()
-  cols.remove('Y')
-  fc = lambda x: predictproba_fn(x, clf, cols)[1]
-  results = []
-
-  for i in range (0, n_iter//4):
-    
-    id = ids[random.randint(0, len(ids))]
-    th1 = Thread(target=shap_computation, args=(data_test, X_train, clf, fc, id, lock, results))
-
-    id = ids[random.randint(0, len(ids))]
-    th2 = Thread(target=shap_computation, args=(data_test, X_train, clf, fc, id, lock, results))
-
-    id = ids[random.randint(0, len(ids))]
-    th3 = Thread(target=shap_computation, args=(data_test, X_train, clf, fc, id, lock, results))
-
-    id = ids[random.randint(0, len(ids))]
-    th4 = Thread(target=shap_computation, args=(data_test, X_train, clf, fc, id, lock, results))
-
-    th1.setDaemon(True)
-    th2.setDaemon(True)
-    th3.setDaemon(True)
-    th4.setDaemon(True)
-
-    th1.start()
-    th2.start()
-    th3.start()
-    th4.start()
-
-    th1.join()
-    th2.join()
-    th3.join()
-    th4.join()
-  return results
-
-
+## Parallélisation du calcul des valeurs de Shapley
+## n_iter doit être un multiple de 5
 class parallel_shap:
-  def __init__(self, data_test, X_train, clf, ids, n_iter=4):
+  def __init__(self, data_test, X_train, clf, ids, n_iter=5):
     self.data_test = data_test
     self.X_train = X_train
     self.clf = clf
@@ -308,11 +255,11 @@ class parallel_shap:
 
     true_shap = MonteCarloShapley(x=query_instance, fc=fc, ref=reference, n_iter=1000, callback=None)
     ret = self.queue.get()
-    ret.append(true_shap)
+    ret.append((true_shap, query_instance, reference))
     self.queue.put(ret)
 
   def start_shap(self):
-    for i in range (0, self.n_iter//4):
+    for i in range (0, self.n_iter//5):
       id = self.ids[random.randint(0, len(self.ids))]
       self.p1 = multiprocessing.Process(target=self.shap_computation, args=(self.data_test, self.X_train, self.clf, self.fc, id, self.results))
 
@@ -324,22 +271,30 @@ class parallel_shap:
 
       id = self.ids[random.randint(0, len(self.ids))]
       self.p4 = multiprocessing.Process(target=self.shap_computation, args=(self.data_test, self.X_train, self.clf, self.fc, id, self.results))
+      
+      id = self.ids[random.randint(0, len(self.ids))]
+      self.p5 = multiprocessing.Process(target=self.shap_computation, args=(self.data_test, self.X_train, self.clf, self.fc, id, self.results))
 
       self.p1.start()
       self.p2.start()
       self.p3.start()
       self.p4.start()
+      self.p5.start()
+
 
       self.p1.join()
       self.p2.join()
       self.p3.join()
       self.p4.join()
+      self.p5.join()
+    self.results = self.queue.get()
 
   def stop_shap(self):
     self.p1.terminate()
     self.p2.terminate()
     self.p3.terminate()
     self.p4.terminate()
+    self.p5.terminate()
 
 
     
