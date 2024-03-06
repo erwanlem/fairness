@@ -37,7 +37,7 @@
     La base de données est composée de plusieurs tables: \textit{usagers}, \textit{vehicules}, \textit{lieux} et 
     \textit{caracteristiques}. Nous avons joint ces quatres parties pour obtenir un dataframe contenant une 
     cinquantaine de colonnes. 
-    On peut retrouver l'ensemble des attributs dans l'annexe \ref{appendix:dataset}
+    On peut retrouver l'ensemble des attributs dans l'annexe\ref{appendix:dataset}
 
 
     \subsection{Répartition des données}
@@ -107,11 +107,10 @@
     \begin{figure}[ht]
         \centering
         \includegraphics[width=10cm]{./img/grav2.png}
-        \caption{Proportion des véhicules impliqués dans un accident mortel}
-        \label{fig:fig_acc_mortel}
+        \caption{Proportion des véhicules impliqués dans un accident mortel}\label{fig:fig_acc_mortel}
     \end{figure}
 
-    Nous pouvons remarquer sur la figure \ref{fig:fig_acc_mortel} que le fait de s'intéresser 
+    Nous pouvons remarquer sur la figure\ref{fig:fig_acc_mortel} que le fait de s'intéresser 
     aux véhcules impliqués dans un accident mortel et non plus aux personnes victimes permet 
     de doubler le pourcentage. Même si cette proportion reste faible, cela va nous permettre 
     d'avoir plus de données dans la catégorie mortel lors de l'apprentissage et par conséquent 
@@ -119,18 +118,17 @@
 
     \subsubsection{Les piétons}
     Nous nous sommes ensuite intéressé aux accidents dans lesquels un piéton est impliqué. 
-    La figure \ref{fig:fig_acc_pieton} nous montre qu'un peu moins de 10\% des accidents impliquent 
+    La figure\ref{fig:fig_acc_pieton} nous montre qu'un peu moins de 10\% des accidents impliquent 
     un piéton.
 
     \begin{figure}[ht]
         \centering
         \includegraphics[width=10cm]{./img/pieton.png}
-        \caption{Proportion des accidents avec piéton}
-        \label{fig:fig_acc_pieton}
+        \caption{Proportion des accidents avec piéton}\label{fig:fig_acc_pieton}
     \end{figure}
 
     \subsubsection{L'âge}
-    Nous pouvons visualiser l'âge des conducteurs via une boîte à moustache. La figure \ref{fig:fig_age} nous 
+    Nous pouvons visualiser l'âge des conducteurs via une boîte à moustache. La figure\ref{fig:fig_age} nous 
     montre la répartition de l'âge des conducteurs. Lors du prétraitement des données, les valeurs aberrantes 
     ont été enlevée. On retrouve donc logiquement des âges contenus entre 0 et 100 ans. L'âge médian des 
     conducteurs est 33 ans avec le premier quatile à 21 et le troisième quatile à 49 ans. Même si on peut 
@@ -140,12 +138,11 @@
     \begin{figure}[ht]
         \centering
         \includegraphics[width=12cm]{./img/age.png}
-        \caption{Âge des conducteurs}
-        \label{fig:fig_age}
+        \caption{Âge des conducteurs}\label{fig:fig_age}
     \end{figure}
 
     \subsubsection{Le genre des conducteurs}
-    Le genre des conducteurs est assez intéressant à analyser. Sur la figure \ref{fig:fig_genre} nous pouvons 
+    Le genre des conducteurs est assez intéressant à analyser. Sur la figure\ref{fig:fig_genre} nous pouvons 
     remarquer différence importante entre le nombre de femme au volant (indice 0) et le nombre d'hommes au volant 
     (indice 1). Cette différence pourrait être une source de biais pour notre modèle. En effet le fait qu'il y ait 
     beaucoup plus de données d'accident avec des hommes ne signifie pas qu'il y a plus de chance d'avoir un accident 
@@ -157,20 +154,18 @@
     \begin{figure}[ht]
         \centering
         \includegraphics[width=12cm]{./img/sexe.png}
-        \caption{Genre des conducteurs}
-        \label{fig:fig_genre}
+        \caption{Genre des conducteurs}\label{fig:fig_genre}
     \end{figure}
 
     \subsubsection{Le type de collision}
-    La figure \ref{fig:fig_col} montre la répartition des différents types de collisions dans notre dataset. On peut 
+    La figure\ref{fig:fig_col} montre la répartition des différents types de collisions dans notre dataset. On peut 
     remarquer que tous les types de collisions sont plutôt bien représentés dans notre dataset. C'est un attribut qui 
     pourra être assez intéressant pour l'apprentissage.
 
     \begin{figure}[ht]
         \centering
         \includegraphics[width=12cm]{./img/col.png}
-        \caption{Les types de collision}
-        \label{fig:fig_col}
+        \caption{Les types de collision}\label{fig:fig_col}
     \end{figure}
 
     \subsection{Analyse bivariée des données}
@@ -184,11 +179,11 @@
     beaucoup plus représentés dans le dataset, la proportion d'hommes est logiquement plus élevée. On peut cependant 
     faire quelques remarques. 
     
-    La figure \ref{fig:fig_sexe_bivar1} nous montre une proportion de femme moins élevée quand \textit{obsm} vaut 
+    La figure\ref{fig:fig_sexe_bivar1} nous montre une proportion de femme moins élevée quand \textit{obsm} vaut 
     \textit{6}. La proportion de femmes est deux fois plus élevée quand \textit{obsm} vaut \textit{1}. Ceci pourrait biaiser notre 
     modèle.
     
-    Sur la figure \ref{fig:fig_sexe_bivar2}, on remarque également une proportion différente de femmes 
+    Sur la figure\ref{fig:fig_sexe_bivar2}, on remarque également une proportion différente de femmes 
     en fonction du type de véhicule. On pourrait expliquer cela par le fait que certains véhicules sont 
     dans la réalité plus utilisés par les hommes, par exemple pourrait imaginer qu'il y a plus d'hommes qui 
     conduisent des motos. Il faudra être vigilant car cela peut être source de biais. Il se peut que notre 
@@ -199,14 +194,12 @@
         \centering
         \begin{subfigure}{7cm}
             \includegraphics[width=7cm]{./img/bivar_sexe.png}
-            \caption{Proportion femmes/hommes en fonction de la présence d'un obstacle dans l'accident}
-            \label{fig:fig_sexe_bivar1}
+            \caption{Proportion femmes/hommes en fonction de la présence d'un obstacle dans l'accident}\label{fig:fig_sexe_bivar1}
         \end{subfigure}
         \hspace{0.2cm}
         \begin{subfigure}{7cm}
             \includegraphics[width=7cm]{./img/bivar_sexe2.png}
-        \caption{Proportion femmes/hommes en fonction de la catégorie du véhicule}
-        \label{fig:fig_sexe_bivar2}
+        \caption{Proportion femmes/hommes en fonction de la catégorie du véhicule}\label{fig:fig_sexe_bivar2}
         \end{subfigure}
     \end{figure}
     \vspace{2cm}
@@ -214,7 +207,7 @@
     \subsubsection{Agglomération}
     L'attribut \textit{agg} indique si l'accident a eu lieu en agglomération ou hors agglomération. On retrouve 
     des corrélations plutôt logiques avec un certain nombre d'attributs comme par exemple une proportion d'accident avec 
-    piéton plus élévé en agglomération (figure \ref{fig:fig_agg_bivar1}). On peut également remarquer (figure \ref{fig:fig_agg_bivar2}) que la proportion 
+    piéton plus élévé en agglomération (figure\ref{fig:fig_agg_bivar1}). On peut également remarquer (figure\ref{fig:fig_agg_bivar2}) que la proportion 
     d'accident en agglomération varie avec les conditions atmosphériques.
     Toutes ces corrélations peuvent nous indiquer que cet attribut va pouvoir contribuer à nos 
     prédictions.
@@ -223,14 +216,12 @@
         \centering
         \begin{subfigure}{7cm}
             \includegraphics[width=7cm]{./img/bivar_agg.png}
-            \caption{Proportion d'accidents en agglomération avec piéton et sans piéton}
-            \label{fig:fig_agg_bivar1}
+            \caption{Proportion d'accidents en agglomération avec piéton et sans piéton}\label{fig:fig_agg_bivar1}
         \end{subfigure}
         \hspace{0.2cm}
         \begin{subfigure}{7cm}
             \includegraphics[width=7cm]{./img/bivar_agg2.png}
-        \caption{Proportion de d'accident en agglomération en fonction des conditions atmosphériques}
-        \label{fig:fig_agg_bivar2}
+            \caption{Proportion de d'accident en agglomération en fonction des conditions atmosphériques}\label{fig:fig_agg_bivar2}
         \end{subfigure}
     \end{figure}
 
@@ -278,10 +269,10 @@
     
     \subsection{GaussianNB}
     Avancés dans le projet, nous avons voulus tester plusieurs classifieurs, tous ont donné des résultats différents, pour certains médiocres. 
-    Mais nous avons trouver un autre classifieur qui donnait des résultats intéressants : GaussianNB.
-
+    Mais nous avons trouver un autre classifieur qui donnait des résultats intéressants: GaussianNB.
+    
     Il ne maximise pas notre accuracy score puisqu'il n'est que de \textit{0.8734} à l'entrainement et de \textit{0.8677} pour les tests. Ce qui
-    a toutefois retenu notre attention c'est le nombre d'accidents létaux qu'il parvient à détecter : \textit{508}. Réduisant ainsi l'erreur des
+    a toutefois retenu notre attention c'est le nombre d'accidents létaux qu'il parvient à détecter: \textit{508}. Réduisant ainsi l'erreur des
     accidents mortel resencés à tord comme étant non létaux à seulement \textit{1196}. Ceci entrainne malheureusement un perte de performances 
     pour ce qui est de la détection d'accidents non mortel comme on peut le voir ci-dessous.
 
@@ -302,8 +293,8 @@
 
     \subsection{Base Rate}
 
-    Nous avons voulu mesurer les résultats sur deux données à protéger potentiellement : le fait qu'un piéton soit impliqué dans 
-    un accident et le sexe du conducteur. Voici les résultats : 
+    Nous avons voulu mesurer les résultats sur deux données à protéger potentiellement: le fait qu'un piéton soit impliqué dans 
+    un accident et le sexe du conducteur. Voici les résultats:
 
     sexe\_conducteur 1 (un homme)
 
@@ -351,8 +342,8 @@
 
     Tout d'abord l'audit a porté sur les 24 features que nous avons conservés afin d'élaborer ce modèle. Ce qui marque avec 
     cet audit provient du sommaire. On y constate le role pédominant de l'age pour l'accuracy score. À 0.84, ce dernier éclipse 
-    tous les autres. Une explication pourrait venir de ce que nous avons constaté dans notre analyse univariée : il ya une 
-    surreprésentation des jeunes de 20-21 ans dans ce set. Ceci est en réalité loin de surprendre puisqu'il s'aligne avec la 
+    tous les autres. Une explication pourrait venir de ce que nous avons constaté dans notre analyse univariée: il ya une 
+    surreprésentation des jeunes de 20--21 ans dans ce set. Ceci est en réalité loin de surprendre puisqu'il s'aligne avec la 
     politique de prix pratiqué par les assureurs envers les jeunes conducteurs.
 
     Par la suite on peut s'intéresser à l'évolution de l'accuracy en fonction du niveau de réparation appliqué à chaque 
@@ -377,7 +368,7 @@
     Pour ce qui est des piétons, ça peut parraitre étonant, on peut émettre l'hypothèse que leur présence est souvent en ville là où 
     les vitesses sont basses entrainant donc moins de mort.
 
-    Maintenant regardons l'équilibre du modèle à l'aide du BCR : 
+    Maintenant regardons l'équilibre du modèle à l'aide du BCR.
 
     \begin{figure}[h]
         \centering
@@ -385,14 +376,14 @@
         \caption{Le BCR en fonction du niveau de réparation pour chaque attribut.}
     \end{figure}
 
-    On remarque ici que les attributs sont plutot centrés autour de 0.5 que la plus part reste rectiligne, mais que certaint divergent
-    quelque peu. Cet évasement est dû à des attributs déjà connus tels que âge ou catv. D'autres influent aussi mais ne s'étaient pas 
-    illustré précédament à l'image du nombre de voies, du profile de la route ainsi que la luninosité. 
+    On remarque ici que les attributs sont plutôt centrés autour de \textit{0.5} que la plus part reste rectiligne, mais que certains divergent
+    quelque peu. Cet évasement est dû à des attributs déjà connus tels que \textit{âge} ou \textit{catv}. D'autres influent aussi mais ne s'étaient pas 
+    illustrés précédemment à l'image du nombre de voies, du profile de la route ainsi que la luninosité. 
 
-    Malgré cela, l'évasement assez faible laisse dire que le modèle est plutot équilibré. De plus, comme mentionné précédament 
-    dans la section dédié au split, nous avons pu tester le cas où l'on acceptait que des véhicules impliqués dans le même accident
+    Malgré cela, l'évasement assez faible laisse dire que le modèle est plutot équilibré. De plus, comme mentionné précédemment 
+    dans la section dédiée au split, nous avons pu tester le cas où on acceptait que des véhicules impliqués dans le même accident
     se retrouvent dans des sets différents (entrainement / test). Ce qu'il ressortait alors du BCR était un évasement beaucoup
-    plus important et une origine située vers 0.68. Ce qui fait dire que cette version était bel et bien trop modelée sur le train
+    plus important et une origine située vers 0.68. Ce qui fait dire que cette version était belle et bien trop modelée sur le train
     set, l'équilibre était rompu.
 
     \subsection{Expliquer le modèle avec les valeurs de Shapley}
@@ -405,7 +396,7 @@
     donne une tendance pour notre modèle mais certainement pas une valeur exacte. On peut le constater en changeant 
     le nombre d'itérations qui produit un résultat différent.
 
-    Avec \texttt{n\_iter=1000} on obtient le diagramme en cascade de la figure \ref{fig:fig_shap}. Ce diagramme 
+    Avec \texttt{n\_iter=1000} on obtient le diagramme en cascade de la figure\ref{fig:fig_shap}. Ce diagramme 
     nous montre en partant d'un score référence de 1 quels attributs contribuent à obtenir un score de 0 (l'utilisation 
     d'un arbre de décision nous donne forcément une valeur binaire 0 ou 1 d'où le passage de 1 à 0).
 
@@ -451,8 +442,7 @@
     \newpage
     \appendix
 
-    \section{Les données de notre dataset}
-    \label{appendix:dataset}
+    \section{Les données de notre dataset}\label{appendix:dataset}
     \begin{center}
         \begin{tabular}{ |c|p{9cm}| }
             \hline
