@@ -203,24 +203,17 @@
     \end{figure}
     \vspace{2cm}
 
-    \subsubsection{Agglomération}
-    L'attribut \textit{agg} indique si l'accident a eu lieu en agglomération ou hors agglomération. On retrouve 
-    des corrélations plutôt logiques avec un certain nombre d'attributs comme par exemple une proportion d'accidents avec 
-    piéton plus élevée en agglomération (figure \ref{fig:fig_agg_bivar1}). On peut également remarquer (figure \ref{fig:fig_agg_bivar2}) que la proportion 
-    d'accidents en agglomération varie avec les conditions atmosphériques.
-    Toutes ces corrélations peuvent nous indiquer que cet attribut va pouvoir contribuer à nos prédictions.
+    \subsubsection{L'âge du conducteur}
+    On peut remarquer sur la figure \ref{fig:fig_age_bivar} que la probabilité d'accident mortel beaucoup plus élevée à l'âge de 
+    21 ans. Cela est dû en partie au fait que les conducteurs de 21 ans sont surreprésentés. Cette probabilité risque de poser 
+    problème pour notre modèle. En effet l'âge n'est pas un paramètre déterminant dans l'évaluation de la gravité de l'accident. 
+    Le problème est que notre modèle va probablement associer l'âge de 21 ans à un accident mortel, peu importe les autres paramètres 
+    de l'accident. L'âge serait donc notre \textbf{attribut sensible}.
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
-        \begin{subfigure}{7cm}
-            \includegraphics[width=7cm]{./img/bivar_agg.png}
-            \caption{Proportion d'accidents en agglomération avec piéton et sans piéton}\label{fig:fig_agg_bivar1}
-        \end{subfigure}
-        \hspace{0.2cm}
-        \begin{subfigure}{7cm}
-            \includegraphics[width=7cm]{./img/bivar_agg2.png}
-            \caption{Proportion d'accidents en agglomération en fonction des conditions atmosphériques}\label{fig:fig_agg_bivar2}
-        \end{subfigure}
+        \includegraphics[width=14cm]{./img/bivar_age.png}
+        \caption{Analyse bivariée âge -- accident mortel}\label{fig:fig_age_bivar}
     \end{figure}
     
     \section{Apprentissage}
@@ -295,25 +288,23 @@
     Nous avons voulu mesurer les résultats méritant potentiellement une protection : le fait qu'un piéton soit impliqué dans 
     un accident et le sexe du conducteur. Voici les résultats :
 
-    Sexe du conducteur 1 (un homme)
-
-    Disparate Impact : 1.21767750298587 1.6331199049428085
-
-    P-rule disparate Impact : 0.8212355057458954 0.6123249107266375
-
-    Démographie Parité : 0.011747835864606336 0.02383701239031672
+    \begin{itemize}
+        \item \textbf{Sexe du conducteur} 1 (un homme)
+        \item \textbf{Disparate Impact} : 1.21767750298587 1.6331199049428085
+        \item \textbf{P-rule disparate Impact} : 0.8212355057458954 0.6123249107266375
+        \item \textbf{Démographie Parité} : 0.011747835864606336 0.02383701239031672
+    \end{itemize}
 
     Ce qui est flagrant ici, c'est qu'il existe une disparité dans la prédiction d'accidents mortels pour les hommes. Allant par ailleurs
     dans le sens de ce qu'indique Disparate Impact par la suite. Notons cependant que la disparité démographique entre hommes et femmes
     existe mais est très faible.
 
-    Piéton 1 (un piéton est impliqué)
-
-    Disparate Impact : 1.0538191011165416 1.0968113720110815
-
-    P-rule Disparate Impact : 0.9489294689576994 0.9117337999207913
-
-    Démographie Parité : 0.003345154811069756 0.005266913173450724
+    \begin{itemize}
+        \item \textbf{Piéton} 1 (un piéton est impliqué)
+        \item \textbf{Disparate Impact} : 1.0538191011165416 1.0968113720110815
+        \item \textbf{P-rule Disparate Impact} : 0.9489294689576994 0.9117337999207913
+        \item \textbf{Démographie Parité} : 0.003345154811069756 0.005266913173450724
+    \end{itemize}
 
     Pour ce qui est de l'implication d'un piéton dans un accident, on constate ici aussi une légère disparité, soulignant leur
     plus grande implication dans des accidents mortels. Ceci concorde encore une fois avec le \textit{disparate Impact}. Démographiquement, 
