@@ -185,7 +185,7 @@
     faire quelques remarques. 
     
     La figure \ref{fig:fig_sexe_bivar1} nous montre une proportion de femme moins élevée quand \textit{obsm} vaut 
-    6. La proportion de femmes est deux fois plus élevée quand \textit{obsm} vaut 1. Ceci pourrait biaiser notre 
+    \textit{6}. La proportion de femmes est deux fois plus élevée quand \textit{obsm} vaut \textit{1}. Ceci pourrait biaiser notre 
     modèle.
     
     Sur la figure \ref{fig:fig_sexe_bivar2}, on remarque également une proportion différente de femmes 
@@ -410,8 +410,8 @@
     d'un arbre de décision nous donne forcément une valeur binaire 0 ou 1 d'où le passage de 1 à 0).
 
     Les attributs qui contribuent le plus sont ici \textit{trajet}, \textit{agg}, \textit{circ}, \textit{mois} et 
-    \textit{obsm}. On aurait pu ici d'attendre à plus de contribution d'attributs comme \textit{lum}, \textit{vma} ou 
-    encore \textit{col} (qui ici a une contribution mineure et dans le sens contraire des autres).
+    \textit{obsm}. On aurait pu ici s'attendre à plus de contribution de \textit{lum}, \textit{vma} ou 
+    encore \textit{col} (qui ici a une contribution mineure).
 
     Une donnée intéressante ici est la valeur pour l'attribut \textit{sexe\_conducteur}. On nous donne une contribution 
     nulle de cet attribut ce qui peut nous encourager dans l'idée que le sexe n'est pas un biais pour notre modèle. 
@@ -438,12 +438,12 @@
     Nous avons d'abord récupéré les indices des prédictions positives de notre modèle (avec quelles 
     entrées notre modèle prédit 1 ?). Ainsi on a pu regarder dans les cas où les prédictions sont 0 
     et les cas où les prédictions sont 1.
-    On peut remarquer qu'on retrouve des variables similaires à celles trouvée avec les valeurs de 
+    On peut remarquer qu'on trouve des variables similaires à celles trouvées avec les valeurs de 
     Shapley. On retrouve notamment assez fréquemment l'attribut \textit{agg}.
-    Cependant, contrairement au résultat que pouvait nous donner \textit{ShapKit} on retrouve assez 
-    rarement l'attribut \textit{mois}. Les contributions sont également plus réparties entre les attributs.
-    Enfin il semble que comme nous avons pu l'observer avec la valeurs de Shapley l'attribut 
-    \textit{sexe\_conducteur} est un faible impact sur la prédiction.
+    Cependant, contrairement au résultat que pouvait nous donner \textit{ShapKit} l'attribut \textit{mois} est 
+    moins représenté. Les contributions sont également plus réparties entre les attributs.
+    Enfin il semble que comme nous avions pu l'observer avec les valeurs de Shapley l'attribut 
+    \textit{sexe\_conducteur} ait un faible impact sur la prédiction.
 
     \section{Conclusion}
 
