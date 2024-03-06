@@ -25,11 +25,11 @@
     à partir des données d'un véhicule accidenté si l'accident est mortel ou non.
     Les données sont des données libres mises à disposition par le \textit{Ministère de l'Intérieur et des 
     Outre-Mer}. Le jeu de données correspond aux accidents de 2005 à 2022 en France. Nous allons, dans une première 
-    partie, analyser ces données afin d'extraire les informations utiles à l'apprentissage et de pouvoir repérer 
-    d'éventuelles sources de biais pour notre modèle.
+    partie, analyser ces données afin d'extraire les informations utiles à l'apprentissage. Puis nous essaierons de repérer 
+    d'éventuelles sources de biais affectant notre modèle.
     
     Vous pouvez retrouver le code sur le GitHub du projet. Le fichier \texttt{main.ipynb} contient 
-    le code principal que nous allons suivre tout au long de ce rapport. Le fichier \texttt{utils.py} 
+    le code principal que nous allons suivre et contextualiser tout au long de ce rapport. de plus, le fichier \texttt{utils.py} 
     contient toutes les fonctions auxiliaires que nous utilisons dans le fichier principal.
 
     \section{Découverte du jeu de données}
@@ -45,10 +45,9 @@
     différentes données dans notre dataframe.
     Nous avons ainsi pu faire différentes observations. 
     \\
-    Voici quelques-unes d'entre elles qui nous sont ensuite
-    utiles pour la préparation des données.
+    Voici quelques-unes d'entre elles qui nous sont ensuite utiles pour la préparation des données.
     \subsubsection{Catégories de véhicule}
-    La base de données nous donne beaucoup de catégories différentes. Nous avons cependant pu remarquer 
+    La base de données contient beaucoup de type de véhicules différents. Nous avons cependant pu remarquer 
     que la majorité des véhicules sont dans seulement 5 catégories.
     \begin{figure}[ht]
         \centering
@@ -57,8 +56,8 @@
     \end{figure}
 
     \subsubsection{Gravité de l'accident}
-    En affichant l'effectif d'accidents mortels, nous avons pu remarquer qu'ils ne représentent qu'une 
-    infime partie des accidents. Le peu de données sur ces accidents ne nous permet pas d'apprendre 
+    En affichant l'effectif d'individus décédés dans un accident, nous avons pu remarquer qu'ils ne représentent qu'une 
+    infime partie des individus accidentés. Leur proportion est si fable que ça ne nous permet pas d'apprendre 
     un modèle. C'est la raison pour laquelle nous avons décidé de nous intéresser non pas à la mortalité 
     à l'échelle d'une personne, mais plutôt à l'échelle d'un accident. Nous nous mettons pour cela au niveau d'un 
     véhicule car cela nous permet de conserver plus d'informations (à l'échelle d'un accident, on aurait 
@@ -86,7 +85,7 @@
         \item Création d'un attribut \textit{piéton} qui vaut 1 si un piéton est impliqué dans l'accident, sinon 0.
         \item Nous avons utilisé l'année de naissance et l'année de l'accident pour récupérer l'âge du conducteur.
         \item L'attribut \textit{vma} a été découpé en 4 catégories de vitesse.
-        \item Pour les attributs \textit{catv} et \textit{vatr}, nous avons gardé les valeurs les plus représentées dans la base de données.
+        \item Pour les attributs \textit{catv} et \textit{catr}, nous avons gardé les valeurs les plus représentées dans la base de données.
     \end{itemize}
     \vspace{0.5cm}
     Nous avons également réduit les valeurs de certains attributs. Par exemple, pour des attributs 
@@ -111,8 +110,8 @@
     \end{figure}
 
     Nous pouvons remarquer sur la figure \ref{fig:fig_acc_mortel} que le fait de s'intéresser 
-    aux véhicules impliqués dans un accident mortel et non plus aux personnes victimes permet 
-    de doubler le pourcentage. Même si cette proportion reste faible, cela va nous permettre 
+    aux véhicules impliqués dans un accident mortel et non plus aux personnes nous permet 
+    de doubler ce pourcentage. Même si cette proportion reste faible, cela va nous permettre 
     d'avoir plus de données dans la catégorie mortelle lors de l'apprentissage et par conséquent 
     d'avoir un meilleur modèle.
 
@@ -143,13 +142,13 @@
 
     \subsubsection{Le genre des conducteurs}
     Le genre des conducteurs est assez intéressant à analyser. Sur la figure \ref{fig:fig_genre}, nous pouvons 
-    remarquer une différence importante entre le nombre de femmes au volant (indice 0) et le nombre d'hommes au volant 
-    (indice 1). Cette différence pourrait être une source de biais pour notre modèle. En effet, le fait qu'il y ait 
-    beaucoup plus de données d'accident avec des hommes ne signifie pas qu'il y a plus de chances d'avoir un accident 
-    si on est un homme. Cela signifie peut-être que la proportion d'hommes au volant est plus élevée et donc qu'il 
-    y a plus d'accidents avec un homme au volant car il y a plus d'hommes au volant. Le risque ici est que notre 
-    modèle associe un homme à un accident mortel car il y a beaucoup plus d'accidents mortels avec un homme au 
-    volant.
+    remarquer une différence importante entre le nombre de femmes au volant d'un véhicule ayant eu un accident 
+    (indice 0) et le nombre d'hommes (indice 1). Cette différence pourrait être une source de biais pour notre modèle. 
+    En effet, le fait qu'il y ait beaucoup plus de données d'accident avec des hommes ne signifie pas qu'il y a plus 
+    de chances d'avoir un accident si on est un homme. Cela signifie peut-être que la proportion d'hommes au volant 
+    est plus élevée et donc qu'il y a plus d'accidents avec un homme au volant car il y a plus d'hommes au volant. Le 
+    risque ici est que notre modèle associe un homme à un accident mortel car il y a beaucoup plus d'accidents mortels 
+    avec un homme au volant.
 
     \begin{figure}[ht]
         \centering
@@ -187,8 +186,8 @@
     en fonction du type de véhicule. On pourrait expliquer cela par le fait que certains véhicules sont 
     dans la réalité plus utilisés par les hommes, par exemple on pourrait imaginer qu'il y a plus d'hommes qui 
     conduisent des motos. Il faudra être vigilant car cela peut être source de biais. Il se peut que notre 
-    modèle associe une moto à un homme. Et que dans le cas d'une femme sur une moto le résultat soit soit 
-    forcément un accident mortel, soit forcément un accident non mortel.
+    modèle associe une moto à un homme. Et que dans le cas d'une femme sur une moto le résultat soit 
+    forcément un accident mortel, ou bien forcément un accident non mortel.
 
     \begin{figure}[h]
         \centering
@@ -209,8 +208,7 @@
     des corrélations plutôt logiques avec un certain nombre d'attributs comme par exemple une proportion d'accidents avec 
     piéton plus élevée en agglomération (figure \ref{fig:fig_agg_bivar1}). On peut également remarquer (figure \ref{fig:fig_agg_bivar2}) que la proportion 
     d'accidents en agglomération varie avec les conditions atmosphériques.
-    Toutes ces corrélations peuvent nous indiquer que cet attribut va pouvoir contribuer à nos 
-    prédictions.
+    Toutes ces corrélations peuvent nous indiquer que cet attribut va pouvoir contribuer à nos prédictions.
 
     \begin{figure}[h]
         \centering
@@ -228,12 +226,13 @@
     \section{Apprentissage}
     
     \subsection{Split}
-    Séparer nos données en deux ensembles demandait de tenir compte d'une spécificité. Nous nous plaçons du point de vue d'un véhicule. 
-    Mais bien souvent, plusieurs véhicules sont impliqués dans un accident. Il nous a donc fallu adapter la division pour que les véhicules 
-    d'un même accident soient dans le même ensemble. 
+    Séparer nos données en deux ensembles demandait de tenir compte d'une spécificité. Nous nous plaçons du point de vue d'un véhicule, 
+    mais bien souvent, plusieurs véhicules sont impliqués dans un  même accident. Il nous a donc fallu adapter le split pour que les 
+    véhicules d'un même accident soient dans le même ensemble. 
     
-    Par ailleurs, nous avons constaté que ne pas adopter cette approche provoquait un surapprentissage lors du test. Typiquement, un trop grand 
-    nombre de morts étaient correctement prédits.
+    Par ailleurs, nous avons constaté que, si l'on ne le faisait pas, un surapprentissage lors du test se produisait. Typiquement, un trop grand 
+    nombre de morts étaient correctement prédits. Mais le modèle trouvait une partie de ces véhicules en les associant à ceux avec lesquels
+    ils avaient eu un accident dans l'ensemble d'apprentissage. 
     
     \subsection{Encodage One Hot}
     La base de données nous fournit pour la plupart des attributs des données qui peuvent être converties en entiers. 
