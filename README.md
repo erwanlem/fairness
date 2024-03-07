@@ -2,7 +2,7 @@
 
 Travail sur les données des accidents corporels de la circulation routière de 2005 à 2022.
 
-Travail sur la classification des véhicules comme impliqués dans un accident mortel ou non mortel.
+Travail sur la classification des véhicules en deux classes: impliqué dans un accident mortel / impliqué dans un accident non mortel.
 L'objectif de ce projet est l'identification des attributs sensibles, et de corriger les biais qu'ils peuvent provoquer.
 
 Le répertoire de ce projet est organisé comme suit:

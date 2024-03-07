@@ -314,7 +314,7 @@
     \section{Audit du modèle}
 
     \subsection{Génération des contrefactuels avec Dice}
-    Dice nous a permis d'établir quels attributs influent sur la prédiction de notre modèle. Les résultats sont 
+    \textit{Dice} nous a permis d'établir quels attributs influent sur la prédiction de notre modèle. Les résultats sont 
     cependant assez variables d'une exécution à l'autre. On peut tout de même retrouver lesquels sont fréquemment impliqués 
     dans le changement des exemples contrefactuels.
     Parmi eux, on peut noter que l'attribut \textit{âge} est souvent représenté. Le taux d'accidents (notamment mortels) étant plus 
@@ -345,8 +345,8 @@
         \caption{L'accuracy en fonction du niveau de réparation pour chaque attribut.}
     \end{figure}
 
-    On reconnaît toput de suite les 
-    attributs dont l'accuracy est au plus haut en regardant ceux qui s'effondrent le plus. En premier lieu, l'âge s'illustre
+    On reconnaît tout de suite les 
+    attributs dont l'\textit{accuracy} est au plus haut en regardant ceux qui s'effondrent le plus. En premier lieu, l'âge s'illustre
     à nouveau. À la lumière de ceci, il apparaît évident que le modèle discrimine fortement les véhicules en fonction de l'âge du 
     conducteur. Dans une moindre mesure, on constate la même chose pour \textit{situ}, qui fait référence à la localisation 
     géographique de l'accident. Ce qui paraît sensé, étant donné que certains lieux sont plus dangereux que d'autres. Enfin, 
@@ -364,17 +364,17 @@
         \caption{Le BCR en fonction du niveau de réparation pour chaque attribut.}
     \end{figure}
 
-    On remarque ici que les attributs sont plutôt centrés autour de \textit{0.5} et que la plupart reste rectiligne, mais que certains divergent
+    On remarque ici que les attributs sont plutôt centrés autour de \textit{0.5} et que la plupart d'entre eux restent rectilignes, même si certains divergent
     quelque peu. Cet évasement est dû à des attributs déjà connus tels que \textit{âge} ou \textit{catv}. D'autres influent aussi mais ne s'étaient pas 
     illustrés précédemment, à l'image du nombre de voies (\textit{nbv}), du profil de la route (\textit{plan}) ainsi que de la luminosité (\textit{lum}). 
 
     Malgré cela, l'évasement assez faible laisse penser que le modèle est plutôt équilibré. De plus, comme mentionné précédemment 
     dans la section dédiée au split, nous avons pu tester le cas où l'on acceptait que des véhicules impliqués dans le même accident
     se retrouvent dans des ensembles différents (entraînement / test). Ce qu'il ressortait alors du BCR était un évasement beaucoup
-    plus important et une origine située vers 0.68. Ce qui laisse à penser que cette version était bel et bien trop modelée sur le train
+    plus important et une origine située vers \textit{0.68}. Ce qui laisse à penser que cette version était belle et bien trop modelée sur le train
     set, l'équilibre était rompu.
 
-    Pour conclure, BlackBoxAuditing nous a permis de comprendre quels étaient les attributs les plus discriminés. Âge est certainement le plus notable.
+    Pour conclure, BlackBoxAuditing nous a permis de comprendre quels étaient les attributs les plus discriminés. \textit{âge} est certainement le plus notable.
 
     \subsection{Expliquer le modèle avec les valeurs de Shapley}
     Afin d'analyser la contribution des différents attributs dans notre modèle, nous avons 
@@ -389,21 +389,21 @@
 
     Le temps de calcul étant encore assez long nous avons parallélisé le calcul des valeurs de Shapley. Les calculs 
     ont ensuite été séparés en deux, d'un côté pour les prédictions qui donnent 1 et de l'autre pour celles qui donnent 0.
-    ON peut ainsi avoir une idée des attributs décisifs dans les deux cas.
+    On peut ainsi avoir une idée des attributs décisifs dans les deux cas.
 
     Ce qui ressort des résultats obtenus est que les attributs \textit{col}, \textit{choc}, \textit{obsm}, \textit{int} 
     et \textit{agg} contribuent souvent au résultat. Ce résultat paraît plutôt cohérent.
     En revanche, on retrouve également assez souvent les attributs \textit{mois}, \textit{âge} et \textit{dep}. Ces 
-    attributs ne devraient pas contribuer autant à la sortie de notre modèle. Il peuvent constituer un biais (ce n'est 
-    pas parce qu'on a un accident à l'âge de 21 ans que l'on va forcément mourir, d'autres attributs sont beaucoup plus 
+    attributs ne devraient pas contribuer autant à la sortie de notre modèle. Ils peuvent constituer un biais (ce n'est 
+    pas parce qu'on a un accident à l'âge de 21 ans qu'on va forcément mourir, d'autres attributs sont beaucoup plus 
     importants).
 
 
     Pour l'attribut \textit{sexe\_conducteur} on nous donne une contribution 
     nulle de cet attribut. Cela peut nous encourager dans l'idée que le sexe n'est pas un biais pour notre modèle 
-    conrairement à ce que nous pouvions penser au départ.
+    contrairement à ce que nous pouvions penser au départ.
 
-    Ci-dessous un résultat obtenu du calcul des valeurs de Shapley. Vous pouvons retrouver un échantillon des résultats dans l'annexe ? de ce rapport.
+    Ci-dessous un résultat obtenu du calcul des valeurs de Shapley. Vous pouvez retrouver un échantillon des résultats dans l'annexe \ref{appendix:shapley} de ce rapport.
     
     
 
@@ -444,7 +444,7 @@
     plusieurs attributs sensibles. D'abord nous pensions que le genre du conducteur pourrait avoir un impact sur la prédiction. 
     Cela aurait été un biais de notre modèle. Or nous avons pu observer via les différents outils utilisés que le genre du 
     conducteur a un impact très faible sur la prédiction du modèle. En revanche, le travail effectué nous a permis d'identifier 
-    d'autres attributs sensibles qui eux ont réel impact sur les sorties du modèle. Les attributs \textit{âge}, \textit{dep} et 
+    d'autres attributs sensibles qui eux ont un réel impact sur les sorties du modèle. Les attributs \textit{âge}, \textit{dep} et 
     \textit{mois} sont des attributs que nous avons identifié comme sensibles pour notre modèle. Ils ont un impact assez important 
     sur les prédictions et pourtant ne devraient pas être décisifs dans la classification d'un accident mortel ou non mortel.
 
@@ -509,7 +509,7 @@
     \end{center}
     \newpage
 
-    \section{Diagrammes en cascade des valeurs de Shapley}
+    \section{Diagrammes en cascade des valeurs de Shapley}\label{appendix:shapley}
     \begin{figure}[ht]
         \centering
         \begin{subfigure}{9cm}

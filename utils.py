@@ -3,7 +3,6 @@ import numpy as np
 import random
 from shapkit.monte_carlo_shapley import MonteCarloShapley, MonteCarloShapleyBatch
 import pandas as pd
-from threading import Thread, Lock
 import multiprocessing
 
 
@@ -186,6 +185,7 @@ def analyse_bi_quali_quali(quali1, quali2, df, numerical_features):
   bar2.show()
 
 
+# Réduction des valeurs de trajet
 def reduce_trajet_values(df):
   df = df.copy()
   t = df['trajet']
@@ -197,6 +197,7 @@ def reduce_trajet_values(df):
       r.append(i)
   return r
 
+# réduction des valeurs de surf
 def reduce_surf_values(df):
   df = df.copy()
   t = df['surf']
@@ -208,6 +209,8 @@ def reduce_surf_values(df):
       r.append(i)
   return r 
 
+# reduction des valeurs de obs
+# les valeurs sont passées en binaire obstacle/pas d'obstacle
 def reduce_obs_values(df):
   df = df.copy()
   t = df['obs']
@@ -243,6 +246,7 @@ class parallel_shap:
     self.queue = multiprocessing.Queue()
     self.queue.put([])
 
+  # Calcul des valeurs de Shapley
   def shap_computation(self, data_test, X_train, clf, fc, id, result):
     query_instance = data_test.drop(columns="Y")[id:(id+1)]
     x_class = int(clf.predict(query_instance))
@@ -254,12 +258,16 @@ class parallel_shap:
     reference=reference.squeeze()
 
     true_shap = MonteCarloShapley(x=query_instance, fc=fc, ref=reference, n_iter=1000, callback=None)
+    
+    # Ajout des résultats
     ret = self.queue.get()
     ret.append((true_shap, query_instance, reference))
     self.queue.put(ret)
 
   def start_shap(self):
     for i in range (0, self.n_iter//5):
+
+      # Paralléliser 5 calculs des valeurs de Shapley
       id = self.ids[random.randint(0, len(self.ids))]
       self.p1 = multiprocessing.Process(target=self.shap_computation, args=(self.data_test, self.X_train, self.clf, self.fc, id, self.results))
 
@@ -275,12 +283,12 @@ class parallel_shap:
       id = self.ids[random.randint(0, len(self.ids))]
       self.p5 = multiprocessing.Process(target=self.shap_computation, args=(self.data_test, self.X_train, self.clf, self.fc, id, self.results))
 
+      # start process
       self.p1.start()
       self.p2.start()
       self.p3.start()
       self.p4.start()
       self.p5.start()
-
 
       self.p1.join()
       self.p2.join()
@@ -289,6 +297,8 @@ class parallel_shap:
       self.p5.join()
     self.results = self.queue.get()
 
+  # arrêt de tous les processus
+  # Utiliser si intérruption de la cellule en multiprocess
   def stop_shap(self):
     self.p1.terminate()
     self.p2.terminate()
