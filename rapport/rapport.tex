@@ -37,7 +37,7 @@
     La base de données est composée de plusieurs tables : \textit{usagers}, \textit{véhicules}, \textit{lieux} et 
     \textit{caractéristiques}. Nous avons joint ces quatre parties pour obtenir un dataframe contenant une 
     cinquantaine de colonnes. 
-    On peut retrouver l'ensemble des attributs dans l'annexe \ref{appendix:dataset}.
+    On peut retrouver une partie des attributs dans l'annexe \ref{appendix:dataset}.
 
 
     \subsection{Répartition des données}
@@ -47,7 +47,7 @@
     \\
     Voici quelques-unes d'entre elles qui nous sont ensuite utiles pour la préparation des données.
     \subsubsection{Catégories de véhicule}
-    La base de données contient beaucoup de type de véhicules différents. Nous avons cependant pu remarquer 
+    La base de données contient beaucoup de types de véhicules différents. Nous avons cependant pu remarquer 
     que la majorité des véhicules sont dans seulement 5 catégories.
     \begin{figure}[ht]
         \centering
@@ -147,8 +147,8 @@
     En effet, le fait qu'il y ait beaucoup plus de données d'accident avec des hommes ne signifie pas qu'il y a plus 
     de chances d'avoir un accident si on est un homme. Cela signifie peut-être que la proportion d'hommes au volant 
     est plus élevée et donc qu'il y a plus d'accidents avec un homme au volant car il y a plus d'hommes au volant. Le 
-    risque ici est que notre modèle associe un homme à un accident mortel car il y a beaucoup plus d'accidents mortels 
-    avec un homme au volant.
+    risque ici est que moins de données avec des femmes conduisent à des prédictions plus marquées pour les femmes et 
+    par conséquent à des potentiels biais.
 
     \begin{figure}[ht]
         \centering
@@ -186,7 +186,7 @@
     en fonction du type de véhicule. On pourrait expliquer cela par le fait que certains véhicules sont 
     dans la réalité plus utilisés par les hommes, par exemple on pourrait imaginer qu'il y a plus d'hommes qui 
     conduisent des motos. Il faudra être vigilant car cela peut être source de biais. Il se peut que notre 
-    modèle associe une moto à un homme. Et que dans le cas d'une femme sur une moto le résultat soit 
+    modèle associe une moto à un homme. Dans le cas d'une femme sur une moto le résultat pourrait être soit
     forcément un accident mortel, ou bien forcément un accident non mortel.
 
     \begin{figure}[h]
@@ -204,7 +204,7 @@
     \vspace{2cm}
 
     \subsubsection{L'âge du conducteur}
-    On peut remarquer sur la figure \ref{fig:fig_age_bivar} que la probabilité d'accident mortel beaucoup plus élevée à l'âge de 
+    On peut remarquer sur la figure \ref{fig:fig_age_bivar} que la probabilité d'accident mortel est beaucoup plus élevée à l'âge de 
     21 ans. Cela est dû en partie au fait que les conducteurs de 21 ans sont surreprésentés. Cette probabilité risque de poser 
     problème pour notre modèle. En effet l'âge n'est pas un paramètre déterminant dans l'évaluation de la gravité de l'accident. 
     Le problème est que notre modèle va probablement associer l'âge de 21 ans à un accident mortel, peu importe les autres paramètres 
@@ -223,7 +223,7 @@
     mais bien souvent, plusieurs véhicules sont impliqués dans un  même accident. Il nous a donc fallu adapter le split pour que les 
     véhicules d'un même accident soient dans le même ensemble. 
     
-    Par ailleurs, nous avons constaté que, si l'on ne le faisait pas, un surapprentissage lors du test se produisait. Typiquement, un trop grand 
+    Par ailleurs, nous avons constaté que, si on ne le faisait pas, un surapprentissage lors du test se produisait. Typiquement, un trop grand 
     nombre de morts étaient correctement prédits. Mais le modèle trouvait une partie de ces véhicules en les associant à ceux avec lesquels
     ils avaient eu un accident dans l'ensemble d'apprentissage. 
     
@@ -260,7 +260,7 @@
     accidents létaux ne représentent que \textit{5.38\%} des véhicules accidentés répertoriés dans la base.
 
     \subsection{GaussianNB}
-    Avancés dans le projet, nous avons voulu tester plusieurs classifieurs, tous ont donné des résultats différents, pour certains médiocres. 
+    Avancés dans le projet, nous avons voulu tester plusieurs classifieurs, tous ont donnés des résultats différents, pour certains médiocres. 
     Mais nous avons trouvé un autre classifieur qui donnait des résultats intéressants : GaussianNB.
         
     Il ne maximise pas notre accuracy score puisqu'il n'est que de \textit{0.8734} à l'entraînement et de \textit{0.8677} pour les tests. Ce qui 
@@ -330,7 +330,7 @@
     \subsection{BlackBoxAuditing}
     Les résultats que nous allons analyser sont issus du modèle généré par \textit{tree classifier}.
 
-    Tout d'abord, l'audit a porté sur les 24 features que nous avons conservés afin d'élaborer ce modèle. 
+    Tout d'abord, l'audit a porté sur les 24 features que nous avons conservé afin d'élaborer ce modèle. 
     On constate tout d'abord le rôle prédominant de l'âge pour l'accuracy score. À \textit{0.84}, ce dernier éclipse 
     tous les autres. Une explication pourrait venir de ce que nous avons constaté dans notre analyse univariée : il y a une 
     surreprésentation des jeunes de 20--21 ans dans ce set. Ceci est en réalité loin de surprendre puisqu'il s'aligne avec la 
