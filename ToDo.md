@@ -7,5 +7,5 @@
 - jouer sur les seuils avec random forest
 - tester one hot dpt, mois
   - Résultat baisse drastique du nombre d'accidents mortels détectés : Abandon de cette piste
-- dans les métriques de bases,  ^y en fonction des erreurs 
+- dans les métriques de bases,  ^y en fonction des erreurs. Formule : 
 - hyp tester resample : des poids ? pour agir sur l'attribut protégé en même temps. 
