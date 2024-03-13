@@ -462,7 +462,7 @@
     \newpage
     \appendix
 
-    \section{Les données de notre dataset}\label{appendix:dataset}
+    \section{Les données conservées pour le modèle.}\label{appendix:dataset}
     \begin{center}
         \begin{tabular}{ |c|p{9cm}| }
             \hline
@@ -504,6 +504,19 @@
             \textit{sexe} & Sexe du conducteur \\
             \textit{trajet} & Motif du déplacement au moment de l'accident \\
             \textit{mortal} & Indique si le véhicule est impliqué dans un accident mortel (calculé dans le notebook) \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \newpage
+
+    \section{Les données abandonées et la raison de leur abandon}\label{appendix:dataset}
+    \begin{center}
+        \begin{tabular}{ |c|p{4.5cm}|p{4.5cm} }
+            \hline
+            \textbf{Attribut} & \textbf{Description} & \textbf{Raison de l'abaodon} \\
+            \hline
+            \textit{id\_vehicule} & identifiant numérique unique du véhicule & information administrative, une fois les tables jointe, cette inforamtion sans intétret, n'est plus utile\\
+            \textit{num_veh} & Jour de l'accident, mois de l'accident \\
             \hline
         \end{tabular}
     \end{center}
