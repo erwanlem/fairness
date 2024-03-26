@@ -6,6 +6,22 @@ import pandas as pd
 from threading import Thread, Lock
 import multiprocessing
 
+attributes_values = {
+   'catv' : {0:"Autre", 1:"Bicyclette", 2:"Cyclomoteur", 3:"Voiture", 4:"Utilitaire", 5:"Moto"},
+   'sexe_conducteur' : {1:"Homme", 0:"Femme"},
+   'catr' : {1:"Autoroute", 2:"Route nationale", 3:"Route départementale", 4:"Voie communale", 5: "Autre"},
+   'col' : {-1:"Non renseigné", 
+            1:"Deux véhicules - Fontale", 
+            2:"Deux véhicules - par l'arrière", 
+            3:"Deux véhicules - par le côté", 
+            4:"Trois véhicules et plus en chaine", 
+            5:"Trois véhicules et plus collisions multiples",
+            6:"Autre collision", 
+            7: "Pas de collision"},
+    'obs' : {0:"Pas d'obstacle", 1:"Obstacle"}
+}
+
+
 
 # Supprime les lettres des départements
 def transforme_dpt(n):
