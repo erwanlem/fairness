@@ -5,7 +5,44 @@ from shapkit.monte_carlo_shapley import MonteCarloShapley, MonteCarloShapleyBatc
 import pandas as pd
 from threading import Thread, Lock
 import multiprocessing
+from sklearn.ensemble import RandomForestClassifier
 
+
+
+
+
+
+
+
+def pred_thres(pred, thres=0.5):
+    p = []
+    for i in pred:
+        if i[1] > thres:
+            p.append(1)
+        else:
+            p.append(0)
+    return p
+
+
+class custom_RFC(RandomForestClassifier):
+    def __init__(self, n_estimators = 100, *, criterion = "gini", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = "sqrt", max_leaf_nodes = None, min_impurity_decrease = 0, bootstrap: bool = True, oob_score: bool = False, n_jobs = None, random_state = None, verbose = 0, warm_start: bool = False, class_weight = None, ccp_alpha: float = 0, max_samples: float | None | int = None) -> None:
+        super().__init__(n_estimators, criterion=criterion, max_depth=max_depth, min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaf, min_weight_fraction_leaf=min_weight_fraction_leaf, max_features=max_features, max_leaf_nodes=max_leaf_nodes, min_impurity_decrease=min_impurity_decrease, bootstrap=bootstrap, oob_score=oob_score, n_jobs=n_jobs, random_state=random_state, verbose=verbose, warm_start=warm_start, class_weight=class_weight, ccp_alpha=ccp_alpha, max_samples=max_samples)
+
+    def predict(self, X):
+        preds = pred_thres(self.predict_proba(X), 0.2)
+        return preds
+
+
+
+
+
+
+
+
+
+########################################
+# Signification des valeurs du dataset #
+########################################
 attributes_values = {
    'catv' : {0:"Autre", 1:"Bicyclette", 2:"Cyclomoteur", 3:"Voiture", 4:"Utilitaire", 5:"Moto"},
    'sexe_conducteur' : {1:"Homme", 0:"Femme"},
@@ -155,10 +192,17 @@ def rapport_corr(x, y):
 
 
 
-def analyse_bi_quali_quanti(quali, quanti, df):
+def analyse_bi_quali_quanti(quali, quanti, df_):
+  df = df_.copy()
   # Rapport de correlation
   rapp = rapport_corr(df[quali].values, df[quanti].values)
   print(f"Rapport de corr {quali} X {quanti}: {rapp} ")
+
+  if quali in attributes_values.keys():
+    df[quali] = df[quali].replace(attributes_values[quali])
+  if quanti in attributes_values.keys():
+    df[quanti] = df[quanti].replace(attributes_values[quanti])
+
   # boite a moustaches
   bam = px.box(df, x=quali, y=quanti)
   bam.show()
@@ -184,6 +228,12 @@ def analyse_bi_quali_quali(quali1, quali2, df, numerical_features):
   contingence_tab = [
       [ df_group[(df_group[quali2]==row) & (df_group[quali1]==col)]["count"].values[0] if col in df_group[df_group[quali2]==row][quali1].values else 0 for row in rows  ]
       for col in cols]
+  
+  if quali1 in attributes_values.keys():
+    df_group[quali1] = df_group[quali1].replace(attributes_values[quali1])
+  if quali2 in attributes_values.keys():
+    df_group[quali2] = df_group[quali2].replace(attributes_values[quali2])
+
   contingence_img = px.imshow(contingence_tab,
                               text_auto=True,
                               labels=dict(x=quali2, y=quali1),

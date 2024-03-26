@@ -3,14 +3,19 @@ import numpy as np
 import plotly.express as px
 import matplotlib.pyplot as plt
 from utils import *
+from sklearn.model_selection import train_test_split
 
 
+'''
+    Chargement et préparation du dataset
+    en une seule fonction
+'''
 def load_dataset():
     label = "mortal"
 
     # Lecture datasets
     df1 = pd.read_csv("dataset/usagers-2022.csv", sep=';')
-    df2 = pd.read_csv("dataset/lieux-2022.csv", sep=';')
+    df2 = pd.read_csv("dataset/lieux-2022.csv", sep=';', low_memory=False)
     df3 = pd.read_csv("dataset/carcteristiques-2022.csv", sep=';')
     df4 = pd.read_csv("dataset/vehicules-2022.csv", sep=';')
 
@@ -66,7 +71,7 @@ def load_dataset():
     df_2['dep'] = pd.to_numeric(df_2['dep'], errors='coerce', downcast='integer')
 
     df_2['nbv'] = pd.to_numeric(df_2['nbv'], errors='coerce', downcast='integer')
-    df_2['nbv'].fillna(2, inplace=True) # only one entry 
+    df_2['nbv'] = df_2['nbv'].fillna(2) # only one entry 
     df_2['nbv'] = pd.to_numeric(df_2['nbv'], errors='coerce', downcast='integer')
 
     df_2['lat'] = pd.to_numeric(df_2['lat'], errors='coerce')
@@ -84,3 +89,25 @@ def load_dataset():
                             'secu1','secu2','secu3', 'an', 'lat', 'long'])
     
     return df_2
+
+def test_train_sets(df):
+    df_2 = df.copy(deep=True)
+    # On découpe le jeu de données tout en conservant ensemble les véhicules impliqué dans un même accident
+    # Les données d'entrainement et de test n'ont donc pas de rapport direct
+
+    unique_accidents = df_2['Num_Acc'].unique() # Num_Acc uniques
+
+    df_3 = df_2.drop(columns=['mortal'])
+
+    # Création des train et test set à partir des numéros d'accident
+    X_train, X_test = train_test_split(unique_accidents, test_size=0.33, random_state=42)
+
+    # On peut ensuite récupérer les véhicules correspondants aux accidents
+    train_df = df_2[df_2['Num_Acc'].isin(X_train)]
+    test_df = df_2[df_2['Num_Acc'].isin(X_test)]
+    y_train = train_df['mortal']
+    y_test = test_df['mortal']
+    X_train = train_df.drop(columns=['mortal', 'Num_Acc'])
+    X_test = test_df.drop(columns=['mortal', 'Num_Acc'])
+
+    return X_train, X_test, y_train, y_test

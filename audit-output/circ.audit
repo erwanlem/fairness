@@ -1,0 +1,12 @@
+GFA Audit for:circ
+audit-output/circ.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26595, "1": 2740}, "1": {"1": 648, "0": 1056}}]
+audit-output/circ.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26586, "1": 2749}, "1": {"1": 647, "0": 1057}}]
+audit-output/circ.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26521, "1": 2814}, "1": {"1": 666, "0": 1038}}]
+audit-output/circ.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 26480, "1": 2855}, "1": {"1": 662, "0": 1042}}]
+audit-output/circ.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 26479, "1": 2856}, "1": {"1": 659, "0": 1045}}]
+audit-output/circ.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26425, "1": 2910}, "1": {"1": 667, "0": 1037}}]
+audit-output/circ.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 27931, "1": 1404}, "1": {"0": 1381, "1": 323}}]
+audit-output/circ.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27902, "1": 1433}, "1": {"0": 1374, "1": 330}}]
+audit-output/circ.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27845, "1": 1490}, "1": {"0": 1372, "1": 332}}]
+audit-output/circ.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27846, "1": 1489}, "1": {"0": 1378, "1": 326}}]
+audit-output/circ.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27775, "1": 1560}, "1": {"0": 1371, "1": 333}}]
