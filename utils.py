@@ -15,12 +15,12 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 def pred_thres(pred, thres=0.5):
-    p = []
+    p = np.array([])
     for i in pred:
         if i[1] > thres:
-            p.append(1)
+            p = np.append(p, 1)
         else:
-            p.append(0)
+            p = np.append(p, 0)
     return p
 
 
@@ -163,6 +163,7 @@ def get_driver_age(df):
     df = df.copy()
     # Age du conducteur du véhicule
     driver_age = df[(df['catu'] == 1)][['an_nais', 'id_vehicule', 'an']]
+
     age = driver_age['an'] - driver_age['an_nais']
     return age
 
