@@ -103,7 +103,8 @@ def load_dataset():
 
     df_2.loc[df_2['age'].isna(), 'age'] = (df3['bidule2'] - df3['bidule'])
 
-    df_2[(df_2['age'].isna())]['age'] 
+    df_2[(df_2['age'].isna())]['age']
+    df_2['age'] = df_2['age'].astype(int)
 
     # On enlève les attributs qui ne sont plus utiles
     df_2 = df_2.drop(columns=['grav', 'sexe','catu', 'id_usager', 'id_vehicule',
