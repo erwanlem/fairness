@@ -1,7 +1,7 @@
-Audit Start Time: 2024-03-30 17:39:47.262635
-Audit End Time: 2024-03-30 17:52:31.084000
+Audit Start Time: 2024-03-31 19:02:43.673148
+Audit End Time: 2024-03-31 19:16:08.847522
 Retrained Per Repair: False
-Model Factory ID: 1711816787.264575
+Model Factory ID: 1711904563.6748655
 Model Type: HirePredictor
 Non-standard Model Options: {}
 Train Size: 62204
