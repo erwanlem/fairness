@@ -15,7 +15,7 @@ def load_dataset():
 
     # Lecture datasets
     df1 = pd.read_csv("dataset/usagers-2022.csv", sep=';')
-    df2 = pd.read_csv("dataset/lieux-2022.csv", sep=';')
+    df2 = pd.read_csv("dataset/lieux-2022.csv", sep=';', low_memory=False)
     df3 = pd.read_csv("dataset/carcteristiques-2022.csv", sep=';')
     df4 = pd.read_csv("dataset/vehicules-2022.csv", sep=';')
 

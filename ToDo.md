@@ -9,3 +9,16 @@
   - Résultat baisse drastique du nombre d'accidents mortels détectés : Abandon de cette piste X
 - dans les métriques de bases,  ^y en fonction des erreurs. Formule : ?
 - hyp tester resample : des poids ? pour agir sur l'attribut protégé en même temps. ?
+
+
+### Pre/Post processing
+#### Pre
+- [x] Reweighing
+- [ ] Disparate impact remover
+- [ ] Représentation latente fair
+- [ ] Optimized pre-processing
+
+#### Post
+- [ ] Reject option classification
+- [ ] Equalized-odds
+- [ ] Calibrated Equalized Odds
