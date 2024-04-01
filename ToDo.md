@@ -14,7 +14,7 @@
 ### Pre/Post processing
 #### Pre
 - [x] Reweighing
-- [ ] Disparate impact remover
+- [x] Disparate impact remover
 - [ ] Représentation latente fair
 - [ ] Optimized pre-processing
 

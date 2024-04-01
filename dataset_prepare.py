@@ -4,6 +4,8 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 from utils import *
 from sklearn.model_selection import train_test_split
+import imblearn
+from aif360.datasets.standard_dataset import StandardDataset
 
 
 '''
@@ -136,3 +138,29 @@ def test_train_sets(df):
     df_2 = df_2.drop(columns='Num_Acc')
 
     return X_train, X_test, y_train, y_test
+
+
+
+def prepare_standard_dataset(X_train, y_train, X_test, y_test, label):
+    resample = imblearn.over_sampling.SMOTE(random_state=42)
+    X_train, y_train = resample.fit_resample(X_train, y_train)
+
+    train_dataset = X_train.copy(deep=True)
+    train_dataset[label] = y_train
+
+    test_dataset = X_test.copy(deep=True)
+    test_dataset[label] = y_test
+
+    df_standard_test = StandardDataset(test_dataset, label
+                              , favorable_classes=[1]
+                              , protected_attribute_names=['sexe_conducteur']
+                              , privileged_classes= [[1]])
+
+    dataset_orig_train = StandardDataset(train_dataset, label
+                                , favorable_classes=[1]
+                                , protected_attribute_names=['sexe_conducteur']
+                                , privileged_classes= [[1]])
+    
+    dataset_orig_valid, dataset_orig_test = df_standard_test.split([0.5], shuffle=True)
+
+    return dataset_orig_train, dataset_orig_valid, dataset_orig_test
