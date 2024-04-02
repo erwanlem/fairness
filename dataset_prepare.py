@@ -115,7 +115,7 @@ def load_dataset():
 
     return df_2
 
-def test_train_sets(df):
+def test_train_sets(df, train_ratio=0.33):
     df_2 = df.copy(deep=True)
 
     # On découpe le jeu de données tout en conservant ensemble les véhicules impliqué dans un même accident
@@ -126,7 +126,7 @@ def test_train_sets(df):
     df_3 = df_2.drop(columns=['mortal'])
 
     # Création des train et test set à partir des numéros d'accident
-    X_train, X_test = train_test_split(unique_accidents, test_size=0.33, random_state=42)
+    X_train, X_test = train_test_split(unique_accidents, test_size=train_ratio, random_state=42)
 
     # On peut ensuite récupérer les véhicules correspondants aux accidents
     train_df = df_2[df_2['Num_Acc'].isin(X_train)]
@@ -141,9 +141,10 @@ def test_train_sets(df):
 
 
 
-def prepare_standard_dataset(X_train, y_train, X_test, y_test, label):
-    resample = imblearn.over_sampling.SMOTE(random_state=42)
-    X_train, y_train = resample.fit_resample(X_train, y_train)
+def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, oversample=True):
+    if oversample:
+        resample = imblearn.over_sampling.SMOTE(random_state=42)
+        X_train, y_train = resample.fit_resample(X_train, y_train)
 
     train_dataset = X_train.copy(deep=True)
     train_dataset[label] = y_train
@@ -161,6 +162,8 @@ def prepare_standard_dataset(X_train, y_train, X_test, y_test, label):
                                 , protected_attribute_names=['sexe_conducteur']
                                 , privileged_classes= [[1]])
     
-    dataset_orig_valid, dataset_orig_test = df_standard_test.split([0.5], shuffle=True)
-
-    return dataset_orig_train, dataset_orig_valid, dataset_orig_test
+    if vt:
+        dataset_orig_valid, dataset_orig_test = df_standard_test.split([0.5], shuffle=True)
+        return dataset_orig_train, dataset_orig_valid, dataset_orig_test
+    else:
+        return dataset_orig_train, df_standard_test
