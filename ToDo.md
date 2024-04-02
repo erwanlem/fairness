@@ -15,10 +15,13 @@
 #### Pre
 - [x] Reweighing
 - [x] Disparate impact remover
-- [ ] Représentation latente fair
-- [ ] Optimized pre-processing
+- [x] Représentation latente fair
+- [x] Optimized pre-processing (not working)
 
 #### Post
-- [ ] Reject option classification
-- [ ] Equalized-odds
-- [ ] Calibrated Equalized Odds
+- [x] Reject option classification
+- [ ] Equalized-odds (no doc)
+- [x] Calibrated Equalized Odds
+
+#### In - processing
+- [ ] 
