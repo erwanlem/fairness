@@ -6,6 +6,19 @@ from utils import *
 from sklearn.model_selection import train_test_split
 import imblearn
 from aif360.datasets.standard_dataset import StandardDataset
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+
+
+# valeurs catégorielles
+categorical_features = ['trajet', 'catr', 'circ', 'nbv', 'prof',
+                        'plan', 'surf', 'vma', 'lum', 'agg', 
+                        'int', 'atm', 'col', 'catv', 'obs', 'obsm', 'choc', 'pieton',
+                        'sexe_conducteur', 'infra', 'situ']
+# valeurs numériques
+numerical_features = ['dep','age', 'mois']
 
 
 '''
@@ -141,7 +154,19 @@ def test_train_sets(df, train_ratio=0.33):
 
 
 
-def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, oversample=True):
+def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, oversample=True, transform=False):
+    numeric_transformer = Pipeline(steps=[
+    ('scaler', StandardScaler())])
+
+    categorical_transformer = Pipeline(steps=[
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))])
+
+    transformations = ColumnTransformer(
+        transformers=[
+            ('num', numeric_transformer, numerical_features),
+            ('cat', categorical_transformer, categorical_features)]).set_output(transform="pandas")
+    
+    
     if oversample:
         resample = imblearn.over_sampling.SMOTE(random_state=42)
         X_train, y_train = resample.fit_resample(X_train, y_train)
@@ -151,6 +176,10 @@ def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, 
 
     test_dataset = X_test.copy(deep=True)
     test_dataset[label] = y_test
+
+    if transform:
+        train_dataset = transformations.fit_transform(train_dataset, y_train)
+        test_dataset = transformations.fit_transform(test_dataset, y_test)
 
     df_standard_test = StandardDataset(test_dataset, label
                               , favorable_classes=[1]
