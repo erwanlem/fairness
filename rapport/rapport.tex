@@ -510,7 +510,13 @@
 
     \subsubsection{Les performances pour la Fairness}
 
+    La première observation que l'on peut faire, c'est que le disparate impact se voit corrigé pour les femmes. Pour être précis, avec le nouveau seuil, le disparate impact
+    augmente à \textit{0.640} là ou celui des hommes est à \textit{0.636}. Il s'est donc à la fois presque aligné à celui des hommes tout en se rapprochant de 1. 
     
+    On remarque aussi que les taux d'erreur (P(Y^=1| (Y=1, Z=0)) <br> P(Y^=1| (Y=0, Z=0)) <br> P(Y^=1| (Y=1, Z=1)) <br> P(Y^=1| (Y=0, Z=1))) chez les femmes se sont rapproché de
+    ceux des hommes. ce qui atteste d'un correction de biais. 
+
+    En revanche, il faut sousligner que la correction de biais n'est pas complète. On peut même dire qu'elle est inférieure à d'autres méthodes telles que reweighing.
     
     \subsection{Calibrated equalized odds}
     
