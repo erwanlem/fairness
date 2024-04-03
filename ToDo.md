@@ -25,4 +25,4 @@
 - [x] Calibrated Equalized Odds
 
 #### In - processing
-- [ ] Adversarial debiasing
+- [x] Adversarial debiasing
