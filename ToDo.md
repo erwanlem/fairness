@@ -12,6 +12,7 @@
 
 
 ### Pre/Post processing
+
 #### Pre
 - [x] Reweighing
 - [x] Disparate impact remover
@@ -24,4 +25,4 @@
 - [x] Calibrated Equalized Odds
 
 #### In - processing
-- [ ] 
+- [ ] Adversarial debiasing

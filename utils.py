@@ -26,11 +26,13 @@ def pred_thres(pred, thres=0.5):
 
 
 class custom_RFC(RandomForestClassifier):
-    def __init__(self, n_estimators = 100, *, criterion = "gini", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = "sqrt", max_leaf_nodes = None, min_impurity_decrease = 0, bootstrap: bool = True, oob_score: bool = False, n_jobs = None, random_state = None, verbose = 0, warm_start: bool = False, class_weight = None, ccp_alpha: float = 0, max_samples: float | None | int = None) -> None:
+
+    def __init__(self, n_estimators = 100, *, criterion = "gini", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = "sqrt", max_leaf_nodes = None, min_impurity_decrease = 0, bootstrap: bool = True, oob_score: bool = False, n_jobs = None, random_state = None, verbose = 0, warm_start: bool = False, class_weight = None, ccp_alpha: float = 0, max_samples: float | None | int = None, threshold = 0.2) -> None:
         super().__init__(n_estimators, criterion=criterion, max_depth=max_depth, min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaf, min_weight_fraction_leaf=min_weight_fraction_leaf, max_features=max_features, max_leaf_nodes=max_leaf_nodes, min_impurity_decrease=min_impurity_decrease, bootstrap=bootstrap, oob_score=oob_score, n_jobs=n_jobs, random_state=random_state, verbose=verbose, warm_start=warm_start, class_weight=class_weight, ccp_alpha=ccp_alpha, max_samples=max_samples)
+        self.threshold = threshold
 
     def predict(self, X):
-        preds = pred_thres(self.predict_proba(X), 0.2)
+        preds = pred_thres(self.predict_proba(X), self.threshold)
         return preds
 
 

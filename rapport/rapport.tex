@@ -33,6 +33,8 @@
     le code principal que nous allons suivre et contextualiser tout au long de ce rapport. de plus, le fichier \texttt{utils.py} 
     contient toutes les fonctions auxiliaires que nous utilisons dans le fichier principal.
 
+    \newpage
+    \part{Analyse}
     \section{Découverte du jeu de données}
     \subsection{La base de données}
     La base de données est composée de plusieurs tables : \textit{usagers}, \textit{véhicules}, \textit{lieux} et 
@@ -461,6 +463,30 @@
     Ces questions seront déterminantes pour la suite de ce projet.
 
     \newpage
+    \part{Correction des biais}
+
+    \section{Améliorations du modèle}
+
+    \section{Pre-processing}
+    \subsection{Repondération}
+
+    \subsection{Disparate Impact Remover}
+
+    \subsection{Représentation latente fair}
+
+    \subsection{Optimized preprocessing}
+
+    \section{In-processing}
+
+    \subsection{Adversarial debiasing}
+
+    \section{Post-processing}
+
+    \subsection{Reject option classification}
+
+    \subsection{Calibrated equalized odds}
+
+    \newpage
     \appendix
 
     \section{Les données conservées pour le modèle.}\label{appendix:dataset}
@@ -517,8 +543,8 @@
             \textbf{Attribut} & \textbf{Description} & \textbf{Raison de l'abaodon} \\
             \hline
             \textit{id\_vehicule} & identifiant numérique unique du véhicule & information administrative, une fois les tables jointe, cette inforamtion sans intétret, n'est plus utile\\
-            \textit{num_veh} & Jour de l'accident, mois de l'accident \\
-            \hline
+            %\textit{num_veh} & Jour de l'accident, mois de l'accident \\
+            %\hline
         \end{tabular}
     \end{center}
     \newpage
