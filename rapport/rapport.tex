@@ -483,7 +483,35 @@
     \section{Post-processing}
 
     \subsection{Reject option classification}
+    \subsubsection{Un nouveau seuil}
 
+    Le but de cette méthode de correction de biais post-preprocessing, est de faire varier le seuil de décision de manière à 
+    trouver celui qui a la meilleure fairness, pour le comparer au seuil ayant la meilleure accuracy.
+
+    Toujours à l'aide d'AIF 360, nous avons utiliser ROC en paramétrant le groupe privilégié à 1 (Hommes) et les lésés à 0 (Femmes).
+    Les résultat sont les suivant: 
+
+    \begin{itemize}
+        \item Sans fairness : \textit{0.1189}
+        \item Avec fairness : \textit{0.1289}
+    \end{itemize}
+    
+    De ces résultats on peut sortir deux observations. Tout d'abord, ROC à resenti le besoin de déplacer le seuil de sorte à corriger 
+    le biais. Ensuite, la correction effectuée est minime dans son ampleur. 
+
+    \subsubsection{Les nouvelles performances du modèle}
+
+    Les répercussions sur l'accuracy quand à elles sont notables mais acceptables. On passe en effet de \textit{0,876} à \textit{0,790}.
+    Cependant, si on regarde un peu plus en détail la matrice de confusion, il parrait intéressant de noter que ce modèle détecte mieux 
+    les accidents mortels véritablement mortels. Pour être précis, ce nombre passe de \textit{660} à \textit{1044} ce qui constitue  \textit{62\%} des accidents
+    mortels répertoriés dans l'ensemble. Ceci se fait au prix d'un augmentation des accidents non motrtels faussement détectés. Malgré tout, 
+    le taux de détection de ce type d'accident reste élevé à \textit{80\%}. Voilà pourquoi la qualification d'acceptable pour la baisse en 
+    accuracy est parfaitement adaptée.
+
+    \subsubsection{Les performances pour la Fairness}
+
+    
+    
     \subsection{Calibrated equalized odds}
     
     \section{Résultats}
