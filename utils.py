@@ -55,7 +55,27 @@ attributes_values = {
             5:"Trois véhicules et plus collisions multiples",
             6:"Autre collision", 
             7: "Pas de collision"},
-    'obs' : {0:"Pas d'obstacle", 1:"Obstacle"}
+    'obs' : {0:"Pas d'obstacle", 1:"Obstacle"},
+    'agg' : {1 : "Hors-Aglomération", 2 : "En Aglomération"}, 
+    'pieton' : {0 : "Aucun Piéton impliqué", 1 : "Piéton(s) impliqué(s)"},
+    'atm' : {-1 : "Non renseigné",
+            1 : "Normale",
+            2 : "Pluie légère",
+            3 : "Pluie forte",
+            4 : "Neige - grêle",
+            5 : "Brouillard - fumée",
+            6 : "Vent fort - tempête", 
+            7 : "Temps éblouissant", 
+            8 : "Temps couvert",
+            9 : "Autre" },
+    'obsm' : {-1 : "Non renseigné", 
+              0 : "Aucun",
+              1 : "Piéton",
+              2 : "Véhicule",
+              4 : "Véhicule sur rail",
+              5 : "Animal domestique",
+              6 : "Animal sauvage",
+              9 : "Autre"}
 }
 
 
