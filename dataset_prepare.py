@@ -154,19 +154,10 @@ def test_train_sets(df, train_ratio=0.33):
 
 
 
-def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, oversample=True, transform=False):
-    numeric_transformer = Pipeline(steps=[
-    ('scaler', StandardScaler())])
+def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, oversample=True, transform=True):
+    col = X_train.columns
+    scaler = StandardScaler()
 
-    categorical_transformer = Pipeline(steps=[
-        ('onehot', OneHotEncoder(handle_unknown='ignore'))])
-
-    transformations = ColumnTransformer(
-        transformers=[
-            ('num', numeric_transformer, numerical_features),
-            ('cat', categorical_transformer, categorical_features)]).set_output(transform="pandas")
-    
-    
     if oversample:
         resample = imblearn.over_sampling.SMOTE(random_state=42)
         X_train, y_train = resample.fit_resample(X_train, y_train)
@@ -178,8 +169,7 @@ def prepare_standard_dataset(X_train, y_train, X_test, y_test, label, vt=False, 
     test_dataset[label] = y_test
 
     if transform:
-        train_dataset = transformations.fit_transform(train_dataset, y_train)
-        test_dataset = transformations.fit_transform(test_dataset, y_test)
+        X_train = scaler.fit_transform(X_train, y_train)
 
     df_standard_test = StandardDataset(test_dataset, label
                               , favorable_classes=[1]

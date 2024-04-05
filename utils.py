@@ -8,6 +8,7 @@ import multiprocessing
 from sklearn.ensemble import RandomForestClassifier
 from collections import OrderedDict
 from aif360.metrics import ClassificationMetric
+from sklearn import preprocessing
 
 
 
@@ -29,7 +30,7 @@ class custom_RFC(RandomForestClassifier):
         super().__init__(n_estimators, criterion=criterion, max_depth=max_depth, min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaf, min_weight_fraction_leaf=min_weight_fraction_leaf, max_features=max_features, max_leaf_nodes=max_leaf_nodes, min_impurity_decrease=min_impurity_decrease, bootstrap=bootstrap, oob_score=oob_score, n_jobs=n_jobs, random_state=random_state, verbose=verbose, warm_start=warm_start, class_weight=class_weight, ccp_alpha=ccp_alpha, max_samples=max_samples)
 
     def predict(self, X, threshold=0.2):
-        preds = pred_thres(self.predict_proba(X), threshold)
+        preds = pred_thres(self.predict_proba(X), 0.2)
         return preds
 
 
@@ -405,3 +406,19 @@ class parallel_shap:
     self.p3.terminate()
     self.p4.terminate()
     self.p5.terminate()
+
+
+from sklearn.metrics import confusion_matrix
+
+
+def print_conf_matrix(model, y_test, preds):
+  tn, fp, fn, tp = confusion_matrix(y_test, preds).ravel()
+  tn, fp, fn, tp
+  import plotly.express as px
+
+  fig = px.imshow([[tn, fp], [fn, tp]], text_auto=True, labels=dict(y="Truth", x="Pred"),
+                  x=["False", "True"],
+                  y=["False", "True"]
+                )
+  fig.show()
+

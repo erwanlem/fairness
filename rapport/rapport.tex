@@ -432,7 +432,7 @@
     Enfin, il semble que, comme nous avions pu l'observer avec les valeurs de Shapley, l'attribut 
     \textit{sexe\_conducteur} ait un faible impact sur la prédiction.
 
-    \section{Conclusion}
+    \section{Premières conclusions}
     Pour ce projet nous avons cherché un dataset qui nous intéressait, et nous avons choisi celui rapportant les accidents de la route. Pourvu de 
     nombreux attributs, nous avons dû adapter leur format avant de pouvoir les analyser de manière univariée puis bivariée. Lors du premier essai, 
     nous avons fait le choix d'utiliser des arbres de décision. Ce qui nous a conduit à transformer beaucoup de nos variables en OneHot. L'accuracy 
@@ -466,15 +466,105 @@
     \part{Correction des biais}
 
     \section{Améliorations du modèle}
+    Cette deuxième partie du projet a commencé par l'amélioration des premiers resultats. Nous allons parcourir 
+    dans cette section les différentes amélioration effectuées avant d'arriver à la correction des biais.
+
+    \subsection{Sur-échantillonnage}
+    Le pré-traitement des données a été amélioré avec l'utilisation de l'outil de sur-échantillonnage \textit{SMOTE}.
+    Nous avions pu remarquer lors de l'analyse de nos données que les accidents mortels sont minoritaires (environ $5\%$).
+    Cet outil nous permet de rééquilibrer les classes afin d'avoir un meilleur apprentissage sur la classe des accidents 
+    mortels. Le \textit{SMOTE} va générer de nouveaux individus minoritaires qui ressemblent à ceux déjà présents sans 
+    pour autant être identiques.
+    Nous pouvons voir sur la figure \ref{fig:smote1} que le rééquilibrage nous donne 50\% pour chaque classe 
+    tout en affectant peu les proportions sur les autres attributs comme nous le montre la figure \ref{fig:smote2} 
+    qui prend pour exemple l'attribut \textit{sexe\_conducteur}.
+    Les résultats observés dans la suite du projet sont bien plus concluants en utilisant cette méthode.
+    Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du prétraitement.
+    \\\\
+    \begin{figure}[!h]
+        \vspace{2cm}
+        \centering
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/smote/before.png}
+            \caption{Accidents mortels avant SMOTE}\label{fig:before_smote}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/smote/after.png}
+        \caption{Accidents mortels après SMOTE}\label{fig:after_smote}
+        \end{subfigure}
+        \caption{Accidents mortels avant/après SMOTE}\label{fig:smote1}
+    \end{figure}
+    \vspace{1cm}
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/smote/sex_before.png}
+            \caption{Homme/Femme avant SMOTE}\label{fig:before_smote_sex}
+        \end{subfigure}
+        \vspace{\floatsep}
+        \hspace{0.4cm}
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/smote/sex_after.png}
+        \caption{Homme/Femme après SMOTE}\label{fig:after_smote_sex}
+        \end{subfigure}
+        \caption{Proportion Homme/Femme avant et après SMOTE}\label{fig:smote2}
+    \end{figure}
+    \vspace{1cm}
+
+    \subsection{\textit{Random Forest Classifier}}
+    La première partie de ce projet utilisait un \textit{Decision Tree Classifier}.
+    Afin d'avoir un modèle plus robuste, nous avons décidé d'utiliser une forêt aléatoire.
+    À première vue, les résultats étaient bien moins bons. En effet le nombre de 
+    vrais positifs est très faible. Cependant, en modifiant le seuil d'acceptation on 
+    peut faire évoluer la quantité de vrais positifs et obtenir des résultats bien plus 
+    intéressants. Une classe a été créée afin de surcharger la méthode \verb|predict| de 
+    la classe \textit{RandomForestClassifier}. Le seuil a été fixé dans un premier temps à 
+    $0.2$. Nous verrons dans la suite comment régler ce seuil afin de réduire au maximum les 
+    biais.
+
 
     \section{Pre-processing}
     \subsection{Repondération}
+    La repondération vise à donner un poid différent aux attributs afin de réduire les biais.
+    Ces poids sont ensuite utilisé lors de l'apprentissage. Après repondération de notre dataset 
+    d'entrainement nous obtenons une différence nulle entre les deux classes.
+    Après apprentissage et observation des résultats de notre modèle, nous pouvons faire deux 
+    observations. Premièrement les métriques de fairness sont très positives. Le disparate impact 
+    passe de $0.50$ à $0.94$ pour les femmes. La seconde observation est que l'accuracy de notre 
+    modèle a en revanche diminuée de $0.87$ à $0.75$. Cela peut s'expliquer par une augmentation 
+    du nombre de faux positifs. En revanche un point intéressant est que le nombre de 
+    vrais positifs est ici plus élevé que le nombre de positifs prédits faux, ce qui n'était pas 
+    le cas sur les modèles testés jusqu'ici.
+    La matrice de confusion (figure \ref{fig:reweight_matrix}) nous montre 
+    les résultats obtenus après repondération.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/confusion_matrix_reweight.png}
+        \caption{Matrice de confusion avec repondération}
+        \label{fig:reweight_matrix}
+    \end{figure}
 
     \subsection{Disparate Impact Remover}
+    Les résultats obtenus avec le \textit{Disparate impact remover} sont similaires à ceux obtenus avec 
+    la repondération. On obtient une accuracy de $0.75$ et un disparate impact de $0.89$. Le disparate 
+    impact est un peu moins bon que celui obtenu avec la repondération pour une accuracy équivalente.
+    On peut remarquer que tout comme avec la repondération, la matrice de confusion nous montre une 
+    tendance allant vers plus de faux positifs. On remarque également encore une amélioration des prédictions 
+    de vrais positifs qui est très proche de celle obtenue par la méthode précédente. 
+    Ci-dessou la matrice de confusion (figure \ref{fig:DIR_matrix}) du modèle utilisant le disparate impact remover.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/DIR_confusion_matrix.png}
+        \caption{Matrice de confusion avec Disparate Impact Remover}
+        \label{fig:DIR_matrix}
+    \end{figure}
+
 
     \subsection{Représentation latente fair}
-
-    \subsection{Optimized preprocessing}
+    
 
     \section{In-processing}
 
@@ -513,7 +603,8 @@
     La première observation que l'on peut faire, c'est que le disparate impact se voit corrigé pour les femmes. Pour être précis, avec le nouveau seuil, le disparate impact
     augmente à \textit{0.640} là ou celui des hommes est à \textit{0.636}. Il s'est donc à la fois presque aligné à celui des hommes tout en se rapprochant de 1. 
     
-    On remarque aussi que les taux d'erreur (P(Y^=1| (Y=1, Z=0)) <br> P(Y^=1| (Y=0, Z=0)) <br> P(Y^=1| (Y=1, Z=1)) <br> P(Y^=1| (Y=0, Z=1))) chez les femmes se sont rapproché de
+    On remarque aussi que les taux d'erreur 
+    \[ P(\overline{Y}=1| (Y=1, Z=0)) \] \[ P(\overline{Y}=1| (Y=0, Z=0)) \] \[ P(\overline{Y}=1| (Y=1, Z=1)) \] \[ P(\overline{Y}=1| (Y=0, Z=1)) \] chez les femmes se sont rapproché de
     ceux des hommes. ce qui atteste d'un correction de biais. 
 
     En revanche, il faut sousligner que la correction de biais n'est pas complète. On peut même dire qu'elle est inférieure à d'autres méthodes telles que reweighing.
@@ -609,7 +700,7 @@
             \textit{jour} & numéro du jour de l'accident & peu utile, il aurait été plus utile de connaitre le jours de la semaine\\
             \textit{hrmn} & heures : minutes & format non adapté, redondant de luninosité (lum) qui est plus précis\\
             \textit{an} & année de l'accident & utilisé pour déterminer l'age du conducteur, n'est plus utile par la suite \\
-            \textit{an_nais} & année de naissance de l'usager & utilisé pour déterminer l'age du conducteur, n'est plus utile par la suite, pas adapté au point de vue de l'accident \\
+            \textit{an\_nais} & année de naissance de l'usager & utilisé pour déterminer l'age du conducteur, n'est plus utile par la suite, pas adapté au point de vue de l'accident \\
             \hline
         \end{tabular}
     \end{center}
