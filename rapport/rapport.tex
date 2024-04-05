@@ -523,6 +523,19 @@
     $0.2$. Nous verrons dans la suite comment régler ce seuil afin de réduire au maximum les 
     biais.
 
+    \subsection{Attributs sensibles}
+    L'analyse du nouveau modèle nous a mené à de nouvelles observations. D'abord, nous avons 
+    remarqué une réduction du disparate impact pour le sexe féminin. De plus, les différents 
+    outils d'évaluation des biais nous montrent tous que le sexe féminin est plus disciminé sur 
+    ce modèle. L'utilisation de ce modèle a également eu pour effet de réduire l'influence de 
+    l'âge, le mois et le département, ce qui est un point positif. Nous pouvons notamment 
+    l'observer au travers des valeurs 
+    de Shapley obtenues avec ce nouveau modèle. 
+    
+    Dans la suite de ce projet nous nous penchons 
+    donc sur la correction des biais de l'attribut \textit{sexe\_conducteur}.
+
+
 
     \section{Pre-processing}
     \subsection{Repondération}
@@ -541,7 +554,7 @@
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=\textwidth]{./img/confusion_matrix_reweight.png}
+        \includegraphics[width=11cm]{./img/confusion_matrix_reweight.png}
         \caption{Matrice de confusion avec repondération}
         \label{fig:reweight_matrix}
     \end{figure}
