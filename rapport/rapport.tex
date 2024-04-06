@@ -605,6 +605,56 @@
     \section{In-processing}
 
     \subsection{Adversarial debiasing}
+    \subsubsection{Explications}
+    Cette méthode vise à entrainer un classifieur à maximiser l'accuracy tout en réduisant la possibilité pour un seconde 
+    modèle de prédire la sortie en fonction de l'attribut sensible. En réduisant la possibilité de prédire la sortie en 
+    fonction de l'attribut sensible, on réduit les biais sur cet attribut.
+    La spécificité de cette méthode par rapport aux autres est donc qu'elle n'utilise plus le modèle que nous avons 
+    définit auparavant mais un autre modèle.
+
+    \subsubsection{Résultats}
+    Les résultats obtenus sont plutôt intéressant que ce soit sans ou avec la réduction de biais. En effet, que ce soit 
+    avec ou sans la réduction des biais le disparate impact est supérieur à 1. Nous pouvons expliquer cela par le fait 
+    que cette méthode n'utilise pas de \texttt{RandomForestClassifier}, ce qui donner des résultats très différents. 
+    L'accuracy dimunue légèrement avec la réduction des biais mais reste aux alentours de $0.80$. On note que l'accuracy 
+    sans réduction des biais est elle moins élevée qu'avec notre modèle. La figure~\ref{fig:ADV_matrix1} nous montre les 
+    résultats obtenus avec ce modèle. Nous pouvons remarquer que le nombre de prédictions vraies est plutôt 
+    intéressant mais plus faible que le nombre de prédictions faussements négatives. 
+    
+    Les résultats obtenus avec cette méthode sont tout de même très intéressants car nous conservons une accuracy 
+    acceptable tout en ayant un très bon disarate impact. L'objectif étant d'améliorer notre modèle en réduisant
+     ses biais, l'utilisation d'un nouveau modèle que nous connaissons peu est discutable.
+
+    \subsubsection{Un peu de pre-processing}
+    Les résultats obtenus avec ce modèle sont intéressants c'est pourquoi nous avons voulu ajouter 
+    du pre-processing afin d'essayer de l'améliorer d'avantage et notamment au niveau de l'accuracy.
+    Nous avons choisi d'utiliser la repondération qui a donné d'excellents résultats sur notre 
+    modèle utilisant une forêt aléatoire.
+    Les résultats obtenus sont encore meilleur que sans repondération. Sur la matrice de confusion 
+    figure~\ref{fig:ADV_matrix2} on peut voir que les bonnes prédictions vrai un légèrement diminuées. 
+    Cependant on remarque que le nombre de prédictions vraies qui sont fausses a fortement diminué au 
+    profit des prédictions fausses prédites fausses. 
+    
+    On obtient avec ce modèle des métriques de fairness aussi bonne qu'avant avec un disparate impact 
+    légèrement supérieur à 1, une equal opportunity difference proche de 0 tout en ne diminuant pas 
+    l'accuracy qui est maintenant de $0.83$.
+
+
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/adversarial1_conf_matrix.png}
+            \caption{Sans pre-processing}\label{fig:ADV_matrix1}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/adversarial2_conf_matrix.png}
+        \caption{Avec repondération des données}\label{fig:ADV_matrix2}
+        \end{subfigure}
+        \caption{Matrices de confusions de modèles Adversarial debiasing avec réduction de biais}
+    \end{figure}
+    \vspace{2cm}
+
 
     \section{Post-processing}
 
@@ -646,6 +696,38 @@
     En revanche, il faut sousligner que la correction de biais n'est pas complète. On peut même dire qu'elle est inférieure à d'autres méthodes telles que reweighing.
     
     \subsection{Calibrated equalized odds}
+    \subsubsection{Explications}
+    Cette méthode va modifier les sorties du modèle afin d'augmenter l'égalité entre les valeurs de l'attribut 
+    sensible. Cette méthode est testée sur différents seuils de prédiction afin de trouver le modèle le plus efficace.
+    On note cependant que les résultats son assez dépendants de l'aléatoire. Ils 
+    peuvent être variables d'une exécution à l'autre et peuvent même donner de moins bons résultats que sans le 
+    post-processing, ce nous allons voir par la suite.
+
+    \subsubsection{Les résultats obtenus}
+    La figure~\ref{fig:EQU_odds} nous montre l'évolution de l'accuracy et de l'égalité de l'attribut sensible 
+    (ici homme/femme) dans les prédictions en fonction du seuil. L'objectif est d'avoir l'accuracy la plus élevée tout 
+    en ayant le plus d'égalité sur l'attribut sensible (donc \textit{equal opportunity difference} le plus proche de 0).
+    Le résultat obtenu nous montre que l'application de cette méthode a ici eu un effet négatif. En effet nous pouvons 
+    remarquer que le meilleur résultat obtenu est avant post-processing avec un seuil légèrement en dessous de $0.15$.
+    Comme dit précédemment, les résultats varient avec l'aléatoire et on arrive à avoir des cas où les résultats sont 
+    meilleurs avec le post-processing.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/cal_equ_odds.png}
+        \caption{Résultats avec et sans post-processing en fonction du seuil}
+        \label{fig:EQU_odds}
+    \end{figure}
+
+    \subsubsection{Mise en perspective}
+    Comme nous avons pu le voir ce résultat n'est pas vraiment satisfaisant. Cependant cette méthode reste très
+    intéressante pour avoir une vu globale du modèle et des résultats obtenus.
+    Le \texttt{RejectOptionClassifier} vu précédemment nous indique directement un seuil optimal sans qu'on ait 
+    une idée de comment évoluent les biais en fonction du seuil. Ici nous avons des résultats selon les 
+    différents seuils. De plus une donnée intéressante ici est la visulisation de l'accuracy. Cela 
+    nous permet de réduire les biais tout en ayant le contrôle de l'accuracy (que ce soit avec ou sans 
+    post-processing), ce qui n'est pas forcément évident avec les autres méthodes.
+    
     
     \section{Résultats}
 
