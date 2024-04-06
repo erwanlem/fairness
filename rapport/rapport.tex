@@ -484,7 +484,7 @@
     Seules, ces métriques n'ont que peu d'intérêt, c'est lorsqu'on les regarde ensemble qu'elles prennent tout leur intérêt pour 
     la Fairness. En effet, l'équité est garantie si la différence entre ces taux pour l'attribut senseible et l'attribut privilégié 
     est nulle. En effet on serait en droit de s'attendre à ce que la justesse et l'erreur se produise dans les même proportions. 
-    Notons pour finir que la liste des taux de succès est incomplète, on aurait pu ajouter le cas "\overline{Y}=0| Y=0", mais ce n'est pas ce qui 
+    Notons pour finir que la liste des taux de succès est incomplète, on aurait pu ajouter le cas $\overline{Y}=0| Y=0$, mais ce n'est pas ce qui 
     nous intéresse le plus dans notre cas. On souhaite se concentrer sur les prédictions d'accidents mortels.
 
     \subsection{Sur-échantillonnage}
@@ -567,10 +567,10 @@
     du nombre de faux positifs. En revanche un point intéressant est que le nombre de 
     vrais positifs est ici plus élevé que le nombre de positifs prédits faux, ce qui n'était pas 
     le cas sur les modèles testés jusqu'ici.
-    La matrice de confusion (figure \ref{fig:reweight_matrix}) nous montre 
+    La matrice de confusion (figure~\ref{fig:reweight_matrix}) nous montre 
     les résultats obtenus après repondération. Un effet intéressant de cette intervention sur le set d'entrainement
     est que le modèle parvient mieux à trouver les morts vraiment mort qu'auparavant. La baisse en accuracy s'explique
-    par l'augmentation d'erreur de détection des accidents qui auraient du être labelisé accidents non - mortels. En
+    par l'augmentation d'erreur de détection des accidents qui auraient du être labelisé accidents non-mortels. En
     résumé ce nouveau modèle catégorise trop d'accidents comme étant mortels. Mais parmi les accidents détectés comme
     étant mortels seul un sur huit l'est vraiment. Dans notre cas c'est intéressant car dans un objectif de prévention
     routière, on veut écarter les causes d'accidents non mortels des campagnes de sécurité pour augmenter leur efficacité.
@@ -589,7 +589,7 @@
     On peut remarquer que tout comme avec la repondération, la matrice de confusion nous montre une 
     tendance allant vers plus de faux positifs. On remarque également encore une amélioration des prédictions 
     de vrais positifs qui est très proche de celle obtenue par la méthode précédente. 
-    Ci-dessou la matrice de confusion (figure \ref{fig:DIR_matrix}) du modèle utilisant le disparate impact remover.
+    Ci-dessou la matrice de confusion (figure~\ref{fig:DIR_matrix}) du modèle utilisant le disparate impact remover.
 
     \begin{figure}[h]
         \centering
@@ -702,41 +702,42 @@
 
     \section{Les données abandonées et la raison de leur abandon}\label{appendix:dataset}
     \begin{center}
-        \begin{tabular}{ |c|p{4.5cm}|p{4.5cm} }
+        \scriptsize
+        \begin{tabular}{ |c|p{3.5cm}|p{7cm}| }
             \hline
-            \textbf{Attribut} & \textbf{Description} & \textbf{Raison de l'abaodon} \\
+            \textbf{Attribut} & \textbf{Description} & \textbf{Raison de l'abandon} \\
             \hline
-            \textit{id\_vehicule} & identifiant numérique unique du véhicule & information administrative, une fois les tables jointe, cette inforamtion sans intétret, n'est plus utile\\
-            \textit{num\_veh} & identifiant du véhicule pour associer les passager du même vehicule & information administrative, une fois les tables jointe, cette inforamtion sans intétret, n'est plus utile\\
-            \textit{id\_usager} & identifiant des usagers dans la base & utilisé lors des jointures, inutile par la suite\\
-            \textit{com} & Numéro de commune (code INSEE) & commune trop spécifique, ça donne trop de catégories\\
-            \textit{adr} & adresse de l'accident & trop spécifique, ne donne rien de pertinent\\
-            \textit{lat} & latitude de l'accident & Ces informations positionelles ne reflètenet pas le type d'endroit où l'accident a lieu\\
-            \textit{Long} & longitude de l'accident & Ces informations positionelles ne reflètenet pas le type d'endroit où l'accident a lieu\\
-            \textit{Num\_Acc} & Numéro d'identifiant de l'accident & information administrative, une fois les tables jointe, cette inforamtion sans intétret, n'est plus utile\\
-            \textit{voie} & Numéro de la route & pas pertinent, plusieurs routes ont le même numéro, les routes ont des sections plus dangereuses que d'autres\\
-            \textit{V1} & Numéro de la route & pas pertinent, plusieurs routes ont le même numéro, les routes ont des sections plus dangereuses que d'autres\\
-            \textit{V2} & Numéro de la route & pas pertinent, plusieurs routes ont le même numéro, les routes ont des sections plus dangereuses que d'autres\\
-            \textit{vosp} & Signale l’existence d’une voie réservée, indépendamment du fait que l’accident ait lieu ou non sur cette voie. & attribut trop peu renseigné, peu d'accidents concerné\\
-            \textit{pr} & numéro de la borne (routière) en amont  & pas pertinent, beaucoup de routes sont non bornées, n'indique rien d'intéressant sur l'accident\\
-            \textit{pr1} & Distance en mètres à la borne en amont &  pas pertinent, beaucoup de routes sont non bornées, n'indique rien d'intéressant sur l'accident\\
-            \textit{lartpc} & largeur terplein central en m & trop peu renseigné\\
-            \textit{larrout} & largeur de la chaussée en m & trop peu renseigné\\
-            \textit{senc} & indique si le véhicule allait vèrs une borne supérieure ou inférieure à la précédente. & information administrative, pas utile\\
-            \textit{manv} & indique la manoeuvre en cours au moment de l'accident & trop souvent inconnue ou non renseignée\\
-            \textit{motor} & motoriqation du véhicule & trop peu renseigné\\
-            \textit{place} & place du passager dans l'habitacle, 10 indique un piéton & utilisé pour trouver les conducteurs et les piétons, devient inutile à l'échelle de l'accident ensuite\\
-            \textit{grav} & donne l'état de grévité de l'usager accidenté & utilisé pour trouver les accidents mortels, devient inutile à l'échelle de l'accident ensuite\\
-            \textit{sexe} & sexe de l'usager (binaire) & utilisé pour déterminé le sexe du conducteur, devient inutile à l'échelle de l'accident ensuite\\
-            \textit{secu1, secu2, secu3} & trois attributs renseignant tous les 3 sur l'utilisation d'équipements de sécutrité & attribut difficilement implémentable et peu fiable car non reiseigné apparait beaucoup\\
-            \textit{locp} & Localisation du piéton par rapport au véhicule & le point de vue de l'accident rend difficile l'mplémentation de cet attribut peu renseigné\\
-            \textit{actp} & Action piétion lors de l'accident & le point de vue de l'accident rend difficile l'mplémentation de cet attribut peu renseigné\\
-            \textit{etatp} & précise précise si le pieton était accompagné & le point de vue de l'accident rend difficile l'mplémentation de cet attribut peu renseigné\\
-            \textit{occutc} & nombre d'occupant du transporte ne commun & cet attribut est trop peu renseigné\\
-            \textit{jour} & numéro du jour de l'accident & peu utile, il aurait été plus utile de connaitre le jours de la semaine\\
-            \textit{hrmn} & heures : minutes & format non adapté, redondant de luninosité (lum) qui est plus précis\\
-            \textit{an} & année de l'accident & utilisé pour déterminer l'age du conducteur, n'est plus utile par la suite \\
-            \textit{an\_nais} & année de naissance de l'usager & utilisé pour déterminer l'age du conducteur, n'est plus utile par la suite, pas adapté au point de vue de l'accident \\
+            \textit{id\_vehicule} & Identifiant numérique unique du véhicule & information administrative, une fois les tables jointes, cette information sans intéret, n'est plus utile\\
+            \textit{num\_veh} & Identifiant du véhicule pour associer les passagers du même vehicule & Information administrative, une fois les tables jointes, cette inforamtion sans intêret, n'est plus utile\\
+            \textit{id\_usager} & Identifiant des usagers dans la base & Utilisé lors des jointures, inutile par la suite\\
+            \textit{com} & Numéro de commune (code INSEE) & Commune trop spécifique, ça donne trop de catégories\\
+            \textit{adr} & Adresse de l'accident & Trop spécifique, ne donne rien de pertinent\\
+            \textit{lat} & Latitude de l'accident & Ces informations positionelles ne reflètent pas le type d'endroit où l'accident a lieu\\
+            \textit{Long} & Longitude de l'accident & Ces informations positionelles ne reflètent pas le type d'endroit où l'accident a lieu\\
+            \textit{Num\_Acc} & Numéro d'identifiant de l'accident & Information administrative, une fois les tables jointes, cette inforamtion sans intêret, n'est plus utile\\
+            \textit{voie} & Numéro de la route & Pas pertinent, plusieurs routes ont le même numéro, certaines routes ont des sections plus dangereuses que d'autres\\
+            \textit{V1} & Numéro de la route & Pas pertinent, plusieurs routes ont le même numéro, certaines routes ont des sections plus dangereuses que d'autres\\
+            \textit{V2} & Numéro de la route & Pas pertinent, plusieurs routes ont le même numéro, certaines routes ont des sections plus dangereuses que d'autres\\
+            \textit{vosp} & Signale l'existence d'une voie réservée, indépendamment du fait que l'accident ait eu lieu ou non sur cette voie. & Attribut trop peu renseigné, peu d'accidents concernés\\
+            \textit{pr} & Numéro de la borne (routière) en amont  & Pas pertinent, beaucoup de routes sont non bornées, n'indique rien d'intéressant sur l'accident\\
+            \textit{pr1} & Distance en mètres à la borne en amont &  Pas pertinent, beaucoup de routes sont non bornées, n'indique rien d'intéressant sur l'accident\\
+            \textit{lartpc} & Largeur terplein central en mètres & Trop peu renseigné\\
+            \textit{larrout} & Largeur de la chaussée en mètres & Trop peu renseigné\\
+            \textit{senc} & Indique si le véhicule allait vers une borne supérieure ou inférieure à la précédente. & Information administrative, pas utile\\
+            \textit{manv} & Indique la manoeuvre en cours au moment de l'accident & Trop souvent inconnue ou non renseignée\\
+            \textit{motor} & Motorisation du véhicule & Trop peu renseignée\\
+            \textit{place} & Place du passager dans l'habitacle, 10 indique un piéton & Utilisée pour trouver les conducteurs et les piétons, devient inutile à l'échelle de l'accident ensuite\\
+            \textit{grav} & Donne l'état de gravité de l'usager accidenté & Utilisée pour trouver les accidents mortels, devient inutile à l'échelle de l'accident ensuite\\
+            \textit{sexe} & Sexe de l'usager (binaire) & Utilisé pour déterminer le sexe du conducteur, devient inutile à l'échelle de l'accident ensuite\\
+            \textit{secu1, secu2, secu3} & Trois attributs renseignant tous les 3 sur l'utilisation d'équipements de sécurité & Attribut difficilement implémentable et peu fiable car non renseigné apparait beaucoup\\
+            \textit{locp} & Localisation du piéton par rapport au véhicule & Le point de vue de l'accident rend difficile l'implémentation de cet attribut peu renseigné\\
+            \textit{actp} & Action piéton lors de l'accident & Le point de vue de l'accident rend difficile l'implémentation de cet attribut peu renseigné\\
+            \textit{etatp} & Précise si le pieton était accompagné & Le point de vue de l'accident rend difficile l'implémentation de cet attribut peu renseigné\\
+            \textit{occutc} & Nombre d'occupants du transport en commun & Cet attribut est trop peu renseigné\\
+            \textit{jour} & Numéro du jour de l'accident & Peu utile, il aurait été plus utile de connaitre le jour de la semaine\\
+            \textit{hrmn} & Heures : minutes & Format non adapté, redondant de luminosité (lum) qui est plus précis\\
+            \textit{an} & Année de l'accident & Utilisée pour déterminer l'âge du conducteur, n'est plus utile par la suite \\
+            \textit{an\_nais} & Année de naissance de l'usager & Utilisée pour déterminer l'âge du conducteur, n'est plus utile par la suite, pas adapté au point de vue de l'accident \\
             \hline
         \end{tabular}
     \end{center}
