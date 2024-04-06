@@ -28,3 +28,5 @@ Source du dataset: https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuell
 
 - Lime : https://christophm.github.io/interpretable-ml-book/lime.html#lime
 - shapley values : https://christophm.github.io/interpretable-ml-book/shapley.html
+
+Support pour l'oral final : https://upsud-my.sharepoint.com/:p:/g/personal/yannis_chupin_universite-paris-saclay_fr/Ea5M5moxLA5Br4gq7a7e4b4B1FSPjRAmwQC-zdOhjXNGkg?e=AFMnig 
