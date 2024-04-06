@@ -469,6 +469,24 @@
     Cette deuxième partie du projet a commencé par l'amélioration des premiers resultats. Nous allons parcourir 
     dans cette section les différentes amélioration effectuées avant d'arriver à la correction des biais.
 
+    \subsection{Nouvelle métrique de base : taux d'erreur et de justesse}
+
+    Afin de trouver l'attribut à protèger et pour mieux diagnostiquer les effets des diférentes méthodes de réductions de
+    biais, nous avons mis en place une nouvelle métrique de base. En tout il y a 4 caluls : 
+
+    \begin{itemize}
+        \item Taux d'\textbf{erreur} pour l'attribut \textbf{sensible} : \[ P(\overline{Y}=1| (Y=0, Z=1)) \]
+        \item Taux d'\textbf{erreur} pour l'attribut \textbf{privilégié} : \[ P(\overline{Y}=1| (Y=0, Z=0)) \]
+        \item Taux de \textbf{justesse} pour l'attribut \textbf{sensible} : \[ P(\overline{Y}=1| (Y=1, Z=1)) \]
+        \item Taux de \textbf{justesse} pour l'attribut \textbf{privilégié} : \[ P(\overline{Y}=1| (Y=1, Z=0)) \]
+    \end{itemize}
+
+    Seules, ces métriques n'ont que peu d'intérêt, c'est lorsqu'on les regarde ensemble qu'elles prennent tout leur intérêt pour 
+    la Fairness. En effet, l'équité est garantie si la différence entre ces taux pour l'attribut senseible et l'attribut privilégié 
+    est nulle. En effet on serait en droit de s'attendre à ce que la justesse et l'erreur se produise dans les même proportions. 
+    Notons pour finir que la liste des taux de succès est incomplète, on aurait pu ajouter le cas "\overline{Y}=0| Y=0", mais ce n'est pas ce qui 
+    nous intéresse le plus dans notre cas. On souhaite se concentrer sur les prédictions d'accidents mortels.
+
     \subsection{Sur-échantillonnage}
     Le pré-traitement des données a été amélioré avec l'utilisation de l'outil de sur-échantillonnage \textit{SMOTE}.
     Nous avions pu remarquer lors de l'analyse de nos données que les accidents mortels sont minoritaires (environ $5\%$).
@@ -539,9 +557,9 @@
 
     \section{Pre-processing}
     \subsection{Repondération}
-    La repondération vise à donner un poid différent aux attributs afin de réduire les biais.
-    Ces poids sont ensuite utilisé lors de l'apprentissage. Après repondération de notre dataset 
-    d'entrainement nous obtenons une différence nulle entre les deux classes.
+    Dans le contexte de la Frainess, la repondération a pour objectif de rééquilibrer le set d'entrainement
+    en attribuant des poids différents à chaque instance. Ce poid est calculé en fonction de l'impact 
+    que cette instance a sur l'attribut sensible. 
     Après apprentissage et observation des résultats de notre modèle, nous pouvons faire deux 
     observations. Premièrement les métriques de fairness sont très positives. Le disparate impact 
     passe de $0.50$ à $0.94$ pour les femmes. La seconde observation est que l'accuracy de notre 
@@ -550,7 +568,12 @@
     vrais positifs est ici plus élevé que le nombre de positifs prédits faux, ce qui n'était pas 
     le cas sur les modèles testés jusqu'ici.
     La matrice de confusion (figure \ref{fig:reweight_matrix}) nous montre 
-    les résultats obtenus après repondération.
+    les résultats obtenus après repondération. Un effet intéressant de cette intervention sur le set d'entrainement
+    est que le modèle parvient mieux à trouver les morts vraiment mort qu'auparavant. La baisse en accuracy s'explique
+    par l'augmentation d'erreur de détection des accidents qui auraient du être labelisé accidents non - mortels. En
+    résumé ce nouveau modèle catégorise trop d'accidents comme étant mortels. Mais parmi les accidents détectés comme
+    étant mortels seul un sur huit l'est vraiment. Dans notre cas c'est intéressant car dans un objectif de prévention
+    routière, on veut écarter les causes d'accidents non mortels des campagnes de sécurité pour augmenter leur efficacité.
 
     \begin{figure}[h]
         \centering
@@ -617,8 +640,8 @@
     augmente à \textit{0.640} là ou celui des hommes est à \textit{0.636}. Il s'est donc à la fois presque aligné à celui des hommes tout en se rapprochant de 1. 
     
     On remarque aussi que les taux d'erreur 
-    \[ P(\overline{Y}=1| (Y=1, Z=0)) \] \[ P(\overline{Y}=1| (Y=0, Z=0)) \] \[ P(\overline{Y}=1| (Y=1, Z=1)) \] \[ P(\overline{Y}=1| (Y=0, Z=1)) \] chez les femmes se sont rapproché de
-    ceux des hommes. ce qui atteste d'un correction de biais. 
+    \[ P(\overline{Y}=1| (Y=1, Z=0)) \] \[ P(\overline{Y}=1| (Y=0, Z=0)) \] \[ P(\overline{Y}=1| (Y=1, Z=1)) \] \[ P(\overline{Y}=1| (Y=0, Z=1)) \] chez les femmes se sont rapprochés de
+    ceux des hommes. Cela qui atteste d'une correction de biais substentielle.  
 
     En revanche, il faut sousligner que la correction de biais n'est pas complète. On peut même dire qu'elle est inférieure à d'autres méthodes telles que reweighing.
     
