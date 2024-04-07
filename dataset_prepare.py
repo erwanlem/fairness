@@ -12,6 +12,8 @@ from sklearn.compose import ColumnTransformer
 
 
 
+
+
 # valeurs catégorielles
 categorical_features = ['trajet', 'catr', 'circ', 'nbv', 'prof',
                         'plan', 'surf', 'vma', 'lum', 'agg', 

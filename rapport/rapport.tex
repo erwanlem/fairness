@@ -725,12 +725,7 @@
     Comme dit précédemment, les résultats varient avec l'aléatoire et on arrive à avoir des cas où les résultats sont 
     meilleurs avec le post-processing.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=\textwidth]{./img/cal_equ_odds.png}
-        \caption{Résultats avec et sans post-processing en fonction du seuil}
-        \label{fig:EQU_odds}
-    \end{figure}
+    
 
     \subsubsection{Mise en perspective}
     Comme nous avons pu le voir ce résultat n'est pas vraiment satisfaisant. Cependant cette méthode reste très
@@ -741,10 +736,69 @@
     nous permet de réduire les biais tout en ayant le contrôle de l'accuracy (que ce soit avec ou sans 
     post-processing), ce qui n'est pas forcément évident avec les autres méthodes.
     
-    
-    \section{Résultats}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/cal_equ_odds.png}
+        \caption{Résultats avec et sans post-processing en fonction du seuil}
+        \label{fig:EQU_odds}
+    \end{figure}
+    \vspace{3cm}
 
+    
     \section{Conclusion}
+
+    \subsection{Les résultats obtenus}
+    À la fin de la première partie de ce projet (développement d'un modèle et analyse) nous avions pu 
+    identifier le sexe du conducteur comme un attribut sensible de notre dataset. Ce premier modèle 
+    sans correction des biais obtenait une accuracy de $0.87$. Malgré ce score plutôt acceptable, nous 
+    avions pu remarquer que les bonnes prédictions de la classe \textit{mortel} étaient moins fréquentes et 
+    que la grande quantité de données de la classe \textit{non mortel} contribuait fortement à ce score. 
+    Le défit dans cette seconde partie a été de réduire le plus possible les biais de notre modèle, tout 
+    en essayant de conserver un modèle le plus efficace possible.
+
+    Si on observe globalement les méthodes utilisées, on peut remarquer que pour la plupart elles 
+    diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même lorsqu'on 
+    observe l'\textit{equal oppotunity difference}, la valeur est bien réduite. 
+    Nous avons cependant noté trois méthodes qui ont particulièrement attirées notre attention.
+
+    Premièrement, nous avons la repondération (reweighing). La repondération de notre jeu de données a 
+    permis de réduire grandement les biais du modèle. De plus contrairement aux autres méthodes de 
+    pre-processing elle a l'avantage d'être rapide et facilement adaptable à notre modèle utilisant une 
+    pipeline. Enfin, cette méthode réduit l'accuracy du modèle mais en observant la matrice de confusion 
+    on remarque que les prédictions de la classe \textit{mortel} sont plus élevées que les faux négatifs, 
+    ce qui n'était pas le cas précédemment et qui peut paraitre préférable.
+
+    Ensuite, les résultats de l'adversarial debiasing sont parmis les plus concluants. En effet cette 
+    méthode permet d'obtenir un modèle plutôt efficace tout en ayant d'excellentes métriques de fairness avec 
+    par exemple un disparate impact proche de 1. Comme expliqué dans la section dédiée, ce modèle reste cependant 
+    un modèle plus éloigné du travail effectué précédemment car il met de côté notre modèle. Nous pensons par
+     conséquent qu'il est important d'étudier les alternatives qui peuvent s'adapter à notre propre modèle.
+    C'est pour nous une manière d'avoir plus de contrôle sur le modèle.
+
+    Enfin, la dernière méthode que nous avons trouvé intéressante est la reject option classification. On 
+    obtient encore une fois d'excellents résultats aux niveaux des métriques avec également l'un des balanced 
+    accuracy les plus élevés. On a pu remarquer ces bons résultats sur la matrice de confusion associée.
+
+    \subsection{Aller plus loin}
+    Nous avons pu remarquer lors de l'analyse des données que d'autres attributs sont des sources de biais pour 
+    notre modèle. Il serait intéressant poursuivre la correction des biais avec ces attributs 
+    sensibles. Nous pouvons par exemple penser aux attributs \textit{âge} ou \textit{mois}. 
+    
+    Ce projet a pour objectif de travailler sur la fairness en IA. Aller plus loin pourrait également 
+    signifier dépasser cet objectif et améliorer le modèle afin d'obtenir d'en tirer de meilleures 
+    performances (tout en conservant un modèle le moins biaisé possible).
+
+    \subsection{Un projet enrichissant}
+    Le travail effectué au cours de ce projet a été très enrichissant pour nous. Il nous a permis de 
+    découvrir un aspect plus social de l'intelligence artificielle. Il est effectivement important de 
+    conprendre que les modèles sont dépendants des données qu'on leur fournit et que ces données ne 
+    sont pas parfaites. Le modèle sur lequel nous avons pu travailler ici a probablement peu d'utilité 
+    dans le monde réel mais il fait prendre conscience des problèmes auxquels on peut faire face.
+    Nous avions jusqu'ici appris à préparer des données pour l'apprentissage, réaliser l'apprentissage et
+    évaluer les performances sans jamais faire attention aux biais et aux problèmes qui peuvent en découler.
+    Il ne fait aucun doute qu'après le travail effectué avec ce cours cette question aura une place 
+    importante lorsque nous parlerons d'apprentissage machine.
+
 
     \newpage
     \appendix
