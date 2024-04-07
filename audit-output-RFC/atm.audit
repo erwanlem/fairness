@@ -1,0 +1,12 @@
+GFA Audit for:atm
+audit-output/atm.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 25966, "1": 2751}, "1": {"0": 1033, "1": 660}}]
+audit-output/atm.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 25963, "1": 2754}, "1": {"0": 1035, "1": 658}}]
+audit-output/atm.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 25955, "1": 2762}, "1": {"0": 1035, "1": 658}}]
+audit-output/atm.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 25953, "1": 2764}, "1": {"0": 1031, "1": 662}}]
+audit-output/atm.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 25961, "1": 2756}, "1": {"0": 1028, "1": 665}}]
+audit-output/atm.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 25926, "1": 2791}, "1": {"0": 1021, "1": 672}}]
+audit-output/atm.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 26333, "1": 2384}, "1": {"0": 1281, "1": 412}}]
+audit-output/atm.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26316, "1": 2401}, "1": {"0": 1276, "1": 417}}]
+audit-output/atm.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26598, "1": 2119}, "1": {"0": 1337, "1": 356}}]
+audit-output/atm.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26972, "1": 1745}, "1": {"0": 1377, "1": 316}}]
+audit-output/atm.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26967, "1": 1750}, "1": {"0": 1371, "1": 322}}]

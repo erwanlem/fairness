@@ -1,0 +1,12 @@
+GFA Audit for:choc
+audit-output/choc.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 25966, "1": 2751}, "1": {"0": 1033, "1": 660}}]
+audit-output/choc.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 25944, "1": 2773}, "1": {"0": 1030, "1": 663}}]
+audit-output/choc.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 25924, "1": 2793}, "1": {"0": 1036, "1": 657}}]
+audit-output/choc.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 25902, "1": 2815}, "1": {"0": 1038, "1": 655}}]
+audit-output/choc.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 25880, "1": 2837}, "1": {"0": 1037, "1": 656}}]
+audit-output/choc.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 25883, "1": 2834}, "1": {"0": 1036, "1": 657}}]
+audit-output/choc.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 23537, "1": 5180}, "1": {"1": 829, "0": 864}}]
+audit-output/choc.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 23483, "1": 5234}, "1": {"1": 840, "0": 853}}]
+audit-output/choc.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 23285, "1": 5432}, "1": {"1": 844, "0": 849}}]
+audit-output/choc.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 23171, "1": 5546}, "1": {"1": 859, "0": 834}}]
+audit-output/choc.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 23038, "1": 5679}, "1": {"1": 860, "0": 833}}]
