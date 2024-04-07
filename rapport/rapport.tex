@@ -555,7 +555,7 @@
 
 
 
-    \section{Pre-processing}
+    \section{Pre-processing}\footnote{Le pre-processing a été effectué sur un modèle avec seuil}
     \subsection{Repondération}
     Dans le contexte de la Frainess, la repondération a pour objectif de rééquilibrer le set d'entrainement
     en attribuant des poids différents à chaque instance. Ce poid est calculé en fonction de l'impact 
@@ -585,17 +585,29 @@
     \subsection{Disparate Impact Remover}
     Les résultats obtenus avec le \textit{Disparate impact remover} sont similaires à ceux obtenus avec 
     la repondération. On obtient une accuracy de $0.75$ et un disparate impact de $0.89$. Le disparate 
-    impact est un peu moins bon que celui obtenu avec la repondération pour une accuracy équivalente.
-    On peut remarquer que tout comme avec la repondération, la matrice de confusion nous montre une 
-    tendance allant vers plus de faux positifs. On remarque également encore une amélioration des prédictions 
-    de vrais positifs qui est très proche de celle obtenue par la méthode précédente. 
-    Ci-dessou la matrice de confusion (figure~\ref{fig:DIR_matrix}) du modèle utilisant le disparate impact remover.
+    impact est cependant un peu moins bon que celui obtenu avec la repondération pour une accuracy équivalente.
+    On peut remarquer que tout comme avec la repondération, la matrice de confusion (figure~\ref{fig:DIR_matrix})
+    nous montre une tendance allant vers plus de faux positifs. On remarque également encore une amélioration
+    des prédictions de vrais positifs qui est très proche de celle obtenue par la méthode précédente.
+    Le disparate impact remover peut être réglé avec un paramètre \textit{level}. La figure~\ref{fig:DIR_param} 
+    nous montre que le disparate impact reste plutôt stable sauf avec les paramètres $0.6$ et $0.7$.
+    La valeur la plus élevée est de $0.89$ à $0.9$. Les résultats obtenus avec ce modèle étant très proches 
+    de ceux avec la repondération, on préférera utiliser la repondération dont l'entrainement est bien 
+    plus rapide.
 
-    \begin{figure}[h]
+    \begin{figure}[!h]
+        \vspace{2cm}
         \centering
-        \includegraphics[width=\textwidth]{./img/DIR_confusion_matrix.png}
-        \caption{Matrice de confusion avec Disparate Impact Remover}
-        \label{fig:DIR_matrix}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/DIR_confusion_matrix.png}
+            \caption{Matrice de confusion avec Disparate Impact Remover}\label{fig:DIR_matrix}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/disparate_impact_remover.png}
+        \caption{Disparate impact en fonction du paramètre \textit{level}}\label{fig:DIR_param}
+        \end{subfigure}
+        \caption{Résultats disparate impact remover}\label{fig:DIR}
     \end{figure}
 
 
@@ -622,8 +634,9 @@
     intéressant mais plus faible que le nombre de prédictions faussements négatives. 
     
     Les résultats obtenus avec cette méthode sont tout de même très intéressants car nous conservons une accuracy 
-    acceptable tout en ayant un très bon disarate impact. L'objectif étant d'améliorer notre modèle en réduisant
-     ses biais, l'utilisation d'un nouveau modèle que nous connaissons peu est discutable.
+    acceptable tout en ayant un très bon disarate impact. En revanche, l'objectif étant d'améliorer notre modèle 
+    (une forêt aléatoire) en réduisant ses biais, l'utilisation d'un nouveau modèle que nous connaissons peu 
+    est discutable.
 
     \subsubsection{Un peu de pre-processing}
     Les résultats obtenus avec ce modèle sont intéressants c'est pourquoi nous avons voulu ajouter 

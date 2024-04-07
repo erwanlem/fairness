@@ -411,7 +411,7 @@ class parallel_shap:
 from sklearn.metrics import confusion_matrix
 
 
-def print_conf_matrix(model, y_test, preds):
+def print_conf_matrix(y_test, preds):
   tn, fp, fn, tp = confusion_matrix(y_test, preds).ravel()
   tn, fp, fn, tp
   import plotly.express as px
@@ -421,4 +421,60 @@ def print_conf_matrix(model, y_test, preds):
                   y=["False", "True"]
                 )
   fig.show()
+
+
+
+
+
+
+
+
+
+def compute_stat(preds, sensitive, value=None, not_value=None):
+    if value is not None:
+      preds_sel = preds[sensitive == value]
+    elif not_value is not None:
+      preds_sel = preds[sensitive != not_value]
+    else:
+      print("one of 'value' and 'not value' must be set")
+      return None, None, None, None
+    card = len(preds_sel)
+    card_pos = len(preds_sel[preds_sel == 1])
+    card_neg = len(preds_sel[preds_sel == 0])
+    return card, card_pos, card_neg, preds_sel
+
+
+def compute_baserate(preds, sensitive, value=0):
+
+    n_F, n_F_pos, n_F_neg, preds_F = compute_stat(preds=preds, sensitive=sensitive, value=value)
+    n_M, n_M_pos, n_M_neg, preds_M = compute_stat(preds=preds, sensitive=sensitive, not_value=value)
+
+    DI = n_F_pos/n_F*n_M/n_M_pos
+    p_DI = np.min([DI, 1/DI])
+    DP = n_F_pos/n_F - n_M_pos/n_M
+
+    ret = {}
+    ret["disparate_impact"] = DI
+    ret["P_rule_disparate_impact"] = p_DI
+    ret["demography_parity"] = DP
+
+    return ret
+
+
+def print_metrics(clf, X_test, y_test, df, categorical_features):
+  encoders = {cat_col:preprocessing.LabelEncoder() for cat_col in categorical_features}
+
+  for cat_col in categorical_features:
+    df[cat_col] = encoders[cat_col].fit_transform(df[cat_col])
+    #print(cat_col)
+
+  preds = clf.predict(X_test)
+  for att,unpriv in zip(['sexe_conducteur', 'pieton'],[0, 1]):
+    value = encoders[att].transform([unpriv])[0]
+    base_rate_pred = compute_baserate(preds, sensitive=X_test[att], value=value)
+    base_rate_label = compute_baserate(y_test, sensitive=X_test[att], value=value)
+    print(att, unpriv)
+    for k,v in base_rate_pred.items():
+      print(k, v, base_rate_label[k])
+
 
