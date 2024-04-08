@@ -679,7 +679,7 @@
     trouver celui qui a la meilleure fairness, pour le comparer au seuil ayant la meilleure accuracy.
 
     Toujours à l'aide d'AIF 360, nous avons utiliser ROC en paramétrant le groupe privilégié à 1 (Hommes) et les lésés à 0 (Femmes).
-    Les résultat sont les suivant: 
+    Les résultat sont les seuils suivant: 
 
     \begin{itemize}
         \item Sans fairness : \textit{0.1189}
@@ -687,27 +687,29 @@
     \end{itemize}
     
     De ces résultats on peut sortir deux observations. Tout d'abord, ROC à resenti le besoin de déplacer le seuil de sorte à corriger 
-    le biais. Ensuite, la correction effectuée est minime dans son ampleur. 
+    un biais. Ensuite, la correction effectuée est minime dans son ampleur. 
 
     \subsubsection{Les nouvelles performances du modèle}
 
-    Les répercussions sur l'accuracy quand à elles sont notables mais acceptables. On passe en effet de \textit{0,876} à \textit{0,790}.
+    Les répercussions sur l'accuracy quand à elles sont plus que notables. On passe en effet de \textit{0,876} à \textit{0,640}.
     Cependant, si on regarde un peu plus en détail la matrice de confusion, il parrait intéressant de noter que ce modèle détecte mieux 
-    les accidents mortels véritablement mortels. Pour être précis, ce nombre passe de \textit{660} à \textit{1044} ce qui constitue  \textit{62\%} des accidents
-    mortels répertoriés dans l'ensemble. Ceci se fait au prix d'un augmentation des accidents non motrtels faussement détectés. Malgré tout, 
-    le taux de détection de ce type d'accident reste élevé à \textit{80\%}. Voilà pourquoi la qualification d'acceptable pour la baisse en 
-    accuracy est parfaitement adaptée.
+    les accidents mortels véritablement mortels. Pour être précis,on détecte \textit{79\%} des accidents
+    mortels répertoriés dans l'ensemble (rappelons que les scores et la matrices sont ici calculés sur le set de validation qui est deux fois plus petit en effectifs). 
+    Ceci se fait au prix d'un augmentation des accidents non motrtels faussement détectés. Malgré tout, 
+    le taux de détection de ce type d'accident reste assez élevé à \textit{63\%}. En définitive, il catégorise trop de véhicule comme causant des accidents mortels.
+    Cela fait que ce modèle est bien moins fiable. Mais il a l'intêret, que lorsqu'un véhicule n'est pas classifié comme mortellement accidenté, 
+    on peut être très confiant dans cette prédiction. 
 
     \subsubsection{Les performances pour la Fairness}
 
-    La première observation que l'on peut faire, c'est que le disparate impact se voit corrigé pour les femmes. Pour être précis, avec le nouveau seuil, le disparate impact
-    augmente à \textit{0.640} là ou celui des hommes est à \textit{0.636}. Il s'est donc à la fois presque aligné à celui des hommes tout en se rapprochant de 1. 
+    La première observation que l'on peut faire, c'est que le disparate impact se voit corrigé. Pour être précis, avec le nouveau seuil, le disparate impact
+    augmente à \textit{0.98}. On peut donc voir ici que le disparate impact homme / femme est presque rectifié. 
     
     On remarque aussi que les taux d'erreur 
     \[ P(\overline{Y}=1| (Y=1, Z=0)) \] \[ P(\overline{Y}=1| (Y=0, Z=0)) \] \[ P(\overline{Y}=1| (Y=1, Z=1)) \] \[ P(\overline{Y}=1| (Y=0, Z=1)) \] chez les femmes se sont rapprochés de
     ceux des hommes. Cela qui atteste d'une correction de biais substentielle.  
 
-    En revanche, il faut sousligner que la correction de biais n'est pas complète. On peut même dire qu'elle est inférieure à d'autres méthodes telles que reweighing.
+    En revanche, il faut sousligner que la correction de biais n'est pas parfaite. On peut même dire qu'elle est très légèrement inférieure à d'autres méthodes telles que reweighing.
     
     \subsection{Calibrated equalized odds}
     \subsubsection{Explications}
