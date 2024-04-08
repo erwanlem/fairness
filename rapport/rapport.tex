@@ -472,8 +472,8 @@
 
     \subsection{Nouvelle métrique de base : taux d'erreur et de justesse}
 
-    Afin de trouver l'attribut à protèger et pour mieux diagnostiquer les effets des diférentes méthodes de réductions de
-    biais, nous avons mis en place une nouvelle métrique de base. En tout il y a 4 caluls : 
+    Afin de trouver l'attribut à protèger et pour mieux diagnostiquer les effets des différentes méthodes de réductions de
+    biais, nous avons mis en place une nouvelle métrique de base. En tout il y a 4 calculs : 
 
     \begin{itemize}
         \item Taux d'\textbf{erreur} pour l'attribut \textbf{sensible} : \[ P(\overline{Y}=1| (Y=0, Z=1)) \]
@@ -483,22 +483,22 @@
     \end{itemize}
 
     Seules, ces métriques n'ont que peu d'intérêt, c'est lorsqu'on les regarde ensemble qu'elles prennent tout leur intérêt pour 
-    la Fairness. En effet, l'équité est garantie si la différence entre ces taux pour l'attribut senseible et l'attribut privilégié 
-    est nulle. En effet on serait en droit de s'attendre à ce que la justesse et l'erreur se produise dans les même proportions. 
-    Notons pour finir que la liste des taux de succès est incomplète, on aurait pu ajouter le cas $\overline{Y}=0| Y=0$, mais ce n'est pas ce qui 
+    la fairness. En effet, l'équité est garantie si la différence entre ces taux pour l'attribut sensible et l'attribut privilégié 
+    est nulle. En effet on serait en droit de s'attendre à ce que la justesse et l'erreur se produisent dans les mêmes proportions. 
+    Notons pour finir que la liste des taux de succès est incomplète. On aurait pu ajouter le cas $\overline{Y}=0| Y=0$, mais ce n'est pas ce qui 
     nous intéresse le plus dans notre cas. On souhaite se concentrer sur les prédictions d'accidents mortels.
 
     \subsection{Sur-échantillonnage}
     Le pré-traitement des données a été amélioré avec l'utilisation de l'outil de sur-échantillonnage \textit{SMOTE}.
     Nous avions pu remarquer lors de l'analyse de nos données que les accidents mortels sont minoritaires (environ $5\%$).
     Cet outil nous permet de rééquilibrer les classes afin d'avoir un meilleur apprentissage sur la classe des accidents 
-    mortels. Le \textit{SMOTE} va générer de nouveaux individus minoritaires qui ressemblent à ceux déjà présents sans 
+    mortels. \textit{SMOTE} va générer de nouveaux individus minoritaires qui ressemblent à ceux déjà présents sans 
     pour autant être identiques.
     Nous pouvons voir sur la figure \ref{fig:smote1} que le rééquilibrage nous donne 50\% pour chaque classe 
     tout en affectant peu les proportions sur les autres attributs comme nous le montre la figure \ref{fig:smote2} 
     qui prend pour exemple l'attribut \textit{sexe\_conducteur}.
     Les résultats observés dans la suite du projet sont bien plus concluants en utilisant cette méthode.
-    Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du prétraitement.
+    Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du pré-traitement.
     \\\\
     \begin{figure}[!h]
         \vspace{2cm}
@@ -548,8 +548,7 @@
     outils d'évaluation des biais nous montrent tous que le sexe féminin est plus disciminé sur 
     ce modèle. L'utilisation de ce modèle a également eu pour effet de réduire l'influence de 
     l'âge, le mois et le département, ce qui est un point positif. Nous pouvons notamment 
-    l'observer au travers des valeurs 
-    de Shapley obtenues avec ce nouveau modèle. 
+    l'observer au travers des valeurs de Shapley obtenues avec ce nouveau modèle. 
     
     Dans la suite de ce projet nous nous penchons 
     donc sur la correction des biais de l'attribut \textit{sexe\_conducteur}.
@@ -558,8 +557,8 @@
 
     \section[Preprocessing]{Pre-processing\footnote{Le pre-processing a été effectué sur un modèle avec seuil (0.2)}}
     \subsection{Repondération}
-    Dans le contexte de la Frainess, la repondération a pour objectif de rééquilibrer le set d'entrainement
-    en attribuant des poids différents à chaque instance. Ce poid est calculé en fonction de l'impact 
+    Dans le contexte de la fairness, la repondération a pour objectif de rééquilibrer le set d'entrainement
+    en attribuant des poids différents à chaque instance. Ce poids est calculé en fonction de l'impact 
     que cette instance a sur l'attribut sensible. 
     Après apprentissage et observation des résultats de notre modèle, nous pouvons faire deux 
     observations. Premièrement les métriques de fairness sont très positives. Le disparate impact 
@@ -618,7 +617,7 @@
 
     \subsection{Adversarial debiasing}
     \subsubsection{Explications}
-    Cette méthode vise à entrainer un classifieur à maximiser l'accuracy tout en réduisant la possibilité pour un seconde 
+    Cette méthode vise à entrainer un classifieur pour maximiser l'accuracy tout en réduisant la possibilité pour un seconde 
     modèle de prédire la sortie en fonction de l'attribut sensible. En réduisant la possibilité de prédire la sortie en 
     fonction de l'attribut sensible, on réduit les biais sur cet attribut.
     La spécificité de cette méthode par rapport aux autres est donc qu'elle n'utilise plus le modèle que nous avons 
@@ -676,42 +675,42 @@
     Le but de cette méthode de correction de biais post-preprocessing, est de faire varier le seuil de décision de manière à 
     trouver celui qui a la meilleure fairness, pour le comparer au seuil ayant la meilleure accuracy.
 
-    Toujours à l'aide d'AIF 360, nous avons utiliser ROC en paramétrant le groupe privilégié à 1 (Hommes) et les lésés à 0 (Femmes).
-    Les résultat sont les seuils suivant: 
+    Toujours à l'aide d'AIF 360, nous avons utilisé ROC en paramétrant le groupe privilégié à 1 (Hommes) et les lésés à 0 (Femmes).
+    Les résultats sont les seuils suivant: 
 
     \begin{itemize}
         \item Sans fairness : \textit{0.1189}
         \item Avec fairness : \textit{0.1289}
     \end{itemize}
     
-    De ces résultats on peut sortir deux observations. Tout d'abord, ROC à resenti le besoin de déplacer le seuil de sorte à corriger 
+    De ces résultats on peut sortir deux observations. Tout d'abord, ROC a trouvé qu'il faudrait déplacer le seuil de sorte à corriger 
     un biais. Ensuite, la correction effectuée est minime dans son ampleur. 
 
     \subsubsection{Les nouvelles performances du modèle}
 
-    Les répercussions sur l'accuracy quand à elles sont plus que notables. On passe en effet de \textit{0,876} à \textit{0,640}.
+    Les répercussions sur l'accuracy sont quant à elles plus que notables. On passe en effet de \textit{0,876} à \textit{0,640}.
     Cependant, si on regarde un peu plus en détail la matrice de confusion, il parrait intéressant de noter que ce modèle détecte mieux 
     les accidents mortels véritablement mortels. Pour être précis,on détecte \textit{79\%} des accidents
     mortels répertoriés dans l'ensemble (rappelons que les scores et la matrices sont ici calculés sur le set de validation qui est deux fois plus petit en effectifs). 
-    Ceci se fait au prix d'un augmentation des accidents non motrtels faussement détectés. Malgré tout, 
-    le taux de détection de ce type d'accident reste assez élevé à \textit{63\%}. En définitive, il catégorise trop de véhicule comme causant des accidents mortels.
+    Ceci se fait au prix d'un augmentation des accidents non mortels faussement détectés. Malgré tout, 
+    le taux de détection de ce type d'accident reste assez élevé à \textit{63\%}. En définitive, il catégorise trop de véhicules comme causant des accidents mortels.
     Cela fait que ce modèle est bien moins fiable. Mais il a l'intêret, que lorsqu'un véhicule n'est pas classifié comme mortellement accidenté, 
-    on peut être très confiant dans cette prédiction. 
+    on peut être très confiant sur cette prédiction. 
 
-    \subsubsection{Les performances pour la Fairness}
+    \subsubsection{Les performances pour la fairness}
 
     La première observation que l'on peut faire, c'est que le disparate impact se voit corrigé. Pour être précis, avec le nouveau seuil, le disparate impact
     augmente à \textit{0.98}. On peut donc voir ici que le disparate impact homme / femme est presque rectifié. 
     
-    On remarque aussi que les taux d'erreur 
+    On remarque aussi que les taux d'erreurs 
     \[ P(\overline{Y}=1| (Y=1, Z=0)) \] \[ P(\overline{Y}=1| (Y=0, Z=0)) \] \[ P(\overline{Y}=1| (Y=1, Z=1)) \] \[ P(\overline{Y}=1| (Y=0, Z=1)) \] chez les femmes se sont rapprochés de
-    ceux des hommes. Cela qui atteste d'une correction de biais substentielle.  
+    ceux des hommes. Cela atteste d'une correction de biais substentielle.  
 
-    En revanche, il faut sousligner que la correction de biais n'est pas parfaite. On peut même dire qu'elle est très légèrement inférieure à d'autres méthodes telles que reweighing.
+    En revanche, il faut souligner que la correction de biais n'est pas parfaite. On peut même dire qu'elle est très légèrement inférieure à d'autres méthodes telles que reweighing.
     
     \subsection{Calibrated equalized odds}
     \subsubsection{Explications}
-    Cette méthode va modifier les sorties du modèle afin d'augmenter l'égalité entre les valeurs de l'attribut 
+    Cette méthode modifie les sorties du modèle afin d'augmenter l'égalité entre les valeurs de l'attribut 
     sensible. Cette méthode est testée sur différents seuils de prédiction afin de trouver le modèle le plus efficace.
     On note cependant que les résultats son assez dépendants de l'aléatoire. Ils 
     peuvent être variables d'une exécution à l'autre et peuvent même donner de moins bons résultats que sans le 
@@ -782,7 +781,7 @@
 
     \subsection{Aller plus loin}
     Nous avons pu remarquer lors de l'analyse des données que d'autres attributs sont des sources de biais pour 
-    notre modèle. Il serait intéressant poursuivre la correction des biais avec ces attributs 
+    notre modèle. Il serait intéressant de poursuivre la correction des biais avec ces attributs 
     sensibles. Nous pouvons par exemple penser aux attributs \textit{âge} ou \textit{mois}. 
     
     Ce projet a pour objectif de travailler sur la fairness en IA. Aller plus loin pourrait également 
@@ -791,7 +790,7 @@
 
     \subsection{Un projet enrichissant}
     Le travail effectué au cours de ce projet a été très enrichissant pour nous. Il nous a permis de 
-    découvrir un aspect plus social de l'intelligence artificielle. Il est effectivement important de 
+    découvrir un aspect plus humain de l'intelligence artificielle. Il est effectivement important de 
     conprendre que les modèles sont dépendants des données qu'on leur fournit et que ces données ne 
     sont pas parfaites. Le modèle sur lequel nous avons pu travailler ici a probablement peu d'utilité 
     dans le monde réel mais il fait prendre conscience des problèmes auxquels on peut faire face.
@@ -850,7 +849,7 @@
     \end{center}
     \newpage
 
-    \section{Les données abandonées et la raison de leur abandon}\label{appendix:dataset}
+    \section{Les données abandonnées et la raison de leur abandon}\label{appendix:dataset}
     \begin{center}
         \scriptsize
         \begin{tabular}{ |c|p{3.5cm}|p{7cm}| }
