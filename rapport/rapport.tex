@@ -556,7 +556,7 @@
 
 
 
-    \section{Pre-processing}\footnote{Le pre-processing a été effectué sur un modèle avec seuil}
+    \section[Preprocessing]{Pre-processing\footnote{Le pre-processing a été effectué sur un modèle avec seuil (0.2)}}
     \subsection{Repondération}
     Dans le contexte de la Frainess, la repondération a pour objectif de rééquilibrer le set d'entrainement
     en attribuant des poids différents à chaque instance. Ce poid est calculé en fonction de l'impact 
@@ -578,11 +578,12 @@
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=11cm]{./img/confusion_matrix_reweight.png}
+        \includegraphics[width=\textwidth]{./img/confusion_matrix_reweight.png}
         \caption{Matrice de confusion avec repondération}
         \label{fig:reweight_matrix}
     \end{figure}
 
+    \vspace{6cm}
     \subsection{Disparate Impact Remover}
     Les résultats obtenus avec le \textit{Disparate impact remover} sont similaires à ceux obtenus avec 
     la repondération. On obtient une accuracy de $0.75$ et un disparate impact de $0.89$. Le disparate 
@@ -595,6 +596,7 @@
     La valeur la plus élevée est de $0.89$ à $0.9$. Les résultats obtenus avec ce modèle étant très proches 
     de ceux avec la repondération, on préférera utiliser la repondération dont l'entrainement est bien 
     plus rapide.
+    \vspace{4cm}
 
     \begin{figure}[!h]
         \vspace{2cm}
@@ -610,9 +612,6 @@
         \end{subfigure}
         \caption{Résultats disparate impact remover}\label{fig:DIR}
     \end{figure}
-
-
-    \subsection{Représentation latente fair}
     
 
     \section{In-processing}
@@ -667,7 +666,6 @@
         \end{subfigure}
         \caption{Matrices de confusions de modèles Adversarial debiasing avec réduction de biais}
     \end{figure}
-    \vspace{2cm}
 
 
     \section{Post-processing}
@@ -747,7 +745,7 @@
     \end{figure}
     \vspace{3cm}
 
-    
+    \newpage
     \section{Conclusion}
 
     \subsection{Les résultats obtenus}
