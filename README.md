@@ -19,7 +19,22 @@ Participants:
 - Yannis CHUPIN L3 Info
 - Erwan LEMATTRE LDD3 Mag. Info
 
+## Organisation
 
+### Résultats
+- `model.ipynb` : fichier entrainement du modèle, le modèle est enregistré dans le répertoire models pour utilisation depuis d'autres fichiers.
+- `main.ipynb` : fichier analyse du dataset et recherche de l'attribut sensible.
+- `preprocessing.ipynb` : contient les méthodes de preprocessing
+- `inprocessing.ipynb` : contient la méthode inprocessing
+- `postprocessing.ipynb` : contient les méthodes postprocessing
+
+### Utilitaires
+- `utils.py` : divers outils. Permet de réduire la quantité de code dans les fichiers principaux
+- `dataset_prepare.py` : fonctions pour préparer le dataset rapidement
+
+## Présentation
+
+Support pour l'oral final : https://upsud-my.sharepoint.com/:p:/g/personal/yannis_chupin_universite-paris-saclay_fr/Ea5M5moxLA5Br4gq7a7e4b4B1FSPjRAmwQC-zdOhjXNGkg?e=AFMnig 
 
 ## Documentation
 
@@ -28,5 +43,3 @@ Source du dataset: https://www.data.gouv.fr/fr/datasets/bases-de-donnees-annuell
 
 - Lime : https://christophm.github.io/interpretable-ml-book/lime.html#lime
 - shapley values : https://christophm.github.io/interpretable-ml-book/shapley.html
-
-Support pour l'oral final : https://upsud-my.sharepoint.com/:p:/g/personal/yannis_chupin_universite-paris-saclay_fr/Ea5M5moxLA5Br4gq7a7e4b4B1FSPjRAmwQC-zdOhjXNGkg?e=AFMnig 

@@ -428,6 +428,11 @@ def print_conf_matrix(y_test, preds):
 
 
 
+##################################################################
+#                     Métriques de fairness                      #
+##################################################################
+
+
 
 
 def compute_stat(preds, sensitive, value=None, not_value=None):
@@ -461,6 +466,20 @@ def compute_baserate(preds, sensitive, value=0):
     return ret
 
 
+
+def sensible_error_rate (X, desired_output, group, target, label):
+   cardGlob1 = len(X[(X[label]==1) & (X[target] == group)])
+   cardGlob2 = len(X[(X[label]==0) & (X[target] == group)])
+   cardGlob3 = len(X[(X[label]==1) & (X[target] == np.absolute(group-1))])
+   cardGlob4 = len(X[(X[label]==0) & (X[target] == np.absolute(group-1))])
+   cardPred1 = len(X[(X['pred']==desired_output) & (X[label]==1) & (X[target] == group)])
+   cardPred2 = len(X[(X['pred']==desired_output) & (X[label]==0) & (X[target] == group)])
+   cardPred3 = len(X[(X['pred']==desired_output) & (X[label]==1) & (X[target] == np.absolute(group-1))])
+   cardPred4 = len(X[(X['pred']==desired_output) & (X[label]==0) & (X[target] == np.absolute(group-1))])
+
+   return cardPred1/cardGlob1, cardPred2/cardGlob2, cardPred3/cardGlob3, cardPred4/cardGlob4
+
+
 def print_metrics(clf, X_test, y_test, df, categorical_features):
   encoders = {cat_col:preprocessing.LabelEncoder() for cat_col in categorical_features}
 
@@ -469,12 +488,23 @@ def print_metrics(clf, X_test, y_test, df, categorical_features):
     #print(cat_col)
 
   preds = clf.predict(X_test)
-  for att,unpriv in zip(['sexe_conducteur', 'pieton'],[0, 1]):
+  for att,unpriv in zip(['sexe_conducteur'],[0]):
     value = encoders[att].transform([unpriv])[0]
     base_rate_pred = compute_baserate(preds, sensitive=X_test[att], value=value)
     base_rate_label = compute_baserate(y_test, sensitive=X_test[att], value=value)
     print(att, unpriv)
     for k,v in base_rate_pred.items():
       print(k, v, base_rate_label[k])
+
+  print("\n")
+
+  target = 'sexe_conducteur'
+  label = 'mortal'
+  X_error_rate_1 = pd.DataFrame()
+  X_error_rate_1[target] = X_test[target]
+  X_error_rate_1[label] = y_test
+  X_error_rate_1['pred'] = preds
+  result = sensible_error_rate (X_error_rate_1, 1, 0, target, label)
+  print("Les femmes conductrices impliquées dans un accident mortel : {0} \nLes femmes conductrices impliquées dans un accident non mortel : {1} \nLes hommes conducteurs impliquées dans un accident mortel : {2} \nLes hommes conducteurs impliquées dans un accident non mortel : {3} \n".format(result[0], result[1], result[2], result[3]))
 
 
