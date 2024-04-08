@@ -472,7 +472,7 @@
 
     \subsection{Nouvelle métrique de base : taux d'erreur et de justesse}
 
-    Afin de trouver l'attribut à protèger et pour mieux diagnostiquer les effets des différentes méthodes de réductions de
+    Afin de trouver l'attribut à protéger et pour mieux diagnostiquer les effets des différentes méthodes de réduction de
     biais, nous avons mis en place une nouvelle métrique de base. En tout il y a 4 calculs : 
 
     \begin{itemize}
@@ -489,16 +489,16 @@
     nous intéresse le plus dans notre cas. On souhaite se concentrer sur les prédictions d'accidents mortels.
 
     \subsection{Sur-échantillonnage}
-    Le pré-traitement des données a été amélioré avec l'utilisation de l'outil de sur-échantillonnage \textit{SMOTE}.
+    Le prétraitement des données a été amélioré avec l'utilisation de l'outil de sur-échantillonnage \textit{SMOTE}.
     Nous avions pu remarquer lors de l'analyse de nos données que les accidents mortels sont minoritaires (environ $5\%$).
     Cet outil nous permet de rééquilibrer les classes afin d'avoir un meilleur apprentissage sur la classe des accidents 
     mortels. \textit{SMOTE} va générer de nouveaux individus minoritaires qui ressemblent à ceux déjà présents sans 
     pour autant être identiques.
-    Nous pouvons voir sur la figure \ref{fig:smote1} que le rééquilibrage nous donne 50\% pour chaque classe 
-    tout en affectant peu les proportions sur les autres attributs comme nous le montre la figure \ref{fig:smote2} 
+    Nous pouvons voir sur la figure~\ref{fig:smote1} que le rééquilibrage nous donne 50\% pour chaque classe 
+    tout en affectant peu les proportions sur les autres attributs comme nous le montre la figure~\ref{fig:smote2} 
     qui prend pour exemple l'attribut \textit{sexe\_conducteur}.
-    Les résultats observés dans la suite du projet sont bien plus concluants en utilisant cette méthode.
-    Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du pré-traitement.
+    Les résultats observés sont bien plus concluants en utilisant cette méthode.
+    Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du prétraitement.
     \\\\
     \begin{figure}[!h]
         \vspace{2cm}
@@ -538,16 +538,15 @@
     vrais positifs est très faible. Cependant, en modifiant le seuil d'acceptation on 
     peut faire évoluer la quantité de vrais positifs et obtenir des résultats bien plus 
     intéressants. Une classe a été créée afin de surcharger la méthode \verb|predict| de 
-    la classe \textit{RandomForestClassifier}. Le seuil a été fixé dans un premier temps à 
-    $0.2$. Nous verrons dans la suite comment régler ce seuil afin de réduire au maximum les 
-    biais.
+    la classe \textit{RandomForestClassifier}. Après plusieurs essais sur différentes valeurs, 
+    le seuil a été fixé à $0.2$. 
 
     \subsection{Attributs sensibles}
     L'analyse du nouveau modèle nous a mené à de nouvelles observations. D'abord, nous avons 
     remarqué une réduction du disparate impact pour le sexe féminin. De plus, les différents 
-    outils d'évaluation des biais nous montrent tous que le sexe féminin est plus disciminé sur 
-    ce modèle. L'utilisation de ce modèle a également eu pour effet de réduire l'influence de 
-    l'âge, le mois et le département, ce qui est un point positif. Nous pouvons notamment 
+    outils d'évaluation des biais nous montrent que le sexe féminin est plus discriminé sur 
+    ce modèle. D'un autre côté, l'utilisation de ce modèle a eu pour effet de réduire l'influence de 
+    l'âge, le mois et le département sur la prédiction, ce qui est un point positif. Nous pouvons notamment 
     l'observer au travers des valeurs de Shapley obtenues avec ce nouveau modèle. 
     
     Dans la suite de ce projet nous nous penchons 
@@ -564,13 +563,11 @@
     observations. Premièrement les métriques de fairness sont très positives. Le disparate impact 
     passe de $0.50$ à $0.94$ pour les femmes. La seconde observation est que l'accuracy de notre 
     modèle a en revanche diminuée de $0.87$ à $0.75$. Cela peut s'expliquer par une augmentation 
-    du nombre de faux positifs. En revanche un point intéressant est que le nombre de 
-    vrais positifs est ici plus élevé que le nombre de positifs prédits faux, ce qui n'était pas 
+    du nombre de faux positifs. D'un autre côté, un point intéressant est que le nombre de 
+    vrais positifs est maintenant plus élevé que le nombre de faux négatifs, ce qui n'était pas 
     le cas sur les modèles testés jusqu'ici.
     La matrice de confusion (figure~\ref{fig:reweight_matrix}) nous montre 
-    les résultats obtenus après repondération. Un effet intéressant de cette intervention sur le set d'entrainement
-    est que le modèle parvient mieux à trouver les morts vraiment mort qu'auparavant. La baisse en accuracy s'explique
-    par l'augmentation d'erreur de détection des accidents qui auraient du être labelisé accidents non-mortels. En
+    les résultats obtenus après repondération. En
     résumé ce nouveau modèle catégorise trop d'accidents comme étant mortels. Mais parmi les accidents détectés comme
     étant mortels seul un sur huit l'est vraiment. Dans notre cas c'est intéressant car dans un objectif de prévention
     routière, on veut écarter les causes d'accidents non mortels des campagnes de sécurité pour augmenter leur efficacité.
@@ -592,9 +589,9 @@
     des prédictions de vrais positifs qui est très proche de celle obtenue par la méthode précédente.
     Le disparate impact remover peut être réglé avec un paramètre \textit{level}. La figure~\ref{fig:DIR_param} 
     nous montre que le disparate impact reste plutôt stable sauf avec les paramètres $0.6$ et $0.7$.
-    La valeur la plus élevée est de $0.89$ à $0.9$. Les résultats obtenus avec ce modèle étant très proches 
-    de ceux avec la repondération, on préférera utiliser la repondération dont l'entrainement est bien 
-    plus rapide.
+    La valeur la plus élevée est de $0.89$ avec $level=0.9$. Les résultats obtenus avec ce modèle étant très proches 
+    de ceux avec la repondération, on préférera utiliser la repondération dont l'entrainement est plus rapide l'adaptation 
+    à notre modèle plus simple.
     \vspace{4cm}
 
     \begin{figure}[!h]
@@ -617,16 +614,16 @@
 
     \subsection{Adversarial debiasing}
     \subsubsection{Explications}
-    Cette méthode vise à entrainer un classifieur pour maximiser l'accuracy tout en réduisant la possibilité pour un seconde 
+    Cette méthode vise à entrainer un classifieur pour maximiser l'accuracy tout en réduisant la possibilité pour un second 
     modèle de prédire la sortie en fonction de l'attribut sensible. En réduisant la possibilité de prédire la sortie en 
     fonction de l'attribut sensible, on réduit les biais sur cet attribut.
     La spécificité de cette méthode par rapport aux autres est donc qu'elle n'utilise plus le modèle que nous avons 
-    définit auparavant mais un autre modèle.
+    défini auparavant mais un autre modèle.
 
     \subsubsection{Résultats}
-    Les résultats obtenus sont plutôt intéressant que ce soit sans ou avec la réduction de biais. En effet, que ce soit 
-    avec ou sans la réduction des biais le disparate impact est supérieur à 1. Nous pouvons expliquer cela par le fait 
-    que cette méthode n'utilise pas de \texttt{RandomForestClassifier}, ce qui donner des résultats très différents. 
+    Les résultats obtenus sont plutôt intéressants que ce soit sans ou avec la réduction de biais. En effet, on remarque que 
+    dans les deux cas le disparate impact est supérieur à 1. Nous pouvons expliquer cela par le fait 
+    que cette méthode n'utilise pas de \texttt{RandomForestClassifier}, ce qui donne des résultats très différents. 
     L'accuracy dimunue légèrement avec la réduction des biais mais reste aux alentours de $0.80$. On note que l'accuracy 
     sans réduction des biais est elle moins élevée qu'avec notre modèle. La figure~\ref{fig:ADV_matrix1} nous montre les 
     résultats obtenus avec ce modèle. Nous pouvons remarquer que le nombre de prédictions vraies est plutôt 
@@ -642,10 +639,10 @@
     du pre-processing afin d'essayer de l'améliorer d'avantage et notamment au niveau de l'accuracy.
     Nous avons choisi d'utiliser la repondération qui a donné d'excellents résultats sur notre 
     modèle utilisant une forêt aléatoire.
-    Les résultats obtenus sont encore meilleur que sans repondération. Sur la matrice de confusion 
-    figure~\ref{fig:ADV_matrix2} on peut voir que les bonnes prédictions vrai un légèrement diminuées. 
-    Cependant on remarque que le nombre de prédictions vraies qui sont fausses a fortement diminué au 
-    profit des prédictions fausses prédites fausses. 
+    Les résultats obtenus sont meilleurs que sans repondération. Sur la matrice de confusion 
+    figure~\ref{fig:ADV_matrix2} on peut voir que les vrais positifs ont légèrement diminués. 
+    Cependant on remarque que le nombre de faux positifs a fortement diminué au 
+    profit des vrais négatifs. 
     
     On obtient avec ce modèle des métriques de fairness aussi bonne qu'avant avec un disparate impact 
     légèrement supérieur à 1, une equal opportunity difference proche de 0 tout en ne diminuant pas 
@@ -754,7 +751,8 @@
     avions pu remarquer que les bonnes prédictions de la classe \textit{mortel} étaient moins fréquentes et 
     que la grande quantité de données de la classe \textit{non mortel} contribuait fortement à ce score. 
     Le défit dans cette seconde partie a été de réduire le plus possible les biais de notre modèle, tout 
-    en essayant de conserver un modèle le plus efficace possible.
+    en essayant de conserver un modèle le plus efficace possible. Nous pensons avoir plutôt bien relevé ce 
+    défis avec le travail effectué.
 
     Si on observe globalement les méthodes utilisées, on peut remarquer que pour la plupart elles 
     diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même lorsqu'on 
