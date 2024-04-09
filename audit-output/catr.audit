@@ -1,0 +1,12 @@
+GFA Audit for:catr
+audit-output/catr.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26016, "1": 2701}, "1": {"0": 1009, "1": 684}}]
+audit-output/catr.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26065, "1": 2652}, "1": {"0": 1026, "1": 667}}]
+audit-output/catr.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26150, "1": 2567}, "1": {"0": 1041, "1": 652}}]
+audit-output/catr.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 26174, "1": 2543}, "1": {"0": 1060, "1": 633}}]
+audit-output/catr.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 26263, "1": 2454}, "1": {"0": 1074, "1": 619}}]
+audit-output/catr.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26330, "1": 2387}, "1": {"0": 1093, "1": 600}}]
+audit-output/catr.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 27481, "1": 1236}, "1": {"0": 1389, "1": 304}}]
+audit-output/catr.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27526, "1": 1191}, "1": {"0": 1402, "1": 291}}]
+audit-output/catr.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27548, "1": 1169}, "1": {"0": 1413, "1": 280}}]
+audit-output/catr.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27602, "1": 1115}, "1": {"0": 1407, "1": 286}}]
+audit-output/catr.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 27677, "1": 1040}, "1": {"0": 1438, "1": 255}}]

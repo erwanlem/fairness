@@ -4,6 +4,80 @@ import random
 from shapkit.monte_carlo_shapley import MonteCarloShapley, MonteCarloShapleyBatch
 import pandas as pd
 import multiprocessing
+from sklearn.ensemble import RandomForestClassifier
+from collections import OrderedDict
+from aif360.metrics import ClassificationMetric
+from sklearn import preprocessing
+
+
+
+
+
+def pred_thres(pred, thres=0.5):
+    p = np.array([])
+    for i in pred:
+        if i[1] > thres:
+            p = np.append(p, 1)
+        else:
+            p = np.append(p, 0)
+    return p
+
+
+class custom_RFC(RandomForestClassifier):
+
+    def __init__(self, n_estimators = 100, *, criterion = "gini", max_depth = None, min_samples_split = 2, min_samples_leaf = 1, min_weight_fraction_leaf = 0, max_features = "sqrt", max_leaf_nodes = None, min_impurity_decrease = 0, bootstrap: bool = True, oob_score: bool = False, n_jobs = None, random_state = None, verbose = 0, warm_start: bool = False, class_weight = None, ccp_alpha: float = 0, max_samples: float | None | int = None) -> None:
+        super().__init__(n_estimators, criterion=criterion, max_depth=max_depth, min_samples_split=min_samples_split, min_samples_leaf=min_samples_leaf, min_weight_fraction_leaf=min_weight_fraction_leaf, max_features=max_features, max_leaf_nodes=max_leaf_nodes, min_impurity_decrease=min_impurity_decrease, bootstrap=bootstrap, oob_score=oob_score, n_jobs=n_jobs, random_state=random_state, verbose=verbose, warm_start=warm_start, class_weight=class_weight, ccp_alpha=ccp_alpha, max_samples=max_samples)
+
+    def predict(self, X, threshold=0.2):
+        preds = pred_thres(self.predict_proba(X), threshold)
+        return preds
+
+
+
+
+
+
+
+
+
+########################################
+# Signification des valeurs du dataset #
+########################################
+attributes_values = {
+   'catv' : {0:"Autre", 1:"Bicyclette", 2:"Cyclomoteur", 3:"Voiture", 4:"Utilitaire", 5:"Moto"},
+   'sexe_conducteur' : {1:"Homme", 0:"Femme"},
+   'catr' : {1:"Autoroute", 2:"Route nationale", 3:"Route départementale", 4:"Voie communale", 5: "Autre"},
+   'col' : {-1:"Non renseigné", 
+            1:"Deux véhicules - Fontale", 
+            2:"Deux véhicules - par l'arrière", 
+            3:"Deux véhicules - par le côté", 
+            4:"Trois véhicules et plus en chaine", 
+            5:"Trois véhicules et plus collisions multiples",
+            6:"Autre collision", 
+            7: "Pas de collision"},
+    'obs' : {0:"Pas d'obstacle", 1:"Obstacle"},
+    'agg' : {1 : "Hors-Aglomération", 2 : "En Aglomération"}, 
+    'pieton' : {0 : "Aucun Piéton impliqué", 1 : "Piéton(s) impliqué(s)"},
+    'atm' : {-1 : "Non renseigné",
+            1 : "Normale",
+            2 : "Pluie légère",
+            3 : "Pluie forte",
+            4 : "Neige - grêle",
+            5 : "Brouillard - fumée",
+            6 : "Vent fort - tempête", 
+            7 : "Temps éblouissant", 
+            8 : "Temps couvert",
+            9 : "Autre" },
+    'obsm' : {-1 : "Non renseigné", 
+              0 : "Aucun",
+              1 : "Piéton",
+              2 : "Véhicule",
+              4 : "Véhicule sur rail",
+              5 : "Animal domestique",
+              6 : "Animal sauvage",
+              9 : "Autre"}
+}
+
 
 
 # Supprime les lettres des départements
@@ -109,10 +183,34 @@ def get_driver_age(df):
     df = df.copy()
     # Age du conducteur du véhicule
     driver_age = df[(df['catu'] == 1)][['an_nais', 'id_vehicule', 'an']]
+
     age = driver_age['an'] - driver_age['an_nais']
     return age
 
 
+# Metrics function depuis leur fichier 'common-utils' sur le git aif360
+def compute_metrics(dataset_true, dataset_pred, 
+                    unprivileged_groups, privileged_groups,
+                    disp = True):
+    """ Compute the key metrics """
+    classified_metric_pred = ClassificationMetric(dataset_true,
+                                                 dataset_pred, 
+                                                 unprivileged_groups=unprivileged_groups,
+                                                 privileged_groups=privileged_groups)
+    metrics = OrderedDict()
+    metrics["Balanced accuracy"] = 0.5*(classified_metric_pred.true_positive_rate()+
+                                             classified_metric_pred.true_negative_rate())
+    metrics["Statistical parity difference"] = classified_metric_pred.statistical_parity_difference()
+    metrics["Disparate impact"] = classified_metric_pred.disparate_impact()
+    metrics["Average odds difference"] = classified_metric_pred.average_odds_difference()
+    metrics["Equal opportunity difference"] = classified_metric_pred.equal_opportunity_difference()
+    metrics["Theil index"] = classified_metric_pred.theil_index()
+    
+    if disp:
+        for k in metrics:
+            print("%s = %.4f" % (k, metrics[k]))
+    
+    return metrics
 
 def rapport_corr(x, y):
   '''
@@ -138,10 +236,17 @@ def rapport_corr(x, y):
 
 
 
-def analyse_bi_quali_quanti(quali, quanti, df):
+def analyse_bi_quali_quanti(quali, quanti, df_):
+  df = df_.copy()
   # Rapport de correlation
   rapp = rapport_corr(df[quali].values, df[quanti].values)
   print(f"Rapport de corr {quali} X {quanti}: {rapp} ")
+
+  if quali in attributes_values.keys():
+    df[quali] = df[quali].replace(attributes_values[quali])
+  if quanti in attributes_values.keys():
+    df[quanti] = df[quanti].replace(attributes_values[quanti])
+
   # boite a moustaches
   bam = px.box(df, x=quali, y=quanti)
   bam.show()
@@ -167,6 +272,12 @@ def analyse_bi_quali_quali(quali1, quali2, df, numerical_features):
   contingence_tab = [
       [ df_group[(df_group[quali2]==row) & (df_group[quali1]==col)]["count"].values[0] if col in df_group[df_group[quali2]==row][quali1].values else 0 for row in rows  ]
       for col in cols]
+  
+  if quali1 in attributes_values.keys():
+    df_group[quali1] = df_group[quali1].replace(attributes_values[quali1])
+  if quali2 in attributes_values.keys():
+    df_group[quali2] = df_group[quali2].replace(attributes_values[quali2])
+
   contingence_img = px.imshow(contingence_tab,
                               text_auto=True,
                               labels=dict(x=quali2, y=quali1),
@@ -307,4 +418,103 @@ class parallel_shap:
     self.p5.terminate()
 
 
-    
+from sklearn.metrics import confusion_matrix
+
+
+def print_conf_matrix(y_test, preds):
+  tn, fp, fn, tp = confusion_matrix(y_test, preds).ravel()
+  tn, fp, fn, tp
+  import plotly.express as px
+
+  fig = px.imshow([[tn, fp], [fn, tp]], text_auto=True, labels=dict(y="Truth", x="Pred"),
+                  x=["False", "True"],
+                  y=["False", "True"]
+                )
+  fig.show()
+
+
+
+
+
+
+
+##################################################################
+#                     Métriques de fairness                      #
+##################################################################
+
+
+
+
+def compute_stat(preds, sensitive, value=None, not_value=None):
+    if value is not None:
+      preds_sel = preds[sensitive == value]
+    elif not_value is not None:
+      preds_sel = preds[sensitive != not_value]
+    else:
+      print("one of 'value' and 'not value' must be set")
+      return None, None, None, None
+    card = len(preds_sel)
+    card_pos = len(preds_sel[preds_sel == 1])
+    card_neg = len(preds_sel[preds_sel == 0])
+    return card, card_pos, card_neg, preds_sel
+
+
+def compute_baserate(preds, sensitive, value=0):
+
+    n_F, n_F_pos, n_F_neg, preds_F = compute_stat(preds=preds, sensitive=sensitive, value=value)
+    n_M, n_M_pos, n_M_neg, preds_M = compute_stat(preds=preds, sensitive=sensitive, not_value=value)
+
+    DI = n_F_pos/n_F*n_M/n_M_pos
+    p_DI = np.min([DI, 1/DI])
+    DP = n_F_pos/n_F - n_M_pos/n_M
+
+    ret = {}
+    ret["disparate_impact"] = DI
+    ret["P_rule_disparate_impact"] = p_DI
+    ret["demography_parity"] = DP
+
+    return ret
+
+
+
+def sensible_error_rate (X, desired_output, group, target, label):
+   cardGlob1 = len(X[(X[label]==1) & (X[target] == group)])
+   cardGlob2 = len(X[(X[label]==0) & (X[target] == group)])
+   cardGlob3 = len(X[(X[label]==1) & (X[target] == np.absolute(group-1))])
+   cardGlob4 = len(X[(X[label]==0) & (X[target] == np.absolute(group-1))])
+   cardPred1 = len(X[(X['pred']==desired_output) & (X[label]==1) & (X[target] == group)])
+   cardPred2 = len(X[(X['pred']==desired_output) & (X[label]==0) & (X[target] == group)])
+   cardPred3 = len(X[(X['pred']==desired_output) & (X[label]==1) & (X[target] == np.absolute(group-1))])
+   cardPred4 = len(X[(X['pred']==desired_output) & (X[label]==0) & (X[target] == np.absolute(group-1))])
+
+   return cardPred1/cardGlob1, cardPred2/cardGlob2, cardPred3/cardGlob3, cardPred4/cardGlob4
+
+
+def print_metrics(clf, X_test, y_test, df, categorical_features):
+  encoders = {cat_col:preprocessing.LabelEncoder() for cat_col in categorical_features}
+
+  for cat_col in categorical_features:
+    df[cat_col] = encoders[cat_col].fit_transform(df[cat_col])
+    #print(cat_col)
+
+  preds = clf.predict(X_test)
+  for att,unpriv in zip(['sexe_conducteur'],[0]):
+    value = encoders[att].transform([unpriv])[0]
+    base_rate_pred = compute_baserate(preds, sensitive=X_test[att], value=value)
+    base_rate_label = compute_baserate(y_test, sensitive=X_test[att], value=value)
+    print(att, unpriv)
+    for k,v in base_rate_pred.items():
+      print(k, v, base_rate_label[k])
+
+  print("\n")
+
+  target = 'sexe_conducteur'
+  label = 'mortal'
+  X_error_rate_1 = pd.DataFrame()
+  X_error_rate_1[target] = X_test[target]
+  X_error_rate_1[label] = y_test
+  X_error_rate_1['pred'] = preds
+  result = sensible_error_rate (X_error_rate_1, 1, 0, target, label)
+  print("Les femmes conductrices impliquées dans un accident mortel : {0} \nLes femmes conductrices impliquées dans un accident non mortel : {1} \nLes hommes conducteurs impliquées dans un accident mortel : {2} \nLes hommes conducteurs impliquées dans un accident non mortel : {3} \n".format(result[0], result[1], result[2], result[3]))
+
+

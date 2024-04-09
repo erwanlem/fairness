@@ -3,16 +3,19 @@
 
 \usepackage{graphicx}
 \usepackage{parskip}
+\usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=black]{hyperref}
 \usepackage[french]{babel}
 \usepackage{subcaption}
 \usepackage[french]{babel}
+\usepackage{caption}
 
 \usepackage[margin=3.5cm]{geometry}
 
 
-\author{Erwan LEMATTRE, Yannis CHUPIN}
-\title{Rapport mi-projet\\Fairness pour l'IA}
+\author{Erwan LEMATTRE \and Yannis CHUPIN}
+\title{Rapport\\Fairness pour l'IA}
+\date{Avril 2024}
 
 \begin{document}
     \maketitle
@@ -32,6 +35,8 @@
     le code principal que nous allons suivre et contextualiser tout au long de ce rapport. de plus, le fichier \texttt{utils.py} 
     contient toutes les fonctions auxiliaires que nous utilisons dans le fichier principal.
 
+    \newpage
+    \part{Analyse}
     \section{Découverte du jeu de données}
     \subsection{La base de données}
     La base de données est composée de plusieurs tables : \textit{usagers}, \textit{véhicules}, \textit{lieux} et 
@@ -429,7 +434,7 @@
     Enfin, il semble que, comme nous avions pu l'observer avec les valeurs de Shapley, l'attribut 
     \textit{sexe\_conducteur} ait un faible impact sur la prédiction.
 
-    \section{Conclusion}
+    \section{Premières conclusions}
     Pour ce projet nous avons cherché un dataset qui nous intéressait, et nous avons choisi celui rapportant les accidents de la route. Pourvu de 
     nombreux attributs, nous avons dû adapter leur format avant de pouvoir les analyser de manière univariée puis bivariée. Lors du premier essai, 
     nous avons fait le choix d'utiliser des arbres de décision. Ce qui nous a conduit à transformer beaucoup de nos variables en OneHot. L'accuracy 
@@ -460,9 +465,392 @@
     Ces questions seront déterminantes pour la suite de ce projet.
 
     \newpage
-    \appendix
+    \part{Correction des biais}
 
-    \section{Les données de notre dataset}\label{appendix:dataset}
+    \section{Améliorations du modèle}
+    Cette deuxième partie du projet a commencé par l'amélioration des premiers resultats. Nous allons parcourir 
+    dans cette section les différentes amélioration effectuées avant d'arriver à la correction des biais.
+
+    \subsection{Une nouvelle visualisation des données}
+    Dans la perspective d'avoir une vue globale des corrélations des attributs de notre dataset, nous avons décidé d'en réaliser la 
+    matrice de corrélation. La figure~\ref{fig:corr_matrix} (ici peu lisible, voir dans \verb|analyze.ipynb| pour les chiffres réels) 
+    nous montre que les corrélations sont globalement assez faibles. On note quelques attributs qui ressortent comme \textit{agg} 
+    et \textit{vma} ou encore \textit{vma} et \textit{catr}. Il y a en effet un lien de causalité évident entre ces attributs.
+    L'attribut \textit{mortal} est quant à lui corrélé avec \textit{agg} et \textit{vma}. L'attribut 
+    \textit{sexe\_conducteur} est globalement très peu corrélé et devrait par conséquent avoir une faible 
+    incidence sur les prédictions.
+
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/corr_matrix.png}
+        \caption{Matrice de corrélation}
+        \label{fig:corr_matrix}
+    \end{figure}
+
+    \subsection{Nouvelle métrique de base : taux d'erreur et de justesse}
+
+    Afin de trouver l'attribut à protéger et pour mieux diagnostiquer les effets des différentes méthodes de réduction de
+    biais, nous avons mis en place une nouvelle métrique de base. En tout il y a 4 calculs : 
+
+    \begin{itemize}
+        \item Taux d'\textbf{erreur} pour l'attribut \textbf{sensible} : \[ P(\overline{Y}=1| (Y=0, Z=1)) \]
+        \item Taux d'\textbf{erreur} pour l'attribut \textbf{privilégié} : \[ P(\overline{Y}=1| (Y=0, Z=0)) \]
+        \item Taux de \textbf{justesse} pour l'attribut \textbf{sensible} : \[ P(\overline{Y}=1| (Y=1, Z=1)) \]
+        \item Taux de \textbf{justesse} pour l'attribut \textbf{privilégié} : \[ P(\overline{Y}=1| (Y=1, Z=0)) \]
+    \end{itemize}
+
+    Seules, ces métriques n'ont que peu d'intérêt, c'est lorsqu'on les regarde ensemble qu'elles prennent tout leur intérêt pour 
+    la fairness. En effet, l'équité est garantie si la différence entre ces taux pour l'attribut sensible et l'attribut privilégié 
+    est nulle. En effet on serait en droit de s'attendre à ce que la justesse et l'erreur se produisent dans les mêmes proportions. 
+    Notons pour finir que la liste des taux de succès est incomplète. On aurait pu ajouter le cas $\overline{Y}=0| Y=0$, mais ce n'est pas ce qui 
+    nous intéresse le plus dans notre cas. On souhaite se concentrer sur les prédictions d'accidents mortels.
+
+    \subsection{Sur-échantillonnage}
+    Le prétraitement des données a été amélioré avec l'utilisation de l'outil de sur-échantillonnage \textit{SMOTE}.
+    Nous avions pu remarquer lors de l'analyse de nos données que les accidents mortels sont minoritaires (environ $5\%$).
+    Cet outil nous permet de rééquilibrer les classes afin d'avoir un meilleur apprentissage sur la classe des accidents 
+    mortels. \textit{SMOTE} va générer de nouveaux individus minoritaires qui ressemblent à ceux déjà présents sans 
+    pour autant être identiques.
+    Nous pouvons voir sur la figure~\ref{fig:smote1} que le rééquilibrage nous donne 50\% pour chaque classe 
+    tout en affectant peu les proportions sur les autres attributs comme nous le montre la figure~\ref{fig:smote2} 
+    qui prend pour exemple l'attribut \textit{sexe\_conducteur}.
+    Les résultats observés sont bien plus concluants en utilisant cette méthode.
+    Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du prétraitement.
+    \\\\
+    \begin{figure}[!h]
+        \vspace{2cm}
+        \centering
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/smote/before.png}
+            \caption{Accidents mortels avant SMOTE}\label{fig:before_smote}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/smote/after.png}
+        \caption{Accidents mortels après SMOTE}\label{fig:after_smote}
+        \end{subfigure}
+        \caption{Accidents mortels avant/après SMOTE}\label{fig:smote1}
+    \end{figure}
+    \vspace{1cm}
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/smote/sex_before.png}
+            \caption{Homme/Femme avant SMOTE}\label{fig:before_smote_sex}
+        \end{subfigure}
+        \vspace{\floatsep}
+        \hspace{0.4cm}
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/smote/sex_after.png}
+        \caption{Homme/Femme après SMOTE}\label{fig:after_smote_sex}
+        \end{subfigure}
+        \caption{Proportion Homme/Femme avant et après SMOTE}\label{fig:smote2}
+    \end{figure}
+    \vspace{1cm}
+
+    \subsection{\textit{Random Forest Classifier}}
+    La première partie de ce projet utilisait un \textit{Decision Tree Classifier}.
+    Afin d'avoir un modèle plus robuste, nous avons décidé d'utiliser une forêt aléatoire.
+    À première vue, les résultats étaient bien moins bons. En effet le nombre de 
+    vrais positifs est très faible. Cependant, en modifiant le seuil d'acceptation on 
+    peut faire évoluer la quantité de vrais positifs et obtenir des résultats bien plus 
+    intéressants. Une classe a été créée afin de surcharger la méthode \verb|predict| de 
+    la classe \textit{RandomForestClassifier}. Après plusieurs essais sur différentes valeurs, 
+    le seuil a été fixé à $0.2$. 
+
+    \subsection{Attributs sensibles}
+    L'analyse du nouveau modèle nous a mené à de nouvelles observations. D'abord, nous avons 
+    remarqué une réduction du disparate impact pour le sexe féminin. De plus, les différents 
+    outils d'évaluation des biais nous montrent que le sexe féminin est plus discriminé sur 
+    ce modèle. D'un autre côté, l'utilisation de ce modèle a eu pour effet de réduire l'influence de 
+    l'âge, le mois et le département sur la prédiction, ce qui est un point positif. Nous pouvons notamment 
+    l'observer au travers des valeurs de Shapley obtenues avec ce nouveau modèle. 
+    
+    Dans la suite de ce projet nous nous penchons 
+    donc sur la correction des biais de l'attribut \textit{sexe\_conducteur}.
+
+
+
+    \section[Preprocessing]{Pre-processing\footnote{Le pre-processing a été effectué sur un modèle avec seuil (0.2)}}
+    \subsection{Repondération}
+    Dans le contexte de la fairness, la repondération a pour objectif de rééquilibrer le set d'entrainement
+    en attribuant des poids différents à chaque instance. Ce poids est calculé en fonction de l'impact 
+    que cette instance a sur l'attribut sensible. 
+    Après apprentissage et observation des résultats de notre modèle, nous pouvons faire deux 
+    observations. Premièrement les métriques de fairness sont très positives. Le disparate impact 
+    passe de $0.50$ à $0.94$ pour les femmes. La seconde observation est que l'accuracy de notre 
+    modèle a en revanche diminuée de $0.87$ à $0.75$. Cela peut s'expliquer par une augmentation 
+    du nombre de faux positifs. D'un autre côté, un point intéressant est que le nombre de 
+    vrais positifs est maintenant plus élevé que le nombre de faux négatifs, ce qui n'était pas 
+    le cas sur les modèles testés jusqu'ici.
+    La matrice de confusion (figure~\ref{fig:reweight_matrix}) nous montre 
+    les résultats obtenus après repondération. En
+    résumé ce nouveau modèle catégorise trop d'accidents comme étant mortels. Mais parmi les accidents détectés comme
+    étant mortels seul un sur huit l'est vraiment. Dans notre cas c'est intéressant car dans un objectif de prévention
+    routière, on veut écarter les causes d'accidents non mortels des campagnes de sécurité pour augmenter leur efficacité.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.4]{./img/confusion_matrix_reweight.png}
+        \caption{Matrice de confusion avec repondération}
+        \label{fig:reweight_matrix}
+    \end{figure}
+
+    %\vspace{6cm}
+    \subsection{Disparate Impact Remover}
+    Les résultats obtenus avec le \textit{Disparate impact remover} sont similaires à ceux obtenus avec 
+    la repondération. On obtient une accuracy de $0.75$ et un disparate impact de $0.89$. Le disparate 
+    impact est cependant un peu moins bon que celui obtenu avec la repondération pour une accuracy équivalente.
+    On peut remarquer que tout comme avec la repondération, la matrice de confusion (figure~\ref{fig:DIR_matrix})
+    nous montre une tendance allant vers plus de faux positifs. On remarque également encore une amélioration
+    des prédictions de vrais positifs qui est très proche de celle obtenue par la méthode précédente.
+    Le disparate impact remover peut être réglé avec un paramètre \textit{level}. La figure~\ref{fig:DIR_param} 
+    nous montre que le disparate impact reste plutôt stable sauf avec les paramètres $0.6$ et $0.7$.
+    La valeur la plus élevée est de $0.89$ avec $level=0.9$. Les résultats obtenus avec ce modèle étant très proches 
+    de ceux avec la repondération, on préférera utiliser la repondération dont l'entrainement est plus rapide l'adaptation 
+    à notre modèle plus simple.
+    %\vspace{4cm}
+
+    \begin{figure}[!h]
+        %\vspace{2cm}
+        \centering
+        \begin{subfigure}{8cm}
+            \includegraphics[width=8cm]{./img/DIR_confusion_matrix.png}
+            \caption{Matrice de confusion avec Disparate Impact Remover}\label{fig:DIR_matrix}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{6cm}
+            \includegraphics[width=6cm]{./img/disparate_impact_remover.png}
+        \caption{Disparate impact en fonction du paramètre \textit{level}}\label{fig:DIR_param}
+        \end{subfigure}
+        \caption{Résultats disparate impact remover}\label{fig:DIR}
+    \end{figure}
+    
+
+    \section{In-processing}
+
+    \subsection{Adversarial debiasing}
+    \subsubsection{Explications}
+    Cette méthode vise à entrainer un classifieur pour maximiser l'accuracy tout en réduisant la possibilité pour un second 
+    modèle de prédire la sortie en fonction de l'attribut sensible. En réduisant la possibilité de prédire la sortie en 
+    fonction de l'attribut sensible, on réduit les biais sur cet attribut.
+    La spécificité de cette méthode par rapport aux autres est donc qu'elle n'utilise plus le modèle que nous avons 
+    défini auparavant mais un autre modèle.
+
+    \subsubsection{Résultats}
+    Les résultats obtenus sont plutôt intéressants que ce soit sans ou avec la réduction de biais. En effet, on remarque que 
+    dans les deux cas le disparate impact est supérieur à 1. Nous pouvons expliquer cela par le fait 
+    que cette méthode n'utilise pas de \texttt{RandomForestClassifier}, ce qui donne des résultats très différents. 
+    L'accuracy dimunue légèrement avec la réduction des biais mais reste aux alentours de $0.80$. On note que l'accuracy 
+    sans réduction des biais est elle moins élevée qu'avec notre modèle. La figure~\ref{fig:ADV_matrix1} nous montre les 
+    résultats obtenus avec ce modèle. Nous pouvons remarquer que le nombre de prédictions vraies est plutôt 
+    intéressant mais plus faible que le nombre de prédictions faussements négatives. 
+    
+    Les résultats obtenus avec cette méthode sont tout de même très intéressants car nous conservons une accuracy 
+    acceptable tout en ayant un très bon disarate impact. En revanche, l'objectif étant d'améliorer notre modèle 
+    (une forêt aléatoire) en réduisant ses biais, l'utilisation d'un nouveau modèle que nous connaissons peu 
+    est discutable.
+
+    \subsubsection{Un peu de pre-processing}
+    Les résultats obtenus avec ce modèle sont intéressants c'est pourquoi nous avons voulu ajouter 
+    du pre-processing afin d'essayer de l'améliorer d'avantage et notamment au niveau de l'accuracy.
+    Nous avons choisi d'utiliser la repondération qui a donné d'excellents résultats sur notre 
+    modèle utilisant une forêt aléatoire.
+    Les résultats obtenus sont meilleurs que sans repondération. Sur la matrice de confusion 
+    figure~\ref{fig:ADV_matrix2} on peut voir que les vrais positifs ont légèrement diminués. 
+    Cependant on remarque que le nombre de faux positifs a fortement diminué au 
+    profit des vrais négatifs. 
+    
+    On obtient avec ce modèle des métriques de fairness aussi bonne qu'avant avec un disparate impact 
+    légèrement supérieur à 1, une equal opportunity difference proche de 0 tout en ne diminuant pas 
+    l'accuracy qui est maintenant de $0.83$.
+
+
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/adversarial1_conf_matrix.png}
+            \caption{Sans pre-processing}\label{fig:ADV_matrix1}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/adversarial2_conf_matrix.png}
+        \caption{Avec repondération des données}\label{fig:ADV_matrix2}
+        \end{subfigure}
+        \caption{Matrices de confusions de modèles Adversarial debiasing avec réduction de biais}
+    \end{figure}
+
+
+    \section{Post-processing}
+
+    \subsection{Reject option classification}
+    \subsubsection{Un nouveau seuil}
+
+    Le but de cette méthode de correction de biais post-preprocessing, est de faire varier le seuil de décision de manière à 
+    trouver celui qui a la meilleure fairness, pour le comparer au seuil ayant la meilleure accuracy.
+
+    Toujours à l'aide d'AIF 360, nous avons utilisé ROC en paramétrant le groupe privilégié à 1 (Hommes) et les lésés à 0 (Femmes).
+    Les résultats sont les seuils suivant: 
+
+    \begin{itemize}
+        \item Sans fairness : \textit{0.1189}
+        \item Avec fairness : \textit{0.1289}
+    \end{itemize}
+    
+    De ces résultats on peut sortir deux observations. Tout d'abord, ROC a trouvé qu'il faudrait déplacer le seuil de sorte à corriger 
+    un biais. Ensuite, la correction effectuée est minime dans son ampleur. 
+
+    \subsubsection{Les nouvelles performances du modèle}
+
+    Les répercussions sur l'accuracy sont quant à elles plus que notables. On passe en effet de \textit{0,876} à \textit{0,640}.
+    Cependant, si on regarde un peu plus en détail la matrice de confusion, il parrait intéressant de noter que ce modèle détecte mieux 
+    les accidents mortels véritablement mortels. Pour être précis,on détecte \textit{79\%} des accidents
+    mortels répertoriés dans l'ensemble (rappelons que les scores et la matrices sont ici calculés sur le set de validation qui est deux fois plus petit en effectifs). 
+    Ceci se fait au prix d'un augmentation des accidents non mortels faussement détectés. Malgré tout, 
+    le taux de détection de ce type d'accident reste assez élevé à \textit{63\%}. En définitive, il catégorise trop de véhicules comme causant des accidents mortels.
+    Cela fait que ce modèle est bien moins fiable. Mais il a l'intêret, que lorsqu'un véhicule n'est pas classifié comme mortellement accidenté, 
+    on peut être très confiant sur cette prédiction. 
+
+    \subsubsection{Les performances pour la fairness}
+
+    La première observation que l'on peut faire, c'est que le disparate impact se voit corrigé. Pour être précis, avec le nouveau seuil, le disparate impact
+    augmente à \textit{0.98}. On peut donc voir ici que le disparate impact homme / femme est presque rectifié. 
+    
+    On remarque aussi que les taux d'erreurs 
+    \[ P(\overline{Y}=1| (Y=1, Z=0)) \] \[ P(\overline{Y}=1| (Y=0, Z=0)) \] \[ P(\overline{Y}=1| (Y=1, Z=1)) \] \[ P(\overline{Y}=1| (Y=0, Z=1)) \] chez les femmes se sont rapprochés de
+    ceux des hommes. Cela atteste d'une correction de biais substentielle.  
+
+    En revanche, il faut souligner que la correction de biais n'est pas parfaite. On peut même dire qu'elle est très légèrement inférieure à d'autres méthodes telles que reweighing.
+    
+    \subsection{Calibrated equalized odds}
+    \subsubsection{Explications}
+    Cette méthode modifie les sorties du modèle afin d'augmenter l'égalité entre les valeurs de l'attribut 
+    sensible. Cette méthode est testée sur différents seuils de prédiction afin de trouver le modèle le plus efficace.
+    On note cependant que les résultats son assez dépendants de l'aléatoire. Ils 
+    peuvent être variables d'une exécution à l'autre et peuvent même donner de moins bons résultats que sans le 
+    post-processing, ce nous allons voir par la suite.
+
+    \subsubsection{Les résultats obtenus}
+    La figure~\ref{fig:EQU_odds} nous montre l'évolution de l'accuracy et de l'égalité de l'attribut sensible 
+    (ici homme/femme) dans les prédictions en fonction du seuil. L'objectif est d'avoir l'accuracy la plus élevée tout 
+    en ayant le plus d'égalité sur l'attribut sensible (donc \textit{equal opportunity difference} le plus proche de 0).
+    Le résultat obtenu nous montre que l'application de cette méthode a ici eu un effet négatif. En effet nous pouvons 
+    remarquer que le meilleur résultat obtenu est avant post-processing avec un seuil légèrement en dessous de $0.15$.
+    Comme dit précédemment, les résultats varient avec l'aléatoire et on arrive à avoir des cas où les résultats sont 
+    meilleurs avec le post-processing.
+
+    
+
+    \subsubsection{Mise en perspective}
+    Comme nous avons pu le voir ce résultat n'est pas vraiment satisfaisant. Cependant cette méthode reste très
+    intéressante pour avoir une vu globale du modèle et des résultats obtenus.
+    Le \texttt{RejectOptionClassifier} vu précédemment nous indique directement un seuil optimal sans qu'on ait 
+    une idée de comment évoluent les biais en fonction du seuil. Ici nous avons des résultats selon les 
+    différents seuils. De plus une donnée intéressante ici est la visulisation de l'accuracy. Cela 
+    nous permet de réduire les biais tout en ayant le contrôle de l'accuracy (que ce soit avec ou sans 
+    post-processing), ce qui n'est pas forcément évident avec les autres méthodes.
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/cal_equ_odds.png}
+        \caption{Résultats avec et sans post-processing en fonction du seuil}
+        \label{fig:EQU_odds}
+    \end{figure}
+    \vspace{3cm}
+
+    \newpage
+    \section{Conclusion}
+
+    \subsection{Les résultats obtenus}
+    \begin{center}
+        \begin{table}[h]
+            \begin{tabular}{ |c c c c| }
+                \hline
+                \textbf{Méthode de correction} & \textbf{Disparate impact} & \textbf{Balanced accuracy} & \textbf{Accuracy} \\
+                \hline
+                Sans correction & $0.50$ & $0.64$ & $0.87$ \\
+                \hline
+                Reweighing & $0.94$ & - & $0.75$ \\
+                \hline
+                Disparate impact remover & $1.0$ & - & $0.76$ \\
+                \hline
+                Adversarial debiasing & $1.01$ & $0.63$ & $0.80$ \\
+                \hline
+                Adversarial debiasing (avec reweighing) & $1.06$ & $0.61$ & $0.83$ \\
+                \hline
+                Reject Option Classification & $0.94$ & $0.72$ & $0.64$ \\
+                \hline
+                Calibrated equalized odds & $0.90$ & $0.70$ & $0.62$ \\
+                \hline
+            \end{tabular}
+            \caption{Résultats obtenus avec les différentes méthodes de correction}
+            \label{tab:results}
+        \end{table}
+        
+    \end{center}
+
+
+    À la fin de la première partie de ce projet (développement d'un modèle et analyse) nous avions pu 
+    identifier le sexe du conducteur comme un attribut sensible de notre dataset. Ce premier modèle 
+    sans correction des biais obtenait une accuracy de $0.87$. Malgré ce score plutôt acceptable, nous 
+    avions pu remarquer que les bonnes prédictions de la classe \textit{véhicule impliqué dans un accident 
+    mortel} étaient moins fréquentes.
+    De même, la grande quantité de données de la classe \textit{véhicule impliqué dans un accident 
+    non mortel} contribuait fortement à ce score. 
+    Le défi dans cette seconde partie a été de réduire le plus possible les biais de notre modèle, tout 
+    en essayant de conserver un modèle le plus efficace possible. Nous pensons avoir plutôt bien relevé ce 
+    défi avec le travail effectué.
+
+    Si on observe globalement les méthodes utilisées, on peut remarquer (table~\ref{tab:results}) que pour la plupart elles 
+    diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même l'\textit{equal 
+    oppotunity difference} observée durant les différents tests s'en trouve également réduite. 
+    Nous avons cependant noté trois méthodes qui ont particulièrement attirées notre attention.
+
+    Premièrement, la repondération (reweighing) s'est démarquée en réduisant grandement les biais du modèle. 
+    De plus contrairement aux autres méthodes de 
+    pre-processing elle a l'avantage d'être rapide et facilement adaptable à notre modèle utilisant une 
+    pipeline. Enfin, cette méthode réduit l'accuracy du modèle mais en observant la matrice de confusion 
+    on remarque que les vrais positifs sont plus élevés que les faux négatifs, 
+    ce qui n'était pas le cas précédemment. Ces résultats peuvent être préférable dans certaines situations.
+
+    Ensuite, les résultats de l'adversarial debiasing sont parmi les plus concluants. En effet cette 
+    méthode permet d'obtenir un modèle plutôt efficace tout en ayant d'excellentes métriques de fairness. 
+    Par exemple on note que le disparate impact est proche de 1. Comme expliqué dans la section dédiée, ce 
+    modèle différent de celui produit à l'origine, mets de côté les recherches déjà effectué. Nous pensons par
+     conséquent qu'il est important d'étudier les alternatives qui peuvent s'adapter à notre propre modèle.
+    C'est pour nous une manière d'avoir plus de contrôle sur la classification.
+
+    Enfin, la dernière méthode que nous avons trouvé intéressante est la reject option classification. On 
+    obtient encore une fois d'excellents résultats aux niveaux des métriques avec également la balanced 
+    accuracy la plus élevée. Ces bons résultats se reflètent aussi sur la matrice de confusion associée 
+    (le nombre de vrai positifs).
+
+    \subsection{Aller plus loin}
+    Nous avons pu remarquer lors de l'analyse des données que d'autres attributs sont des sources de biais pour 
+    notre modèle. Il serait intéressant de poursuivre la correction des biais avec ces attributs 
+    sensibles. Nous pouvons par exemple penser aux attributs \textit{âge} ou \textit{mois}. 
+    
+    Ce projet a pour objectif de travailler sur la fairness en IA. Aller plus loin pourrait également 
+    signifier dépasser cet objectif et améliorer le modèle afin d'obtenir d'en tirer de meilleures 
+    performances (tout en conservant un modèle le moins biaisé possible).
+
+    \subsection{Un projet enrichissant}
+    Le travail effectué au cours de ce projet a été très formateur pour nous. Il nous a permis de 
+    découvrir un aspect plus humain de l'intelligence artificielle. Il est effectivement important de 
+    comprendre que les modèles sont dépendants des données qu'on leur fournit et que ces données ne 
+    sont pas parfaites. Le modèle sur lequel nous avons pu travailler ici a probablement jamais utilisé
+    en conditions réelles mais il fait prendre conscience des problèmes auxquels on peut faire face en IA.
+    Nous avions jusqu'ici appris à préparer des données pour l'apprentissage, réaliser l'apprentissage et
+    évaluer les performances sans jamais faire attention aux biais et aux problèmes qui peuvent en découler.
+    Il ne fait aucun doute qu'après le travail effectué pour ce cours cette question aura une place 
+    prépodérante dès que nous aborderons un problème d'apprentissage machine.
+
+
+    \newpage
+    \appendix 
+
+    \section{Les données conservées pour le modèle.}\label{appendix:dataset}
     \begin{center}
         \begin{tabular}{ |c|p{9cm}| }
             \hline
@@ -474,7 +862,6 @@
             \textit{hrmn} & Heure et minutes de l'accident \\
             \textit{lum} & Conditions d'éclairage dans lesquelles l'accident s'est produit \\
             \textit{dep} & Code INSEE du département \\
-            \textit{com} & Numéro de commune (code INSEE) \\
             \textit{agg} & Localisation en agglomération \\
             \textit{int} & Type d'intersection \\
             \textit{atm} & Conditions atmosphériques \\
@@ -509,7 +896,50 @@
     \end{center}
     \newpage
 
-    \section{Diagrammes en cascade des valeurs de Shapley}\label{appendix:shapley}
+    \section{Les données abandonnées et la raison de leur abandon}\label{appendix:dataset}
+    \begin{center}
+        \scriptsize
+        \begin{tabular}{ |c|p{3.5cm}|p{7cm}| }
+            \hline
+            \textbf{Attribut} & \textbf{Description} & \textbf{Raison de l'abandon} \\
+            \hline
+            \textit{id\_vehicule} & Identifiant numérique unique du véhicule & information administrative, une fois les tables jointes, cette information sans intéret, n'est plus utile\\
+            \textit{num\_veh} & Identifiant du véhicule pour associer les passagers du même vehicule & Information administrative, une fois les tables jointes, cette inforamtion sans intêret, n'est plus utile\\
+            \textit{id\_usager} & Identifiant des usagers dans la base & Utilisé lors des jointures, inutile par la suite\\
+            \textit{com} & Numéro de commune (code INSEE) & Commune trop spécifique, ça donne trop de catégories\\
+            \textit{adr} & Adresse de l'accident & Trop spécifique, ne donne rien de pertinent\\
+            \textit{lat} & Latitude de l'accident & Ces informations positionelles ne reflètent pas le type d'endroit où l'accident a lieu\\
+            \textit{Long} & Longitude de l'accident & Ces informations positionelles ne reflètent pas le type d'endroit où l'accident a lieu\\
+            \textit{Num\_Acc} & Numéro d'identifiant de l'accident & Information administrative, une fois les tables jointes, cette inforamtion sans intêret, n'est plus utile\\
+            \textit{voie} & Numéro de la route & Pas pertinent, plusieurs routes ont le même numéro, certaines routes ont des sections plus dangereuses que d'autres\\
+            \textit{V1} & Numéro de la route & Pas pertinent, plusieurs routes ont le même numéro, certaines routes ont des sections plus dangereuses que d'autres\\
+            \textit{V2} & Numéro de la route & Pas pertinent, plusieurs routes ont le même numéro, certaines routes ont des sections plus dangereuses que d'autres\\
+            \textit{vosp} & Signale l'existence d'une voie réservée, indépendamment du fait que l'accident ait eu lieu ou non sur cette voie. & Attribut trop peu renseigné, peu d'accidents concernés\\
+            \textit{pr} & Numéro de la borne (routière) en amont  & Pas pertinent, beaucoup de routes sont non bornées, n'indique rien d'intéressant sur l'accident\\
+            \textit{pr1} & Distance en mètres à la borne en amont &  Pas pertinent, beaucoup de routes sont non bornées, n'indique rien d'intéressant sur l'accident\\
+            \textit{lartpc} & Largeur terplein central en mètres & Trop peu renseigné\\
+            \textit{larrout} & Largeur de la chaussée en mètres & Trop peu renseigné\\
+            \textit{senc} & Indique si le véhicule allait vers une borne supérieure ou inférieure à la précédente. & Information administrative, pas utile\\
+            \textit{manv} & Indique la manoeuvre en cours au moment de l'accident & Trop souvent inconnue ou non renseignée\\
+            \textit{motor} & Motorisation du véhicule & Trop peu renseignée\\
+            \textit{place} & Place du passager dans l'habitacle, 10 indique un piéton & Utilisée pour trouver les conducteurs et les piétons, devient inutile à l'échelle de l'accident ensuite\\
+            \textit{grav} & Donne l'état de gravité de l'usager accidenté & Utilisée pour trouver les accidents mortels, devient inutile à l'échelle de l'accident ensuite\\
+            \textit{sexe} & Sexe de l'usager (binaire) & Utilisé pour déterminer le sexe du conducteur, devient inutile à l'échelle de l'accident ensuite\\
+            \textit{secu1, secu2, secu3} & Trois attributs renseignant tous les 3 sur l'utilisation d'équipements de sécurité & Attribut difficilement implémentable et peu fiable car non renseigné apparait beaucoup\\
+            \textit{locp} & Localisation du piéton par rapport au véhicule & Le point de vue de l'accident rend difficile l'implémentation de cet attribut peu renseigné\\
+            \textit{actp} & Action piéton lors de l'accident & Le point de vue de l'accident rend difficile l'implémentation de cet attribut peu renseigné\\
+            \textit{etatp} & Précise si le pieton était accompagné & Le point de vue de l'accident rend difficile l'implémentation de cet attribut peu renseigné\\
+            \textit{occutc} & Nombre d'occupants du transport en commun & Cet attribut est trop peu renseigné\\
+            \textit{jour} & Numéro du jour de l'accident & Peu utile, il aurait été plus utile de connaitre le jour de la semaine\\
+            \textit{hrmn} & Heures : minutes & Format non adapté, redondant de luminosité (lum) qui est plus précis\\
+            \textit{an} & Année de l'accident & Utilisée pour déterminer l'âge du conducteur, n'est plus utile par la suite \\
+            \textit{an\_nais} & Année de naissance de l'usager & Utilisée pour déterminer l'âge du conducteur, n'est plus utile par la suite, pas adapté au point de vue de l'accident \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \newpage
+
+    \section{Diagrammes en cascade des valeurs de Shapley}
     \begin{figure}[ht]
         \centering
         \begin{subfigure}{9cm}

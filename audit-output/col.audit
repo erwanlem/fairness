@@ -1,0 +1,12 @@
+GFA Audit for:col
+audit-output/col.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26016, "1": 2701}, "1": {"0": 1009, "1": 684}}]
+audit-output/col.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26075, "1": 2642}, "1": {"0": 1027, "1": 666}}]
+audit-output/col.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26156, "1": 2561}, "1": {"0": 1029, "1": 664}}]
+audit-output/col.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 26144, "1": 2573}, "1": {"0": 1074, "1": 619}}]
+audit-output/col.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 26222, "1": 2495}, "1": {"0": 1091, "1": 602}}]
+audit-output/col.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26385, "1": 2332}, "1": {"0": 1110, "1": 583}}]
+audit-output/col.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 27414, "1": 1303}, "1": {"0": 1389, "1": 304}}]
+audit-output/col.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 27557, "1": 1160}, "1": {"0": 1437, "1": 256}}]
+audit-output/col.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 27731, "1": 986}, "1": {"0": 1477, "1": 216}}]
+audit-output/col.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 27948, "1": 769}, "1": {"0": 1514, "1": 179}}]
+audit-output/col.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 28181, "1": 536}, "1": {"0": 1579, "1": 114}}]

@@ -1,0 +1,12 @@
+GFA Audit for:obsm
+audit-output/obsm.audit.test.repaired_0.0.data:[0.0, {"0": {"0": 26016, "1": 2701}, "1": {"0": 1009, "1": 684}}]
+audit-output/obsm.audit.test.repaired_0.1.data:[0.1, {"0": {"0": 26018, "1": 2699}, "1": {"0": 1012, "1": 681}}]
+audit-output/obsm.audit.test.repaired_0.2.data:[0.2, {"0": {"0": 26014, "1": 2703}, "1": {"0": 1027, "1": 666}}]
+audit-output/obsm.audit.test.repaired_0.3.data:[0.30000000000000004, {"0": {"0": 26266, "1": 2451}, "1": {"0": 1077, "1": 616}}]
+audit-output/obsm.audit.test.repaired_0.4.data:[0.4, {"0": {"0": 26308, "1": 2409}, "1": {"0": 1089, "1": 604}}]
+audit-output/obsm.audit.test.repaired_0.5.data:[0.5, {"0": {"0": 26348, "1": 2369}, "1": {"0": 1069, "1": 624}}]
+audit-output/obsm.audit.test.repaired_0.6.data:[0.6, {"0": {"0": 26508, "1": 2209}, "1": {"1": 456, "0": 1237}}]
+audit-output/obsm.audit.test.repaired_0.7.data:[0.7, {"0": {"0": 26510, "1": 2207}, "1": {"1": 451, "0": 1242}}]
+audit-output/obsm.audit.test.repaired_0.8.data:[0.7999999999999999, {"0": {"0": 26736, "1": 1981}, "1": {"1": 410, "0": 1283}}]
+audit-output/obsm.audit.test.repaired_0.9.data:[0.8999999999999999, {"0": {"0": 26849, "1": 1868}, "1": {"1": 391, "0": 1302}}]
+audit-output/obsm.audit.test.repaired_1.0.data:[0.9999999999999999, {"0": {"0": 26918, "1": 1799}, "1": {"1": 368, "0": 1325}}]
