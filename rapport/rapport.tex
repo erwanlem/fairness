@@ -775,11 +775,13 @@
     À la fin de la première partie de ce projet (développement d'un modèle et analyse) nous avions pu 
     identifier le sexe du conducteur comme un attribut sensible de notre dataset. Ce premier modèle 
     sans correction des biais obtenait une accuracy de $0.87$. Malgré ce score plutôt acceptable, nous 
-    avions pu remarquer que les bonnes prédictions de la classe \textit{mortel} étaient moins fréquentes et 
-    que la grande quantité de données de la classe \textit{non mortel} contribuait fortement à ce score. 
-    Le défit dans cette seconde partie a été de réduire le plus possible les biais de notre modèle, tout 
+    avions pu remarquer que les bonnes prédictions de la classe \textit{véhicule impliqué dans un accident 
+    mortel} étaient moins fréquentes.
+    De même, la grande quantité de données de la classe \textit{véhicule impliqué dans un accident 
+    non mortel} contribuait fortement à ce score. 
+    Le défi dans cette seconde partie a été de réduire le plus possible les biais de notre modèle, tout 
     en essayant de conserver un modèle le plus efficace possible. Nous pensons avoir plutôt bien relevé ce 
-    défis avec le travail effectué.
+    défi avec le travail effectué.
 
     Si on observe globalement les méthodes utilisées, on peut remarquer (table~\ref{tab:results}) que pour la plupart elles 
     diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même lorsqu'on 
