@@ -8,6 +8,7 @@
 \usepackage[french]{babel}
 \usepackage{subcaption}
 \usepackage[french]{babel}
+\usepackage{caption}
 
 \usepackage[margin=3.5cm]{geometry}
 
@@ -745,15 +746,30 @@
     \section{Conclusion}
 
     \subsection{Les résultats obtenus}
-
-    \begin{tabular}{ |c|c|c|c| }
-        \hline
-        \textbf{Méthode de correction} & \textbf{Disparate impact} & \textbf{Balanced accuracy} & \textbf{Accuracy} \\
-        \hline
-        Sans correction & $0.50$ & $0.64$ & $0.87$ \\
+    \begin{center}
+        \begin{table}[h]
+            \begin{tabular}{ |c c c c| }
+                \hline
+                \textbf{Méthode de correction} & \textbf{Disparate impact} & \textbf{Balanced accuracy} & \textbf{Accuracy} \\
+                \hline
+                Sans correction & $0.50$ & $0.64$ & $0.87$ \\
+                \hline
+                Reweighing & $0.94$ & - & $0.75$ \\
+                \hline
+                Disparate impact remover & $1.0$ & - & $0.76$ \\
+                \hline
+                Adversarial debiasing & $1.01$ & $0.63$ & $0.80$ \\
+                \hline
+                Reject Option Classification & $0.94$ & $0.72$ & - \\
+                \hline
+                Calibrated equalized odds & $0.90$ & $0.70$ & $0.62$ \\
+                \hline
+            \end{tabular}
+            \caption{Résultats obtenus avec les différentes méthodes de correction}
+            \label{tab:results}
+        \end{table}
         
-        \hline
-    \end{tabular}
+    \end{center}
 
 
     À la fin de la première partie de ce projet (développement d'un modèle et analyse) nous avions pu 
@@ -765,7 +781,7 @@
     en essayant de conserver un modèle le plus efficace possible. Nous pensons avoir plutôt bien relevé ce 
     défis avec le travail effectué.
 
-    Si on observe globalement les méthodes utilisées, on peut remarquer que pour la plupart elles 
+    Si on observe globalement les méthodes utilisées, on peut remarquer (table~\ref{tab:results}) que pour la plupart elles 
     diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même lorsqu'on 
     observe l'\textit{equal oppotunity difference}, la valeur est bien réduite. 
     Nous avons cependant noté trois méthodes qui ont particulièrement attirées notre attention.
