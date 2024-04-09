@@ -518,6 +518,7 @@
     Les résultats observés sont bien plus concluants en utilisant cette méthode.
     Tous les résultats obtenus dans la suite utilisent donc cette méthode lors du prétraitement.
     \\\\
+    \vspace{2cm}
     \begin{figure}[!h]
         \vspace{2cm}
         \centering
@@ -547,7 +548,7 @@
         \end{subfigure}
         \caption{Proportion Homme/Femme avant et après SMOTE}\label{fig:smote2}
     \end{figure}
-    \vspace{1cm}
+    %\vspace{1cm}
 
     \subsection{\textit{Random Forest Classifier}}
     La première partie de ce projet utilisait un \textit{Decision Tree Classifier}.
@@ -726,40 +727,51 @@
     \subsection{Calibrated equalized odds}
     \subsubsection{Explications}
     Cette méthode modifie les sorties du modèle afin d'augmenter l'égalité entre les valeurs de l'attribut 
-    sensible. Cette méthode est testée sur différents seuils de prédiction afin de trouver le modèle le plus efficace.
-    On note cependant que les résultats son assez dépendants de l'aléatoire. Ils 
-    peuvent être variables d'une exécution à l'autre et peuvent même donner de moins bons résultats que sans le 
-    post-processing, ce nous allons voir par la suite.
+    sensible. Elle est testée sur différents seuils de prédiction afin de trouver le modèle le plus efficace.
+    On note des résultats parfois moins bons avec le post-processing (meilleure courbe avant le post-processing).
 
     \subsubsection{Les résultats obtenus}
-    La figure~\ref{fig:EQU_odds} nous montre l'évolution de l'accuracy et de l'égalité de l'attribut sensible 
+    La figure~\ref{fig:EQU_odds} nous montre l'évolution de la balanced accuracy et de l'equal opportunity difference de l'attribut sensible 
     (ici homme/femme) dans les prédictions en fonction du seuil. L'objectif est d'avoir l'accuracy la plus élevée tout 
     en ayant le plus d'égalité sur l'attribut sensible (donc \textit{equal opportunity difference} le plus proche de 0).
-    Le résultat obtenu nous montre que l'application de cette méthode a ici eu un effet négatif. En effet nous pouvons 
-    remarquer que le meilleur résultat obtenu est avant post-processing avec un seuil légèrement en dessous de $0.15$.
-    Comme dit précédemment, les résultats varient avec l'aléatoire et on arrive à avoir des cas où les résultats sont 
-    meilleurs avec le post-processing.
-
+    Le résultat obtenu nous montre que le meilleur seuil est d'environ $0.15$. Il permet de garder un juste milieu entre la 
+    balanced accuracy et l'equal oppotunity difference. La figure~\ref{fig:EQU_odds1} nous montre également que ce seuil 
+    permet d'avoir un disparate impact supérieur à $0.8$ et une accuracy d'environ $0.70$. Les résultats obtenus avec cette 
+    méthode ne sont pas les meilleurs mais on arrive tout de même à trouver un juste milieu afin d'avoir des valeurs acceptables dans 
+    toutes les métriques.
+    
+    Enfin, nous avons pu remarquer que cette méthode semble plus sujette à des variations dû à l'aléatoire. 
+    D'une exécution à l'autre on peut en effet avoir des résultats assez différents.
     
 
-    \subsubsection{Mise en perspective}
-    Comme nous avons pu le voir ce résultat n'est pas vraiment satisfaisant. Cependant cette méthode reste très
-    intéressante pour avoir une vu globale du modèle et des résultats obtenus.
-    Le \texttt{RejectOptionClassifier} vu précédemment nous indique directement un seuil optimal sans qu'on ait 
-    une idée de comment évoluent les biais en fonction du seuil. Ici nous avons des résultats selon les 
-    différents seuils. De plus une donnée intéressante ici est la visulisation de l'accuracy. Cela 
-    nous permet de réduire les biais tout en ayant le contrôle de l'accuracy (que ce soit avec ou sans 
-    post-processing), ce qui n'est pas forcément évident avec les autres méthodes.
+    \subsubsection{Une vue globale du modèle}
+    Cette méthode n'apporte pas de meilleurs résultats. Elle nous montre cependant l'évolution des résultats avec 
+    une accuracy croissante lorsque le seuil s'approche de $1.0$. On remarque également que la balanced accuracy 
+    a un niveau acceptable lorsque le seuil est inférieur à $0.5$ mais elle est gandement réduite avec l'augmentation du seuil.
+    On comprend ainsi bien le comportement du modèle: lorsqu'on augmente le seuil, 
+    on réduit les prédictions de la classe vrai (mortel) mais on augmente les prédictions non mortels. Ainsi 
+    étant donné qu'il y a beaucoup plus de prédictions non mortel l'accuracy augmente. Lorsqu'on réduit le seuil
+     l'accuracy est réduite mais on prédit mieux les accidents mortels donc une meilleure balanced accuracy.
     
+    \vspace{1cm}
     \begin{figure}[h]
         \centering
-        \includegraphics[width=\textwidth]{./img/cal_equ_odds.png}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/cal_equ_odds.png}
+            \caption{Balanced accuracy (bleu) -- Equal opportunity difference (rouge)}\label{fig:EQU_odds}
+        \end{subfigure}
+        \hspace{0.2cm}
+        \begin{subfigure}{7cm}
+            \includegraphics[width=7cm]{./img/cal_equ_odds1.png}
+        \caption{Accuracy (bleu) -- Disparate impact (rouge)}\label{fig:EQU_odds1}
+        \end{subfigure}
         \caption{Résultats avec et sans post-processing en fonction du seuil}
-        \label{fig:EQU_odds}
     \end{figure}
-    \vspace{3cm}
-
+    
     \newpage
+
+    
+
     \section{Conclusion}
 
     \subsection{Les résultats obtenus}
