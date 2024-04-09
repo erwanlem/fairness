@@ -471,6 +471,23 @@
     Cette deuxième partie du projet a commencé par l'amélioration des premiers resultats. Nous allons parcourir 
     dans cette section les différentes amélioration effectuées avant d'arriver à la correction des biais.
 
+    \subsection{Une nouvelle visualisation des données}
+    Dans la perspective d'avoir une vue globale des corrélations des attributs de notre dataset, nous avons décidé d'en réaliser la 
+    matrice de corrélation. La figure~\ref{fig:corr_matrix} (ici peu lisible, voir dans \verb|analyze.ipynb| pour les chiffres réels) 
+    nous montre que les corrélations sont globalement assez faibles. On note quelques attributs qui ressortent comme \textit{agg} 
+    et \textit{vma} ou encore \textit{vma} et \textit{catr}. Il y a en effet un lien de causalité évident entre ces attributs.
+    L'attribut \textit{mortal} est quant à lui corrélé avec \textit{agg} et \textit{vma}. L'attribut 
+    \textit{sexe\_conducteur} est globalement très peu corrélé et devrait par conséquent avoir une faible 
+    incidence sur les prédictions.
+
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{./img/corr_matrix.png}
+        \caption{Matrice de corrélation}
+        \label{fig:corr_matrix}
+    \end{figure}
+
     \subsection{Nouvelle métrique de base : taux d'erreur et de justesse}
 
     Afin de trouver l'attribut à protéger et pour mieux diagnostiquer les effets des différentes méthodes de réduction de

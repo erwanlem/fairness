@@ -1,4 +1,4 @@
-# Fairness
+# Fairness final
 
 Travail sur les données des accidents corporels de la circulation routière de 2005 à 2022.
 
