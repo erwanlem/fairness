@@ -760,6 +760,8 @@
                 \hline
                 Adversarial debiasing & $1.01$ & $0.63$ & $0.80$ \\
                 \hline
+                Adversarial debiasing (avec reweighing) & $1.06$ & $0.61$ & $0.83$ \\
+                \hline
                 Reject Option Classification & $0.94$ & $0.72$ & $0.64$ \\
                 \hline
                 Calibrated equalized odds & $0.90$ & $0.70$ & $0.62$ \\
@@ -784,8 +786,8 @@
     défi avec le travail effectué.
 
     Si on observe globalement les méthodes utilisées, on peut remarquer (table~\ref{tab:results}) que pour la plupart elles 
-    diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même lorsqu'on 
-    observe l'\textit{equal oppotunity difference}, la valeur est bien réduite. 
+    diminuent le disparate impact de notre modèle à un niveau acceptable (au-dessus de 0.80). De même l'\textit{equal 
+    oppotunity difference} observée durant les différents tests a bien été réduite. 
     Nous avons cependant noté trois méthodes qui ont particulièrement attirées notre attention.
 
     Premièrement, nous avons la repondération (reweighing). La repondération de notre jeu de données a 
@@ -803,8 +805,8 @@
     C'est pour nous une manière d'avoir plus de contrôle sur le modèle.
 
     Enfin, la dernière méthode que nous avons trouvé intéressante est la reject option classification. On 
-    obtient encore une fois d'excellents résultats aux niveaux des métriques avec également l'un des balanced 
-    accuracy les plus élevés. On a pu remarquer ces bons résultats sur la matrice de confusion associée.
+    obtient encore une fois d'excellents résultats aux niveaux des métriques avec également l'une des balanced 
+    accuracy les plus élevées. On a pu remarquer ces bons résultats sur la matrice de confusion associée.
 
     \subsection{Aller plus loin}
     Nous avons pu remarquer lors de l'analyse des données que d'autres attributs sont des sources de biais pour 
