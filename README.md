@@ -23,7 +23,7 @@ Participants:
 
 ### Résultats
 - `model.ipynb` : fichier entrainement du modèle, le modèle est enregistré dans le répertoire models pour utilisation depuis d'autres fichiers.
-- `main.ipynb` : fichier analyse du dataset et recherche de l'attribut sensible.
+- `analyze.ipynb` : fichier analyse du dataset et recherche de l'attribut sensible.
 - `preprocessing.ipynb` : contient les méthodes de preprocessing
 - `inprocessing.ipynb` : contient la méthode inprocessing
 - `postprocessing.ipynb` : contient les méthodes postprocessing
